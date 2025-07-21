@@ -5,37 +5,42 @@ from typing import List, Optional
 import base64
 
 from openai import OpenAI, OpenAIError
+from config import get_prompts          # ← continua
 
-app = FastAPI(title="Qualificação API", version="0.4")
-
-# ------------------------- Configuração fixa --------------------------------
-PROMPT_ID = "pmpt_68785396f76c8193a6a40e2933b0f0830787678b3fa557b7"
-PROMPT_VERSION = "2"
-# ---------------------------------------------------------------------------
+app = FastAPI(title="Qualificação API", version="0.6")
 
 
-# ---------------------- MODELOS (modo JSON) ---------------------------------
+# ---------------------- MODELOS ---------------------------------------------
 class Document(BaseModel):
     base64: str
-    mime_type: str                    # image/png, image/jpeg ou application/pdf
-    filename: Optional[str] = None    # usado só p/ PDF
+    mime_type: str
+    filename: Optional[str] = None
 
 class QualificacaoRequest(BaseModel):
     openai_api_key: str
     documents: List[Document]
-# ---------------------------------------------------------------------------
 
 
-# -------------------- Função que fala com a OpenAI --------------------------
-def enviar_para_openai(openai_api_key: str, contents: List[dict]):
+# ------------------ Função que fala com a OpenAI ----------------------------
+def enviar_para_openai(
+    openai_api_key: str,
+    contents: List[dict],
+    alias: str                           
+):
+    prompt_cfg = get_prompts().get(alias)
+    if not prompt_cfg:
+        raise HTTPException(
+            500, f"Alias de prompt não encontrado em prompts.yaml: {alias}"
+        )
+
     client = OpenAI(api_key=openai_api_key)
     try:
         response = client.responses.create(
-            prompt={"id": PROMPT_ID, "version": PROMPT_VERSION},
-            input=[{
-                "role": "user",
-                "content": contents
-            }],
+            prompt={
+                "id": prompt_cfg["id"],
+                "version": str(prompt_cfg["version"])
+            },
+            input=[{"role": "user", "content": contents}],
             reasoning={},
             max_output_tokens=2048,
             store=True
@@ -45,35 +50,25 @@ def enviar_para_openai(openai_api_key: str, contents: List[dict]):
             502,
             detail={"msg": "Erro retornado pela OpenAI SDK", "openai_error": str(err)}
         )
- 
-    # Converte para dict apenas uma vez
-    resp_dict = response.model_dump()
-    print(f"Resposta da OpenAI: {resp_dict}")
 
+    data = response.model_dump()
     try:
-        text = (
-            resp_dict["output"][0]          # primeira mensagem
-                     ["content"][0]         # primeiro bloco
-                     ["text"]               # texto
-        )
+        text = data["output"][0]["content"][0]["text"]
     except (KeyError, IndexError, TypeError):
-        raise HTTPException(
-            502,
-            detail={"msg": "Estrutura inesperada na resposta da OpenAI."}
-        )
-        
+        raise HTTPException(502, "Estrutura inesperada na resposta da OpenAI")
+
     return {"resposta": text}
 # ---------------------------------------------------------------------------
 
 
 # ----------------------- Endpoint JSON --------------------------------------
-@app.post("/qualificacao", summary="Envia documentos já em base64 (JSON)")
-def qualificacao_json(body: QualificacaoRequest):            # <= alterado
+@app.post("/qualificacao")
+def qualificacao_json(body: QualificacaoRequest):
     if not body.documents:
         raise HTTPException(400, "A lista de documentos está vazia.")
 
     contents = []
-    for doc in body.documents:                               # <= alterado
+    for doc in body.documents:
         mime = doc.mime_type.lower()
         if mime in ("image/png", "image/jpeg", "image/jpg"):
             contents.append({
@@ -88,13 +83,18 @@ def qualificacao_json(body: QualificacaoRequest):            # <= alterado
             })
         else:
             raise HTTPException(400, f"MIME não suportado: {mime}")
-    
-    return enviar_para_openai(body.openai_api_key, contents) 
+
+    # alias fixo para esta rota
+    return enviar_para_openai(
+        openai_api_key=body.openai_api_key,
+        contents=contents,
+        alias="qualificacao"        
+    )
 # ---------------------------------------------------------------------------
 
 
-# ------------------ Endpoint multipart/form-data ---------------------------
-@app.post("/qualificacao/upload", summary="Envia arquivos via multipart/form-data")
+# ------------- Endpoint multipart (reutiliza a mesma lógica) ---------------
+@app.post("/qualificacao/upload")
 async def qualificacao_upload(
     openai_api_key: str = Form(...),
     files: List[UploadFile] = File(...)
@@ -103,28 +103,23 @@ async def qualificacao_upload(
         raise HTTPException(400, "Nenhum arquivo enviado.")
 
     documentos: List[Document] = []
-
     for file in files:
-        data = await file.read()
-        if not data:
+        raw = await file.read()
+        if not raw:
             continue
 
         mime = (file.content_type or "").lower()
         if mime not in ("image/png", "image/jpeg", "image/jpg", "application/pdf"):
             raise HTTPException(400, f"Tipo de arquivo não suportado: {mime}")
 
-        b64 = base64.b64encode(data).decode()
+        b64 = base64.b64encode(raw).decode()
         filename = file.filename if mime == "application/pdf" else None
-
         documentos.append(Document(base64=b64, mime_type=mime, filename=filename))
 
-    if not documentos:
-        raise HTTPException(400, "Arquivos vazios ou não suportados.")
-
-    # ---------- REUTILIZA A LÓGICA EXISTENTE ----------
-    request_body = QualificacaoRequest(
+    req = QualificacaoRequest(
         openai_api_key=openai_api_key,
         documents=documentos
     )
-    return qualificacao_json(request_body)
+    # reutiliza a lógica da rota JSON, que já define o alias
+    return qualificacao_json(req)
 # ---------------------------------------------------------------------------

@@ -1,0 +1,8 @@
+prompts:
+  qualificacao:
+    id: "pmpt_68785396f76c8193a6a40e2933b0f0830787678b3fa557b7"
+    version: 2
+
+  resumo_contrato:
+    id: "pmpt_1234567890abcdef"
+    version: 4
