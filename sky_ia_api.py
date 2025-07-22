@@ -1,13 +1,17 @@
 # sky_ia_api.py
 import base64, time
 import re
+import logging
+import json
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 from openai import OpenAI, OpenAIError
 from config import get_prompts          
-import logging
-import json
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from fastapi import Request
+from starlette.responses import HTMLResponse
 
 
 
@@ -15,13 +19,21 @@ import json
 app = FastAPI(
     title="sk.ai - IA da Sky Informática",
     version="0.6",
-    description="API para extração de dados estruturados de documentos utilizando IA",
-    # ← novo
+    description="API para extração de dados estruturados de documentos utilizando IA",    
     swagger_ui_parameters={
         # tempo em milissegundos ‑- 5 minutos = 5 * 60 * 1000
         "requestTimeout": 300_000
     }
 )
+
+# Após criar o app FastAPI, adicione:
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
+
+# Adicione esta rota para servir o frontend
+@app.get("/app", response_class=HTMLResponse)
+async def frontend(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 # ---------------------- MODELOS ---------------------------------------------
@@ -480,8 +492,9 @@ def enviar_para_openai(
     Os documentos devem ser codificados em base64 e enviados com o MIME type correto.
     Para PDFs, é possível especificar o nome do arquivo.
     
-    Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, conta de luz, conta de agua, certidão de casamento, certidão de nascimento,
-    certidão de obito, pacto antenupcial, etc...
+    Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, 
+    Conta de luz, Conta de agua, Certidão de casamento, Certidão de nascimento, 
+    Certidão de obito, Pacto antenupcial, etc...
     
     A resposta será gerada pela OpenAI com base nos documentos fornecidos.
     """
@@ -553,8 +566,9 @@ def qualificacao_json(body: QualificacaoRequest) -> QualificacaoResponse:
     Este endpoint aceita requisições multipart/form-data, facilitando o upload 
     direto de arquivos sem a necessidade de codificação prévia em base64.
     
-    Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, conta de luz, conta de agua, certidão de casamento, certidão de nascimento,
-    certidão de obito, pacto antenupcial, etc...
+    Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, 
+    Conta de luz, Conta de agua, Certidão de casamento, Certidão de nascimento, 
+    Certidão de obito, Pacto antenupcial, etc...
         
     A resposta será gerada pela OpenAI com base nos documentos fornecidos.
     """
@@ -615,7 +629,7 @@ async def qualificacao_upload(
     Os documentos devem ser codificados em base64 e enviados com o MIME type correto.
     Para PDFs, é possível especificar o nome do arquivo.
     
-    Tipos de documentos que podem ser utilizados: escritura publica lavrada em Tabelionato de Notas
+    Tipos de documentos que podem ser utilizados: Escritura Pública lavrada em Tabelionato de Notas
     
     A resposta será gerada pela OpenAI com base nos documentos fornecidos, específica para escrituras públicas.
     """
@@ -682,7 +696,7 @@ def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaRespons
     Este endpoint aceita requisições multipart/form-data, facilitando o upload 
     direto de arquivos sem a necessidade de codificação prévia em base64.
     
-    Tipos de documentos que podem ser utilizados: escritura publica lavrada em Tabelionato de Notas
+    Tipos de documentos que podem ser utilizados: Escritura Pública lavrada em Tabelionato de Notas
     
     A resposta será gerada pela OpenAI com base nos documentos fornecidos, específica para escrituras públicas.
     """
