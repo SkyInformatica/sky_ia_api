@@ -145,9 +145,7 @@ class EscrituraPublicaResponse(BaseModel):
                          example={
                             "data": {
                                 "escritura": {
-                                    "titulo": "",
-                                    "versao": 0,
-                                    "cns": 0,
+                                    "titulo": "",                                    
                                     "natureza": 0,
                                     "descricao_natureza": "",
                                     "data_instrumento": "",

@@ -22,6 +22,10 @@ class SkAIApp {
         this.jsonContent = document.getElementById('jsonContent');
         this.downloadBtn = document.getElementById('downloadBtn');
         this.alertContainer = document.getElementById('alertContainer');
+        this.processingTime = document.getElementById('processingTime');
+        this.processingSeconds = document.getElementById('processingSeconds');
+        this.processingInterval = null;
+        this.startTime = null;
 
         this.currentJsonData = null;
         this.currentModel = 'qualificacao';
@@ -41,6 +45,30 @@ class SkAIApp {
         });
     }
 
+    startTimer() {
+        this.startTime = Date.now();
+        this.processingTime.classList.remove('d-none');
+        this.processingSeconds.textContent = '0';
+
+        this.processingInterval = setInterval(() => {
+            const elapsedSeconds = Math.floor((Date.now() - this.startTime) / 1000);
+            this.processingSeconds.textContent = elapsedSeconds;
+        }, 1000);
+    }
+
+    stopTimer() {
+        if (this.processingInterval) {
+            clearInterval(this.processingInterval);
+            this.processingInterval = null;
+        }
+
+        if (this.startTime) {
+            const finalTime = Math.floor((Date.now() - this.startTime) / 1000);
+            this.processingSeconds.textContent = finalTime;
+            this.startTime = null;
+        }
+    }
+
     async handleSubmit(e) {
         e.preventDefault();
 
@@ -54,6 +82,7 @@ class SkAIApp {
 
         this.setLoading(true);
         this.hideResults();
+        this.startTimer();
 
         try {
             const formData = new FormData();
@@ -82,6 +111,7 @@ class SkAIApp {
             this.showAlert(`Erro: ${error.message}`, 'danger');
         } finally {
             this.setLoading(false);
+            this.stopTimer();
         }
     }
 

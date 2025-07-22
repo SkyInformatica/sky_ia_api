@@ -101,13 +101,20 @@
                   />
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="submitBtn">
-                  <span id="submitText">Processar Documentos</span>
-                  <span
-                    id="loadingSpinner"
-                    class="spinner-border spinner-border-sm ms-2 d-none"
-                  ></span>
-                </button>
+                <!-- Botão de Submit e Contador -->
+                <div class="d-flex align-items-center gap-3">
+                  <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <span id="submitText">Processar Documentos</span>
+                    <span
+                      id="loadingSpinner"
+                      class="spinner-border spinner-border-sm ms-2 d-none"
+                    ></span>
+                  </button>
+                  <span id="processingTime" class="text-muted d-none">
+                    Tempo de processamento:
+                    <span id="processingSeconds">0</span> segundos
+                  </span>
+                </div>
               </form>
             </div>
           </div>
@@ -123,7 +130,6 @@
                 <div id="markdownContent"></div>
               </div>
             </div>
-
             <!-- JSON -->
             <div class="card">
               <div

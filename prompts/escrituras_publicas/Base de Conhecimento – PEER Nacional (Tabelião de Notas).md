@@ -1,6 +1,6 @@
-# Base de Conhecimento – PEER Nacional (Tabelião de Notas)
+## Instruçoes e Padrões de preenchimento do JSON
 
-## 1. Tabela – Tipos de Dados
+### 1. Tabela – Tipos de Dados
 
 | Tipo de dado     | Tipo XML | Descrição / Formato                            | Exemplo                 |
 | ---------------- | -------- | ---------------------------------------------- | ----------------------- |
@@ -20,9 +20,9 @@
 
 ---
 
-## 2. Tabela – Estruturas de Dados (Tags e Campos)
+### 2. Tabela – Estruturas de Dados (Tags e Campos)
 
-### 2.1 Classe `ESCRITURA`
+#### 2.1 Classe `ESCRITURA`
 
 | Tag / Campo          | Observação                                              | Tipo                          |
 | -------------------- | ------------------------------------------------------- | ----------------------------- |
@@ -43,9 +43,7 @@
 | CLAUSULASDECLARACOES | Cláusulas / Declarações                                 | Classe `CLAUSULASDECLARACOES` |
 | AUTORIZACOES         | Autorizações                                            | Classe `AUTORIZACOES`         |
 
----
-
-### 2.2 Classe `APRESENTANTE`
+#### 2.2 Classe `APRESENTANTE`
 
 | Tag            | Observação         | Tipo             |
 | -------------- | ------------------ | ---------------- |
@@ -61,9 +59,7 @@
 | UF             | Unidade federativa | Alfanumérico     |
 | CONTATO        | Contato            | Classe `CONTATO` |
 
----
-
-### 2.3 Classe `CONTATO`
+#### 2.3 Classe `CONTATO`
 
 | Tag      | Observação | Tipo         |
 | -------- | ---------- | ------------ |
@@ -71,9 +67,7 @@
 | DDD      | DDD        | Numérico     |
 | TELEFONE | Telefone   | Numérico     |
 
----
-
-### 2.4 Classe `NEGOCIO`
+#### 2.4 Classe `NEGOCIO`
 
 | Tag / Campo        | Observação                              | Tipo           |
 | ------------------ | --------------------------------------- | -------------- |
@@ -94,9 +88,7 @@
 | IMOVEIS            | Imóveis vinculado                       | `List<IMOVEL>` |
 | PARTES             | Partes deste ato                        | `List<PARTE>`  |
 
----
-
-### 2.5 Classe `IMOVEL`
+#### 2.5 Classe `IMOVEL`
 
 | Tag                           | Observação                                                | Tipo         |
 | ----------------------------- | --------------------------------------------------------- | ------------ |
@@ -128,9 +120,7 @@
 | NOMECONDOMINIO                | Nome do condomínio                                        | Alfanumérico |
 | COMPLEMENTO                   | Complemento                                               | Alfanumérico |
 
----
-
-### 2.6 Classe `PARTE`
+#### 2.6 Classe `PARTE`
 
 | Tag                   | Observação                      | Tipo         |
 | --------------------- | ------------------------------- | ------------ |
@@ -139,9 +129,7 @@
 | CPFCNPJ               | CPF / CNPJ                      | CPF/CNPJ     |
 | FRACAO                | Fração                          | Flutuante    |
 
----
-
-### 2.7 Classe `FINANCIAMENTO` (DADOS)
+#### 2.7 Classe `FINANCIAMENTO` (DADOS)
 
 | Tag                                 | Observação                                             | Tipo         |
 | ----------------------------------- | ------------------------------------------------------ | ------------ |
@@ -162,9 +150,7 @@
 | DESTFINANCIAMENTO                   | Destino do financiamento                               | Alfanumérico |
 | FORMADEPAGAMENTO                    | Forma de pagamento                                     | Alfanumérico |
 
----
-
-### 2.8 Classe `PARTES` (vínculo Parte × Negócio)
+#### 2.8 Classe `PARTES` (vínculo Parte × Negócio)
 
 | Tag                  | Observação                                                   | Tipo         |
 | -------------------- | ------------------------------------------------------------ | ------------ |
@@ -193,9 +179,7 @@
 | FILIACAO1            | Nome do 1º genitor                                           | Alfanumérico |
 | FILIACAO2            | Nome do 2º genitor                                           | Alfanumérico |
 
----
-
-### 2.9 Classe `REPRESENTANTE` (INSTRUMENTO)
+#### 2.9 Classe `REPRESENTANTE` (INSTRUMENTO)
 
 | Tag                | Observação                          | Tipo         |
 | ------------------ | ----------------------------------- | ------------ |
@@ -211,9 +195,7 @@
 | NUMEROREGISTRO     | Nº do registro                      | Inteiro      |
 | DATAREGISTRO       | Data do registro                    | Data         |
 
----
-
-### 2.10 Classe `CEDULA`
+#### 2.10 Classe `CEDULA`
 
 | Tag                    | Observação                                        | Tipo         |
 | ---------------------- | ------------------------------------------------- | ------------ |
@@ -227,9 +209,7 @@
 | DESCRICAOESPECIECEDULA | Descrição da espécie da cédula                    | Alfanumérico |
 | CUSTODIANTE_EMISSOR    | Custodiante emissor                               | Alfanumérico |
 
----
-
-### 2.11 Classe `IMPOSTOTRANSMISSAO`
+#### 2.11 Classe `IMPOSTOTRANSMISSAO`
 
 | Tag       | Observação      | Tipo         |
 | --------- | --------------- | ------------ |
@@ -238,9 +218,7 @@
 | GUIA      | Nº da guia      | Alfanumérico |
 | VALOR     | Valor pago      | Monetário    |
 
----
-
-### 2.12 Classe `DAJE`
+#### 2.12 Classe `DAJE`
 
 | Tag     | Observação | Tipo         |
 | ------- | ---------- | ------------ |
@@ -249,51 +227,43 @@
 | NUMERO  | Número     | Alfanumérico |
 | VALOR   | Valor      | Monetário    |
 
----
-
-### 2.13 Classe `CLAUSULASDECLARACOES`
+#### 2.13 Classe `CLAUSULASDECLARACOES`
 
 | Tag                  | Observação                       | Tipo                      |
 | -------------------- | -------------------------------- | ------------------------- |
 | VERIFICACAODAPARTES  | Lista de verificações de partes  | List<VERIFICACAODAPARTE>  |
 | VERIFICACAODOIMOVEIS | Lista de verificações de imóveis | List<VERIFICACAODOIMOVEL> |
 
-#### 2.13.1 `VERIFICACAODAPARTE`
+##### 2.13.1 `VERIFICACAODAPARTE`
 
 | Tag       | Observação               | Tipo     |
 | --------- | ------------------------ | -------- |
 | PARTE     | CPF / CNPJ da parte      | CPF/CNPJ |
 | DESCREVER | Descrição da verificação | Texto    |
 
-#### 2.13.2 `VERIFICACAODOIMOVEL`
+##### 2.13.2 `VERIFICACAODOIMOVEL`
 
 | Tag       | Observação                                  | Tipo    |
 | --------- | ------------------------------------------- | ------- |
 | IMOVEL    | Nº de registro (ref. IMOVEL.NUMEROREGISTRO) | Inteiro |
 | DESCREVER | Descrição da verificação                    | Texto   |
 
----
-
-### 2.14 Classe `AUTORIZACOES`
+#### 2.14 Classe `AUTORIZACOES`
 
 | Tag      | Observação           | Tipo  |
 | -------- | -------------------- | ----- |
 | DECLARO  | Texto da declaração  | Texto |
 | AUTORIZO | Texto da autorização | Texto |
 
-(Anexo III – Especificação Técnica – versão 12/11/2021)
+### 3. Tabela – Listas Controladas
 
----
-
-## 3. Tabela – Listas Controladas
-
-### 3.1 NATUREZA
+#### 3.1 NATUREZA
 
 | Código | Descrição         |
 | ------ | ----------------- |
 | 4      | Escritura pública |
 
-### 3.2 TIPOATO
+#### 3.2 TIPOATO
 
 | Código | Descrição                |
 | -----: | ------------------------ |
@@ -309,7 +279,7 @@
 |     16 | Conferência de bens      |
 |     17 | Bem de família           |
 
-### 3.3 CAPACIDADECIVIL
+#### 3.3 CAPACIDADECIVIL
 
 | Código | Descrição           |
 | -----: | ------------------- |
@@ -317,7 +287,7 @@
 |      2 | Relativamente capaz |
 |      3 | Incapaz             |
 
-### 3.4 ENQUADRAMENTOFINANCIAMENTO
+#### 3.4 ENQUADRAMENTOFINANCIAMENTO
 
 | Código | Descrição           |
 | -----: | ------------------- |
@@ -327,7 +297,7 @@
 |      4 | SFI                 |
 |      5 | Outro               |
 
-### 3.5 SISTEMAAMORTIZACAO
+#### 3.5 SISTEMAAMORTIZACAO
 
 | Código | Descrição                          |
 | -----: | ---------------------------------- |
@@ -337,7 +307,7 @@
 |      4 | Outro                              |
 |      5 | Complementar em informações gerais |
 
-### 3.6 ORIGEMRECURSOS
+#### 3.6 ORIGEMRECURSOS
 
 | Código | Descrição   |
 | -----: | ----------- |
@@ -348,7 +318,7 @@
 |      5 | SBPE        |
 |      6 | Privados    |
 
-### 3.7 QUALIFICACAO
+#### 3.7 QUALIFICACAO
 
 | Código | Descrição            |
 | -----: | -------------------- |
@@ -367,7 +337,7 @@
 |     13 | Anuente              |
 |     14 | Representante Credor |
 
-### 3.8 ESTADOCIVIL
+#### 3.8 ESTADOCIVIL
 
 | Código | Descrição                |
 | -----: | ------------------------ |
@@ -393,7 +363,7 @@
 |     20 | menor emancipado         |
 |     21 | Outros                   |
 
-### 3.9 REGIMEBENS
+#### 3.9 REGIMEBENS
 
 | Código | Descrição                                                     |
 | -----: | ------------------------------------------------------------- |
@@ -455,7 +425,7 @@
 |     56 | separação parcial, na vigência da Lei 6.515/77                |
 |     57 | separação total de bens, na vigência da Lei 6.515/77          |
 
-### 3.10 LIVROREGISTROIMOVEIS
+#### 3.10 LIVROREGISTROIMOVEIS
 
 | Código | Descrição                            |
 | -----: | ------------------------------------ |
@@ -469,14 +439,14 @@
 |      1 | urbano    |
 |      2 | rural     |
 
-### 3.12 GENERO
+#### 3.12 GENERO
 
 | Código | Descrição |
 | -----: | --------- |
 |      1 | Masculino |
 |      2 | Feminino  |
 
-### 3.13 TIPOINSTRUMENTO
+#### 3.13 TIPOINSTRUMENTO
 
 | Código | Descrição                |
 | -----: | ------------------------ |
@@ -487,21 +457,21 @@
 |      5 | procuração               |
 |      6 | outro                    |
 
-### 3.14 TIPOCEDULA
+#### 3.14 TIPOCEDULA
 
 | Código | Descrição   |
 | -----: | ----------- |
 |      1 | Integral    |
 |      2 | Fracionária |
 
-### 3.15 ESPECIECEDULA
+#### 3.15 ESPECIECEDULA
 
 | Código | Descrição  |
 | -----: | ---------- |
 |      1 | Cartular   |
 |      2 | Escritural |
 
-### 3.16 TIPOIMOVEL
+#### 3.16 TIPOIMOVEL
 
 | Código | Descrição           |
 | -----: | ------------------- |
