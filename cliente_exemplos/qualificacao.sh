@@ -31,7 +31,7 @@ doc1_b64=$(b64 doc1.png)
 doc2_b64=$(b64 doc2.png)
 doc3_b64=$(b64 luz.pdf)
 
-cat > payload.json <<EOF
+cat > __payload__.json <<EOF
 {
   "openai_api_key": "${OPENAI_API_KEY}",
   "documents": [
@@ -46,5 +46,7 @@ echo "Enviando documentos para $API_URL/qualificacao"
 
 curl -v -X POST "${API_URL%/}/qualificacao" \
      -H "Content-Type: application/json" \
-     --data @payload.json 
+     --data @__payload__.json 
+
+rm -rf __payload__.json
 

@@ -3,6 +3,4 @@
 .env
 __pycache__
 **/__pycache__/
-*.pyc
-*.pyo
-*.pyd
+__payload__.json
