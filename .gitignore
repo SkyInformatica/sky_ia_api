@@ -4,4 +4,4 @@
 __pycache__
 **/__pycache__/
 __payload__.json
-.DS_Store
+DS_Store
