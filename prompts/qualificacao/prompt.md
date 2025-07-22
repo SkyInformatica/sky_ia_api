@@ -27,11 +27,13 @@ Para cada documento apresentado:
 2. Para cada documento, identifique os campos padrão extraíveis (exemplo: nome, número, data de emissão, órgão emissor, validade etc., conforme o tipo).
 3. Estruture os campos extraídos em JSON conforme o formato especificado
 4. Se receber imagens ou PDFs, extraia apenas as informações textuais identificáveis explicitamente.
+5. Separe os documentos por pessoa. Podem haver documentos de mais de uma pessoa.
 
 ### 3. Validação Cruzada
 
 - Compare informações entre diferentes documentos
 - Identifique inconsistências (nomes, datas, números)
+- Por exemplo, não pode ter comprovante de residencia de uma pessoa e documentos de outra pessoa
 - Verifique atualidade dos documentos
 - Sinalize dados conflitantes
 
@@ -39,97 +41,97 @@ Para cada documento apresentado:
 
 - Sempre responda exclusivamente em JSON, sem nenhuma explicação ou texto adicional.
 - Formate em markdown o resultado do processamento dos docs no atributo "resposta_processamento_markdown"
-- Use o seguinte modelo como base para o retorno (deixe os valores em branco (`""`), `0` ou `null`, conforme o tipo de campo, para os que não tiverem informação)
+- Use o seguinte modelo como base para o retorno (deixe os valores em branco (`""`) ou `0`, conforme o tipo de campo, para os que não tiverem informação)
+- O array 'data' deve conter os dados de cada pessoa que foi identificado. Podem haver documentos de mais de uma pessoa.
 
 ```json
 {
-  "informacoes_pessoais": {
-    "cpf": "788.127.123-45", // Ex.: "123.456.789-00"
-    "nome": "PELÉ PEQUENO", // Ex.: "JOÃO DA SILVA"
-    "sexo": "MASCULINO", // Ex.: "MASCULINO", "FEMININO"
-    "estado_civil": "CASADO", // Ex.: "SOLTEIRO", "CASADO", "DIVORCIADO", "VIÚVO"
-    "data_nascimento": "10/01/1980", // dd/mm/aaaa
-    "nacionalidade": "BRASILEIRO", // Ex.: "BRASILEIRO", "ITALIANO", "ESTADUNIDENSE"
-    "naturalidade": {
-      "cidade": "PORTO ALEGRE", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
-      "uf": "RS" // Ex.: "SP", "RJ", "MG"
-    },
-    "profissao": "ADMINISTRADOR DE EMPRESAS", // Ex.: "ENGENHEIRO", "MÉDICO", "PROFESSOR"
-    "pai": "PEDRO PEQUENO", // Ex.: "JOÃO DA SILVA"
-    "mae": "MARIA PEQUENO" // Ex.: "MARIA DA SILVA"
-  },
-
-  "documentos_identificacao": [
+  "data": [
     {
-      "tipo": "CNH", // Ex.: "CNH", "Passaporte", "RG"
-      "numero": "123456789", // Ex.: "123456789"
-      "orgao": "DETRAN", // Ex.: "SSP", "DETRAN", "DRE"
-      "data_expedicao": "10/01/2019", // dd/mm/aaaa
-      "data_vencimento": "10/01/2029", // dd/mm/aaaa
-      "uf": "RS" // Ex.: "SP", "RJ", "MG"
-    },
-    {
-      "tipo": "RG", // Ex.: "CNH", "Passaporte", "RG"
-      "numero": "305278123", // Ex.: "123456789"
-      "orgao": "SSP", // Ex.: "SSP", "DETRAN", "DRE"
-      "data_expedicao": "", // dd/mm/aaaa
-      "data_vencimento": "", // dd/mm/aaaa
-      "uf": "SP" // Ex.: "SP", "RJ", "MG"
-    }
-  ],
-
-  "endereco_residencial": {
-    "cep": "92510-800", // Ex.: "12345-678"
-    "logradouro": "RODOVIA DOIS", // Ex.: "AVENIDA BRASIL", "RUA DAS FLORES"
-    "numero": "123", // Ex.: "123", "456"
-    "complemento": "APTO 567", // Ex.: "APTO 123", "CASA 2"
-    "bairro": "CENTRO", // Ex.: "JARDIM DAS ROSAS", "VILA SÃO JORGE"
-    "cidade": "MONTENEGRO", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
-    "uf": "RS", // Ex.: "SP", "RJ", "MG"
-    "pais": "BRASIL" // Ex.: "BRASIL", "ESTADOS UNIDOS", "PORTUGAL"
-  },
-
-  "informacoes_nascimento": {
-    "numero_certidao": "",
-    "livro": "",
-    "folha": "",
-    "cidade_registro": "",
-    "uf_registro": "",
-    "data_certidao": "" // dd/mm/aaaa
-  },
-
-  "informacoes_conjuge": {
-    "cpf": "",
-    "nome": "",
-    "informacoes_casamento": {
-      "regime_bens": "", // Ex.: "comunhão parcial"
-      "data_casamento": "", // dd/mm/aaaa
-      "data_atualizacao": "", // dd/mm/aaaa
-      "numero_certidao": "",
-      "data_certidao": "", // dd/mm/aaaa
-      "livro": "",
-      "folha": "",
-      "cidade_registro": "",
-      "uf_registro": ""
-    },
-
-    "pacto_antenupcial": {
-      "dados_tabelionato": {
+      "informacoes_pessoais": {
+        "cpf": "788.127.123-45", // Ex.: "123.456.789-00"
+        "nome": "PELÉ PEQUENO", // Ex.: "JOÃO DA SILVA"
+        "sexo": "MASCULINO", // Ex.: "MASCULINO", "FEMININO"
+        "estado_civil": "CASADO", // Ex.: "SOLTEIRO", "CASADO", "DIVORCIADO", "VIÚVO"
+        "data_nascimento": "10/01/1980", // dd/mm/aaaa
+        "nacionalidade": "BRASILEIRO", // Ex.: "BRASILEIRO", "ITALIANO", "ESTADUNIDENSE"
+        "naturalidade": {
+          "cidade": "PORTO ALEGRE", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
+          "uf": "RS" // Ex.: "SP", "RJ", "MG"
+        },
+        "profissao": "ADMINISTRADOR DE EMPRESAS", // Ex.: "ENGENHEIRO", "MÉDICO", "PROFESSOR"
+        "pai": "PEDRO PEQUENO", // Ex.: "JOÃO DA SILVA"
+        "mae": "MARIA PEQUENO" // Ex.: "MARIA DA SILVA"
+      },
+      "documentos_identificacao": [
+        {
+          "tipo": "CNH", // Ex.: "CNH", "Passaporte", "RG"
+          "numero": "123456789", // Ex.: "123456789"
+          "orgao": "DETRAN", // Ex.: "SSP", "DETRAN", "DRE"
+          "data_expedicao": "10/01/2019", // dd/mm/aaaa
+          "data_vencimento": "10/01/2029", // dd/mm/aaaa
+          "uf": "RS" // Ex.: "SP", "RJ", "MG"
+        },
+        {
+          "tipo": "RG", // Ex.: "CNH", "Passaporte", "RG"
+          "numero": "305278123", // Ex.: "123456789"
+          "orgao": "SSP", // Ex.: "SSP", "DETRAN", "DRE"
+          "data_expedicao": "", // dd/mm/aaaa
+          "data_vencimento": "", // dd/mm/aaaa
+          "uf": "SP" // Ex.: "SP", "RJ", "MG"
+        }
+      ],
+      "endereco_residencial": {
+        "cep": "92510-800", // Ex.: "12345-678"
+        "logradouro": "RODOVIA DOIS", // Ex.: "AVENIDA BRASIL", "RUA DAS FLORES"
+        "numero": "123", // Ex.: "123", "456"
+        "complemento": "APTO 567", // Ex.: "APTO 123", "CASA 2"
+        "bairro": "CENTRO", // Ex.: "JARDIM DAS ROSAS", "VILA SÃO JORGE"
+        "cidade": "MONTENEGRO", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
+        "uf": "RS", // Ex.: "SP", "RJ", "MG"
+        "pais": "BRASIL" // Ex.: "BRASIL", "ESTADOS UNIDOS", "PORTUGAL"
+      },
+      "informacoes_nascimento": {
+        "numero_certidao": "",
         "livro": "",
         "folha": "",
-        "cidade_tabelionato": "",
-        "uf_tabelionato": "",
-        "data": "" // dd/mm/aaaa
-      },
-      "dados_registro_imoveis": {
-        "numero_registro": "",
-        "livro": "",
         "cidade_registro": "",
         "uf_registro": "",
-        "data": "" // dd/mm/aaaa
+        "data_certidao": "" // dd/mm/aaaa
+      },
+      "informacoes_conjuge": {
+        "cpf": "",
+        "nome": "",
+        "informacoes_casamento": {
+          "regime_bens": "", // Ex.: "comunhão parcial"
+          "data_casamento": "", // dd/mm/aaaa
+          "data_atualizacao": "", // dd/mm/aaaa
+          "numero_certidao": "",
+          "data_certidao": "", // dd/mm/aaaa
+          "livro": "",
+          "folha": "",
+          "cidade_registro": "",
+          "uf_registro": ""
+        },
+        "pacto_antenupcial": {
+          "dados_tabelionato": {
+            "livro": "",
+            "folha": "",
+            "cidade_tabelionato": "",
+            "uf_tabelionato": "",
+            "data": "" // dd/mm/aaaa
+          },
+          "dados_registro_imoveis": {
+            "numero_registro": "",
+            "livro": "",
+            "cidade_registro": "",
+            "uf_registro": "",
+            "data": "" // dd/mm/aaaa
+          }
+        }
       }
     }
-  },
+  ],
   "resposta_processamento_markdown": ""
 }
 ```
@@ -173,19 +175,26 @@ TE: Título de Eleitor
 
 ### Estruture a resposta para "resposta_processamento_markdown" em:
 
-1. **DOCUMENTOS ANALISADOS** (tabela com os documentos que foram identificados e analisados, se possivel o nome do arquivo)
+1. **DOCUMENTOS ANALISADOS**
 
-2. **DADOS EXTRAÍDOS** (em formato de tabela estruturada com nome do campo, conteudo e de qual documento foi extraido)
+- tabela com os documentos que foram identificados e analisados, se possivel o nome do arquivo, tipo, identificação
+
+2. **DADOS EXTRAÍDOS**
+
+- em formato de tabela estruturada com nome do campo, conteudo e de qual documento foi extraido
+- separe em tabelas com seçoes para informaçoes pessoais, documentos, endereço residencial, nascimento, casamento.
+- separe as tabelas por pessoa identificado nos documentos
 
 3. **VALIDAÇÕES REALIZADAS**
 
-   - Consistência entre documentos
-   - Inconsistências identificadas
-   - Validade dos documentos
+- Consistência entre documentos da mesma pessoa
+- Inconsistências identificadas entre os documentos da mesma pessoa
+- Validade dos documentos
 
 4. **REVISÕES DOS DADOS**
-   - Dados que foram extraídos mas não conseguiram identificar o significado.
-   - Dados que tiveram dificuldade para entender e que devem ser revisados.
+
+- Dados que foram extraídos mas não conseguiram identificar o significado.
+- Dados que tiveram dificuldade para entender e que devem ser revisados.
 
 ## Observações finais
 

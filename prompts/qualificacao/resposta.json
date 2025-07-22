@@ -1,85 +1,89 @@
 {
-    "informacoes_pessoais": {
-        "cpf": "788.127.123-45", // Ex.: "123.456.789-00"    
-        "nome": "PELÉ PEQUENO", // Ex.: "JOÃO DA SILVA"
-        "sexo": "MASCULINO", // Ex.: "MASCULINO", "FEMININO"              
-        "estado_civil": "CASADO", // Ex.: "SOLTEIRO", "CASADO", "DIVORCIADO", "VIÚVO"        
-        "data_nascimento": "10/01/1980", // dd/mm/aaaa         
-        "nacionalidade": "BRASILEIRO", // Ex.: "BRASILEIRO", "ITALIANO", "ESTADUNIDENSE"
-        "naturalidade": {
-            "cidade": "PORTO ALEGRE", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"      
-            "uf": "RS", // Ex.: "SP", "RJ", "MG"
-        },
-        "profissao": "ADMINISTRADOR DE EMPRESAS", // Ex.: "ENGENHEIRO", "MÉDICO", "PROFESSOR"
-        "pai": "PEDRO PEQUENO", // Ex.: "JOÃO DA SILVA"
-        "mae": "MARIA PEQUENO", // Ex.: "MARIA DA SILVA"
-    },
-    "documentos_identificacao": [
+    "data": [
         {
-            "tipo": "CNH", // Ex.: "CNH", "Passaporte", "RG"
-            "numero": "123456789", // Ex.: "123456789" 
-            "orgao": "DETRAN", // Ex.: "SSP", "DETRAN", "DRE"
-            "data_expedicao": "10/01/2019", // dd/mm/aaaa
-            "data_vencimento": "10/01/2029", // dd/mm/aaaa
-            "uf": "RS" // Ex.: "SP", "RJ", "MG"
-        },
-        {
-            "tipo": "RG", // Ex.: "CNH", "Passaporte", "RG"
-            "numero": "305278123", // Ex.: "123456789"
-            "orgao": "SSP", // Ex.: "SSP", "DETRAN", "DRE"
-            "data_expedicao": "", // dd/mm/aaaa
-            "data_vencimento": "", // dd/mm/aaaa
-            "uf": "SP" // Ex.: "SP", "RJ", "MG"      
-        }
-    ],
-    "endereco_residencial": {
-        "cep": "92510-800", // Ex.: "12345-678"
-        "logradouro": "RODOVIA DOIS", // Ex.: "AVENIDA BRASIL", "RUA DAS FLORES"
-        "numero": "123", // Ex.: "123", "456"
-        "complemento": "APTO 567", // Ex.: "APTO 123", "CASA 2"
-        "bairro": "CENTRO", // Ex.: "JARDIM DAS ROSAS", "VILA SÃO JORGE"
-        "cidade": "MONTENEGRO", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
-        "uf": "RS", // Ex.: "SP", "RJ", "MG"
-        "pais": "BRASIL", // Ex.: "BRASIL", "ESTADOS UNIDOS", "PORTUGAL"
-    },
-    "informacoes_nascimento": {
-        "numero_certidao": "",
-        "livro": "",
-        "folha": "",
-        "cidade_registro": "",
-        "uf_registro": "",
-        "data_certidao": "" // dd/mm/aaaa
-    },
-    "informacoes_conjuge": {
-        "cpf": "",
-        "nome": "",
-        "informacoes_casamento": {
-            "regime_bens": "", // Ex.: "comunhão parcial"
-            "data_casamento": "", // dd/mm/aaaa
-            "data_atualizacao": "", // dd/mm/aaaa
-            "numero_certidao": "",
-            "data_certidao": "", // dd/mm/aaaa
-            "livro": "",
-            "folha": "",
-            "cidade_registro": "",
-            "uf_registro": ""
-        },
-        "pacto_antenupcial": {
-            "dados_tabelionato": {
+            "informacoes_pessoais": {
+                "cpf": "788.127.123-45", // Ex.: "123.456.789-00"    
+                "nome": "PELÉ PEQUENO", // Ex.: "JOÃO DA SILVA"
+                "sexo": "MASCULINO", // Ex.: "MASCULINO", "FEMININO"              
+                "estado_civil": "CASADO", // Ex.: "SOLTEIRO", "CASADO", "DIVORCIADO", "VIÚVO"        
+                "data_nascimento": "10/01/1980", // dd/mm/aaaa         
+                "nacionalidade": "BRASILEIRO", // Ex.: "BRASILEIRO", "ITALIANO", "ESTADUNIDENSE"
+                "naturalidade": {
+                    "cidade": "PORTO ALEGRE", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"      
+                    "uf": "RS", // Ex.: "SP", "RJ", "MG"
+                },
+                "profissao": "ADMINISTRADOR DE EMPRESAS", // Ex.: "ENGENHEIRO", "MÉDICO", "PROFESSOR"
+                "pai": "PEDRO PEQUENO", // Ex.: "JOÃO DA SILVA"
+                "mae": "MARIA PEQUENO", // Ex.: "MARIA DA SILVA"
+            },
+            "documentos_identificacao": [
+                {
+                    "tipo": "CNH", // Ex.: "CNH", "Passaporte", "RG"
+                    "numero": "123456789", // Ex.: "123456789" 
+                    "orgao": "DETRAN", // Ex.: "SSP", "DETRAN", "DRE"
+                    "data_expedicao": "10/01/2019", // dd/mm/aaaa
+                    "data_vencimento": "10/01/2029", // dd/mm/aaaa
+                    "uf": "RS" // Ex.: "SP", "RJ", "MG"
+                },
+                {
+                    "tipo": "RG", // Ex.: "CNH", "Passaporte", "RG"
+                    "numero": "305278123", // Ex.: "123456789"
+                    "orgao": "SSP", // Ex.: "SSP", "DETRAN", "DRE"
+                    "data_expedicao": "", // dd/mm/aaaa
+                    "data_vencimento": "", // dd/mm/aaaa
+                    "uf": "SP" // Ex.: "SP", "RJ", "MG"      
+                }
+            ],
+            "endereco_residencial": {
+                "cep": "92510-800", // Ex.: "12345-678"
+                "logradouro": "RODOVIA DOIS", // Ex.: "AVENIDA BRASIL", "RUA DAS FLORES"
+                "numero": "123", // Ex.: "123", "456"
+                "complemento": "APTO 567", // Ex.: "APTO 123", "CASA 2"
+                "bairro": "CENTRO", // Ex.: "JARDIM DAS ROSAS", "VILA SÃO JORGE"
+                "cidade": "MONTENEGRO", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
+                "uf": "RS", // Ex.: "SP", "RJ", "MG"
+                "pais": "BRASIL", // Ex.: "BRASIL", "ESTADOS UNIDOS", "PORTUGAL"
+            },
+            "informacoes_nascimento": {
+                "numero_certidao": "",
                 "livro": "",
                 "folha": "",
-                "cidade_tabelionato": "",
-                "uf_tabelionato": "",
-                "data": "", // dd/mm/aaaa
-            },
-            "dados_registro_imoveis": {
-                "numero_registro": "",
-                "livro": "",
                 "cidade_registro": "",
                 "uf_registro": "",
-                "data": "", // dd/mm/aaaa        
+                "data_certidao": "" // dd/mm/aaaa
+            },
+            "informacoes_conjuge": {
+                "cpf": "",
+                "nome": "",
+                "informacoes_casamento": {
+                    "regime_bens": "", // Ex.: "comunhão parcial"
+                    "data_casamento": "", // dd/mm/aaaa
+                    "data_atualizacao": "", // dd/mm/aaaa
+                    "numero_certidao": "",
+                    "data_certidao": "", // dd/mm/aaaa
+                    "livro": "",
+                    "folha": "",
+                    "cidade_registro": "",
+                    "uf_registro": ""
+                },
+                "pacto_antenupcial": {
+                    "dados_tabelionato": {
+                        "livro": "",
+                        "folha": "",
+                        "cidade_tabelionato": "",
+                        "uf_tabelionato": "",
+                        "data": "", // dd/mm/aaaa
+                    },
+                    "dados_registro_imoveis": {
+                        "numero_registro": "",
+                        "livro": "",
+                        "cidade_registro": "",
+                        "uf_registro": "",
+                        "data": "", // dd/mm/aaaa        
+                    }
+                },
             }
-        },
-    },
+        }
+    ],
     "resposta_processamento_markdown": ""
 }
