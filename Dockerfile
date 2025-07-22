@@ -1,5 +1,5 @@
 # Etapa de build (opcional para otimizar cache de deps)
-FROM python:3.13-slim AS builder
+FROM python:3.13.5-slim AS builder
 
 WORKDIR /tmp
 
