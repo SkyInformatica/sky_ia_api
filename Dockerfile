@@ -9,9 +9,8 @@ COPY sky_ia_api/requirements.txt ./
 RUN pip install --upgrade pip \
  && pip wheel --no-cache-dir --no-deps -r requirements.txt -w /wheels
 
-
 # Etapa final
-FROM python:3.11-slim
+FROM python:3.13.5-slim
 
 # Cria um usuário não-root (opcional, mas recomendado)
 RUN adduser --disabled-password --gecos '' apiuser
