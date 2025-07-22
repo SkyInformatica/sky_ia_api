@@ -119,10 +119,78 @@ class QualificacaoResponse(BaseModel):
                          }, 
                          description="Objeto JSON com os dados extraídos da análise dos documentos")
     
-    # Caso queira adicionar campos futuros (comentados por enquanto)
-    # status: str = Field("success", example="success", description="Status da operação")
-    # confidence: float = Field(None, example=0.95, description="Nível de confiança da análise (0-1)")
-    # metadata: dict = Field(None, example={"processing_time": "1.2s"}, description="Metadados adicionais da análise")
+# Adicione após o modelo QualificacaoResponse existente
+
+class EscrituraPublicaResponse(BaseModel):
+    resposta: Dict[str, Any] = Field(..., 
+                         example={                             
+                            "dados_escritura": {
+                                "numero_livro": "123",
+                                "numero_folha": "45",
+                                "numero_escritura": "67890",
+                                "data_lavratura": "15/03/2024",
+                                "valor_ato": "500000.00",
+                                "natureza_escritura": "COMPRA E VENDA"
+                            },
+                            "dados_cartorio": {
+                                "nome": "1º TABELIÃO DE NOTAS",
+                                "cidade": "SÃO PAULO",
+                                "uf": "SP",
+                                "tabeliao": "DR. JOÃO DA SILVA",
+                                "cns": "12345"
+                            },
+                            "outorgantes": [{
+                                "tipo": "VENDEDOR",
+                                "nome": "JOSÉ SANTOS",
+                                "cpf": "123.456.789-00",
+                                "estado_civil": "CASADO",
+                                "profissao": "EMPRESÁRIO",
+                                "endereco": {
+                                    "logradouro": "RUA DAS FLORES",
+                                    "numero": "100",
+                                    "complemento": "APTO 50",
+                                    "bairro": "JARDIM EUROPA",
+                                    "cidade": "SÃO PAULO",
+                                    "uf": "SP",
+                                    "cep": "01000-000"
+                                }
+                            }],
+                            "outorgados": [{
+                                "tipo": "COMPRADOR",
+                                "nome": "MARIA OLIVEIRA",
+                                "cpf": "987.654.321-00",
+                                "estado_civil": "SOLTEIRA",
+                                "profissao": "MÉDICA",
+                                "endereco": {
+                                    "logradouro": "AVENIDA PAULISTA",
+                                    "numero": "1000",
+                                    "complemento": "SALA 110",
+                                    "bairro": "BELA VISTA",
+                                    "cidade": "SÃO PAULO",
+                                    "uf": "SP",
+                                    "cep": "01310-000"
+                                }
+                            }],
+                            "imovel": {
+                                "matricula": "54321",
+                                "cartorio_registro": "5º OFICIAL DE REGISTRO DE IMÓVEIS",
+                                "endereco": {
+                                    "logradouro": "RUA DOS PINHEIROS",
+                                    "numero": "500",
+                                    "complemento": "APTO 102",
+                                    "bairro": "PINHEIROS",
+                                    "cidade": "SÃO PAULO",
+                                    "uf": "SP",
+                                    "cep": "05422-001"
+                                },
+                                "descricao": "APARTAMENTO COM 100M², 3 DORMITÓRIOS",
+                                "valor_venda": "500000.00"
+                            },
+                            "resposta_processamento_markdown": ""
+                         },
+                         description="Objeto JSON com os dados extraídos da análise da escritura pública")
+
+   
 
 def log(message: str):
     logger = logging.getLogger("uvicorn")
@@ -191,7 +259,7 @@ def enviar_para_openai(
             },
             input=[{"role": "user", "content": contents}],
             reasoning={},
-            max_output_tokens=2048,
+            max_output_tokens=8196,
             store=True
     )
         elapsed_time = time.time() - start_time
@@ -206,14 +274,17 @@ def enviar_para_openai(
 
     data = response.model_dump()
     try:
+        log("Extraindo texto da resposta OpenAI:")
+        log(f"{data}")
         text = data["output"][0]["content"][0]["text"]
-        return text  # Retorna apenas o texto
+        return text  
     except (KeyError, IndexError, TypeError):
+        log("Erro 502: Estrutura inesperada na resposta da OpenAI")
         raise HTTPException(502, "Estrutura inesperada na resposta da OpenAI")
 # ---------------------------------------------------------------------------
 
 
-# ----------------------- Endpoint JSON --------------------------------------
+# ----------------------- Endpoint QUALIFICACAO --------------------------------------
 @app.post("/qualificacao", 
     response_model=QualificacaoResponse,
     summary="Qualificação de documentos via JSON",
@@ -226,6 +297,9 @@ def enviar_para_openai(
     
     Os documentos devem ser codificados em base64 e enviados com o MIME type correto.
     Para PDFs, é possível especificar o nome do arquivo.
+    
+    Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, conta de luz, conta de agua, certidão de casamento, certidão de nascimento,
+    certidão de obito, pacto antenupcial, etc...
     
     A resposta será gerada pela OpenAI com base nos documentos fornecidos.
     """
@@ -283,7 +357,7 @@ def qualificacao_json(body: QualificacaoRequest) -> QualificacaoResponse:
 # ---------------------------------------------------------------------------
 
 
-# ------------- Endpoint multipart (reutiliza a mesma lógica) ---------------
+# ------------- Endpoint QUALIFICACAO/UPLOAD multipart (reutiliza a mesma lógica) ---------------
 @app.post("/qualificacao/upload",
     response_model=QualificacaoResponse,
     summary="Qualificação de documentos via upload de arquivos",
@@ -297,6 +371,9 @@ def qualificacao_json(body: QualificacaoRequest) -> QualificacaoResponse:
     Este endpoint aceita requisições multipart/form-data, facilitando o upload 
     direto de arquivos sem a necessidade de codificação prévia em base64.
     
+    Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, conta de luz, conta de agua, certidão de casamento, certidão de nascimento,
+    certidão de obito, pacto antenupcial, etc...
+        
     A resposta será gerada pela OpenAI com base nos documentos fornecidos.
     """
 )
@@ -340,3 +417,129 @@ async def qualificacao_upload(
     # reutiliza a lógica da rota JSON, que já define o alias
     return qualificacao_json(req)
 # ---------------------------------------------------------------------------
+
+# ----------------------- Endpoint ESCRITURA_PUBLICA --------------------------------------
+
+@app.post("/escritura_publica", 
+    response_model=EscrituraPublicaResponse,
+    summary="Extração de dados de escritura pública via JSON",
+    description="""
+    Endpoint para extração de dados de escritura pública enviadas em formato JSON.
+    
+    **Tipos de arquivos suportados:**
+    - Imagens: PNG, JPEG/JPG
+    - Documentos: PDF
+    
+    Os documentos devem ser codificados em base64 e enviados com o MIME type correto.
+    Para PDFs, é possível especificar o nome do arquivo.
+    
+    Tipos de documentos que podem ser utilizados: escritura publica lavrada em Tabelionato de Notas
+    
+    A resposta será gerada pela OpenAI com base nos documentos fornecidos, específica para escrituras públicas.
+    """
+)
+def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaResponse:
+    """
+    Processa documentos em formato base64 para análise de escritura pública.
+    
+    - Para imagens (PNG, JPEG/JPG): Envie o conteúdo codificado em base64 com o MIME type correspondente
+    - Para PDFs: Envie o conteúdo codificado em base64 com MIME type "application/pdf"
+    
+    É necessário fornecer uma chave de API válida da OpenAI.
+    
+    Returns:
+        EscrituraPublicaResponse: Objeto contendo a resposta da análise
+    """
+    if not body.documents:
+        raise HTTPException(400, "A lista de documentos está vazia.")
+
+    contents = []
+    for doc in body.documents:
+        mime = doc.mime_type.lower()
+        if mime in ("image/png", "image/jpeg", "image/jpg"):
+            contents.append({
+                "type": "input_image",
+                "image_url": f"data:{mime};base64,{doc.base64}"
+            })
+        elif mime == "application/pdf":
+            contents.append({
+                "type": "input_file",
+                "filename": doc.filename or "documento.pdf",
+                "file_data": f"data:application/pdf;base64,{doc.base64}"
+            })
+        else:
+            raise HTTPException(400, f"MIME não suportado: {mime}")
+
+    texto_resposta = enviar_para_openai(
+        openai_api_key=body.openai_api_key,
+        contents=contents,
+        alias="escritura_publica"        
+    )
+    
+    try:
+        output_json = extrair_json_da_resposta(texto_resposta)
+        log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
+    except json.JSONDecodeError as e:
+        log(f"Erro ao decodificar JSON: {str(e)}")
+        log(f"Texto da resposta: {texto_resposta[:200]}...")
+        raise HTTPException(500, "Erro ao decodificar a resposta da OpenAI como JSON.")
+
+    return EscrituraPublicaResponse(resposta=output_json)
+
+# -----------------Endpoint ESCRITURA_PUBLICA/UPLOAD multipart (reutiliza a mesma lógica) ---------------
+@app.post("/escritura_publica/upload",
+    response_model=EscrituraPublicaResponse,
+    summary="Extração de dados de escritura pública via upload de arquivos",
+    description="""
+    Endpoint paraExtração de dados de escritura pública através de upload direto de arquivos.
+    
+    **Tipos de arquivos suportados:**
+    - Imagens: PNG, JPEG/JPG
+    - Documentos: PDF
+    
+    Este endpoint aceita requisições multipart/form-data, facilitando o upload 
+    direto de arquivos sem a necessidade de codificação prévia em base64.
+    
+    Tipos de documentos que podem ser utilizados: escritura publica lavrada em Tabelionato de Notas
+    
+    A resposta será gerada pela OpenAI com base nos documentos fornecidos, específica para escrituras públicas.
+    """
+)
+async def escritura_publica_upload(
+    openai_api_key: str = Form(..., description="Chave de API válida da OpenAI"),
+    files: List[UploadFile] = File(..., description="Arquivos para análise (PNG, JPEG/JPG, PDF)")
+) -> EscrituraPublicaResponse:
+    """
+    Processa arquivos enviados diretamente para análise de escritura pública.
+    
+    Aceita múltiplos arquivos nos formatos:
+    - Imagens: PNG, JPEG/JPG
+    - Documentos: PDF
+    
+    É necessário fornecer uma chave de API válida da OpenAI.
+    
+    Returns:
+        EscrituraPublicaResponse: Objeto contendo a resposta da análise
+    """
+    if not files:
+        raise HTTPException(400, "Nenhum arquivo enviado.")
+
+    documentos: List[Document] = []
+    for file in files:
+        raw = await file.read()
+        if not raw:
+            continue
+
+        mime = (file.content_type or "").lower()
+        if mime not in ("image/png", "image/jpeg", "image/jpg", "application/pdf"):
+            raise HTTPException(400, f"Tipo de arquivo não suportado: {mime}")
+
+        b64 = base64.b64encode(raw).decode()
+        filename = file.filename if mime == "application/pdf" else None
+        documentos.append(Document(base64=b64, mime_type=mime, filename=filename))
+
+    req = QualificacaoRequest(
+        openai_api_key=openai_api_key,
+        documents=documentos
+    )
+    return escritura_publica_json(req)

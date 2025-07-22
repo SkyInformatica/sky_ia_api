@@ -3,6 +3,6 @@ prompts:
     id: "pmpt_687d830e2d28819697ff506d530cfd0103574d5ce096ea5e"
     #version: "3"
 
-  resumo_contrato:
-    id: "pmpt_1234567890abcdef"
-    version: 4
+  escritura_publica:
+    id: "pmpt_687f9ebb50388193b1f7f0b667076dc00fbc998c46e42ab6"
+    #version: "1"
