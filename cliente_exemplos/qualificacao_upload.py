@@ -24,6 +24,8 @@ payload = {"openai_api_key": API_KEY}
 files = [
     ("files", ("doc1.png", open("doc1.png", "rb"), "image/png")),
     ("files", ("doc2.png", open("doc2.png", "rb"), "image/png")),
+    ("files", ("doc3.png", open("doc3.png", "rb"), "image/png")),
+    ("files", ("doc4.png", open("doc4.png", "rb"), "image/png")),
     ("files", ("luz.pdf", open("luz.pdf", "rb"), "application/pdf")),
 ]
 
