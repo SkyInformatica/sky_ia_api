@@ -30,22 +30,22 @@ resp.raise_for_status()
 
 print(resp.json())
 
-#output_json = resp.json().get("resposta", {})
-#print(json.dumps(output_json, indent=2, ensure_ascii=False))
-#print("\n\n\nresposta_processamento_markdown:\n")
+output_json = resp.json().get("resposta", {})
+print(json.dumps(output_json, indent=2, ensure_ascii=False))
+print("\n\n\nresposta_processamento_markdown:\n")
 
 # Pegando o conteúdo do atributo "resposta_processamento_markdown"
-#markdown_content = output_json.get("resposta_processamento_markdown", "")
+markdown_content = output_json.get("resposta_processamento_markdown", "")
 
 # Formatando e imprimindo o conteúdo em Markdown
-#rprint(Markdown(markdown_content))
+rprint(Markdown(markdown_content))
 
 # Removendo a chave "resposta_processamento_markdown" do output_json
-#output_json.pop("resposta_processamento_markdown", None)
+output_json.pop("resposta_processamento_markdown", None)
 
-#print("\n\n\noutput_json:\n")
 # Imprimindo o conteúdo restante de output_json formatado e colorido
-#rprint(output_json)
+print("\n\n\noutput_json:\n")
+rprint(output_json)
 
 
 
