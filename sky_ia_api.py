@@ -10,10 +10,17 @@ import logging
 import json
 
 
+
+
 app = FastAPI(
-    title="Qualificação API", 
+    title="sk.ai - IA da Sky Informática",
     version="0.6",
-    description="API para qualificação de documentos utilizando OpenAI"
+    description="API para extração de dados estruturados de documentos utilizando IA",
+    # ← novo
+    swagger_ui_parameters={
+        # tempo em milissegundos ‑- 5 minutos = 5 * 60 * 1000
+        "requestTimeout": 300_000
+    }
 )
 
 
