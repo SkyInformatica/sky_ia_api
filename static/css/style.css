@@ -10,6 +10,65 @@ body {
 #markdownContent {
     max-height: 400px;
     overflow-y: auto;
+    padding: 15px;
+}
+
+/* Estilos para tabelas no markdown */
+#markdownContent table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    background-color: transparent;
+}
+
+#markdownContent table th,
+#markdownContent table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+#markdownContent table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+}
+
+#markdownContent table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#markdownContent table tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para cabeçalhos no markdown */
+#markdownContent h1,
+#markdownContent h2,
+#markdownContent h3,
+#markdownContent h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Estilos para listas no markdown */
+#markdownContent ul,
+#markdownContent ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#markdownContent li {
+    margin-bottom: 0.25rem;
+}
+
+/* Estilos para blocos de código */
+#markdownContent pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow-x: auto;
 }
 
 #jsonContent {

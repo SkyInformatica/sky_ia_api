@@ -302,13 +302,27 @@ Para o documento apresentado:
 
 ### Estruture a resposta para "resposta_processamento_markdown" em:
 
-1. **DOCUMENTOS ANALISADOS** (tabela com os documentos que foram identificados e analisados, se possivel o nome do arquivo)
+1. **NEGÓCIOS**
 
-2. **DADOS EXTRAÍDOS** (em formato de tabela estruturada com nome do campo, conteudo e de qual documento foi extraido)
+- Em formato de tabela vertical com os dados dos negocios com tipo do ato, valor atribuido, valor da avaliação
 
-3. **REVISÕES DOS DADOS**
-   - Dados que foram extraídos mas não conseguiram identificar o significado.
-   - Dados que tiveram dificuldade para entender e que devem ser revisados.
+2. **IMÓVEIS**
+
+- Em formato de tabela horizontal estruturada com os campos matricula, descricao, endereco
+
+3. **PARTES ENVOLVIDAS**
+
+- Em formato de tabela horizontal estruturada com os campos Nome, CPF, QUalificação, Estado Civil, Endereco, Fração Imóvel
+
+4. **RESUMO ESCRITURA**
+
+- Faça um resumo objetivo com os principais aspectos da escritura que foi apresentada.
+- Resuma as declarações e certidões apresentadas. Verifique se elas estão consistentes.
+
+5. **REVISÕES DOS DADOS**
+
+- Dados que foram extraídos mas não conseguiram identificar o significado.
+- Dados que tiveram dificuldade para entender e que devem ser revisados.
 
 ## Instruções Especiais
 
