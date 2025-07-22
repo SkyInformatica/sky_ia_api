@@ -358,7 +358,7 @@ def log(message: str):
     logger = logging.getLogger("uvicorn")
     logger.info(message)
 
-# Função para extrair JSON de texto que pode estar em formato markdown
+# --- Função para extrair JSON de texto que pode estar em formato markdown
 def extrair_json_da_resposta(texto: str) -> Dict[str, Any]:
     """
     Extrai um objeto JSON de uma string que pode conter delimitadores de código markdown.
@@ -396,6 +396,22 @@ def extrair_json_da_resposta(texto: str) -> Dict[str, Any]:
     
     # Se todas as tentativas falharem, lança exceção
     raise json.JSONDecodeError("Não foi possível extrair um JSON válido da resposta", texto, 0)
+
+#----------------- Função para extrair texto da resposta OpenAI ----------------
+def extract_response_text(resp_dict: dict) -> str | None:
+    """
+    Percorre resp_dict["output"] e devolve o primeiro
+    item de texto encontrado. Retorna None se não achar.
+    """
+    for item in resp_dict.get("output", []):
+        # ignorar chamadas de ferramentas
+        if item.get("type") != "message":
+            continue
+        for block in item.get("content", []):
+            if "text" in block:
+                return block["text"]
+    return None
+
 
 # ------------------ Função que fala com a OpenAI ----------------------------
 def enviar_para_openai(
@@ -435,15 +451,12 @@ def enviar_para_openai(
         )
 
     data = response.model_dump()
-    try:
-        log("Extraindo texto da resposta OpenAI:")
-        log(f"{data}")
-        text = data["output"][0]["content"][0]["text"]
-        return text  
-    except (KeyError, IndexError, TypeError):
-        log("Erro 502: Estrutura inesperada na resposta da OpenAI")
+
+    text = extract_response_text(data)
+    if text is None:
+        log("Estrutura inesperada: não foi encontrado bloco de texto.")
         raise HTTPException(502, "Estrutura inesperada na resposta da OpenAI")
-# ---------------------------------------------------------------------------
+    return text
 
 
 # ----------------------- Endpoint QUALIFICACAO --------------------------------------

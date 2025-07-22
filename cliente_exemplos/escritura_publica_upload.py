@@ -25,7 +25,7 @@ files = [
     ("files", ("escritura-aliencacao-fiduciaria.pdf", open("escritura-aliencacao-fiduciaria.pdf", "rb"), "application/pdf")),
 ]
 
-resp = requests.post(url, data=payload, files=files, timeout=120)
+resp = requests.post(url, data=payload, files=files, timeout=300)
 resp.raise_for_status()
 
 print(resp.json())
