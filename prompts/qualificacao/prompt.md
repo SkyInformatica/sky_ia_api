@@ -153,6 +153,11 @@ Para cada documento apresentado:
 - União estável
 - Desquitado
 
+### Critéros para "endereco_residencial"
+
+- Os dados do endereço residencial devem ser sempre confirmados com um comprovante de residencia.
+- Se encontrar um endereço e não for do comprovante de residencia aponte a necessidade de revisão dos dados na resposta do processamento
+
 ### Critéros para "informacoes_nascimento"
 
 - Os dados de nascimento são extraidos da certidão de nascimento
@@ -210,14 +215,14 @@ TE: Título de Eleitor
 
 1. **DOCUMENTOS ANALISADOS**
 
-- tabela com os documentos que foram identificados e analisados, essa lista deve respeitar o numero de arquivos que foram utilizados com anexo
-- uma tabela sucinta com identificacao do arquivo com o nome do arquivo, qual tipo de documento ele representa
+- tabela com os documentos que foram identificados e analisados
+- uma tabela sucinta com identificacao qual tipo de documento ele representa e se possivel a quem pertence
 
 2. **DADOS EXTRAÍDOS**
 
 - em formato de tabela estruturada com nome do campo, conteudo e de qual documento foi extraido
-- separe em tabelas com seçoes para informaçoes pessoais, documentos, endereço residencial, nascimento, casamento.
 - separe as tabelas por pessoa identificado nos documentos quando houver mais de uma pessoa.
+- separe as tabelas para **informaçoes pessoais**, **documentos**, **endereço residencial**, **nascimento**, **casamento**.
 - as tabelas deve levar o titulo com o nome da pessoa que foi identificado.
 
 3. **VALIDAÇÕES REALIZADAS**
