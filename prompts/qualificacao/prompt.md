@@ -153,6 +153,22 @@ Para cada documento apresentado:
 - União estável
 - Desquitado
 
+### Critéros para "informacoes_nascimento"
+
+- Os dados de nascimento são extraidos da certidão de nascimento
+- Na certidão de nascimento pode conter dados da filiação como nome do PAI e da MÃE.
+- Não deve confundir a profissão dos pais e nem o regime de bens dos pais com os dados da pessoa.
+- A certidao de nascimento essencialmente será utilizada para extrair os campos mencionados no JSON como livro, folha, numero da certidão, cidade e uf do registro e data da certidão.
+
+### Critéros para "informacoes_casamento"
+
+- A data do casamento não pode ser confundida com a data do pacto antenupcial
+- A data do casamento normalmente vai ser encontrada na certidão de casamento
+- Avalie semanticamente as informações dos documentos para entender qual é regime de bens, data do casamento e data da certidao de casamento.
+- Normalmente a data da certidao de casamento é a mesma data do casamento.
+- Nas informacoes do casamento tem duas secoes de pacto antenupcial: do tabelionato e do registro de imóveis. Para extrair estes dados necessita
+  de dois documentos separados. Estes documentos devem essencialmente utilizados para extrair os campos mencionados no JSON como livro, folha, data do pacto, data do registro, local do tabelionato e do registro. Não deve concluir mais informaçoes referente as pessoas extraidas destes documentos.
+
 ### Critérios para "documentos_identificacao"
 
 - Os documentos validos são somente os documentos oficiais para identificação de uma pessoa, conforme tabela

@@ -24,11 +24,35 @@ class SkAIApp {
         this.alertContainer = document.getElementById('alertContainer');
         this.processingTime = document.getElementById('processingTime');
         this.processingSeconds = document.getElementById('processingSeconds');
+        this.processingMessage = document.getElementById('processingMessage');
         this.processingInterval = null;
         this.startTime = null;
 
         this.currentJsonData = null;
         this.currentModel = 'qualificacao';
+
+        // No constructor da classe SkAIApp, atualize o array messages:
+        this.messages = [
+            { time: 0, text: "Iniciando processamento..." },
+            { time: 10, text: "Estamos identificando os documentos..." },
+            { time: 20, text: "Ainda processando, muito conteúdo para analisar..." },
+            { time: 30, text: "Parece demorado mas o resultado vai ser muito bom..." },
+            { time: 40, text: "Finalizando a análise dos documentos..." },
+            { time: 50, text: "Quase lá! Organizando as informações..." },
+            { time: 60, text: "Um minuto se passou, continuamos trabalhando..." },
+            { time: 70, text: "Processamento extenso, mas garantindo qualidade..." },
+            { time: 80, text: "Extraindo informações importantes..." },
+            { time: 90, text: "Análise em andamento, falta pouco..." },
+            { time: 100, text: "Validando todos os dados extraídos..." },
+            { time: 110, text: "Processamento minucioso em andamento..." },
+            { time: 120, text: "Dois minutos se passaram, estamos quase lá..." },
+            { time: 130, text: "Conferindo a precisão das informações..." },
+            { time: 140, text: "Sua paciência resultará em dados mais precisos..." },
+            { time: 150, text: "Finalizando os últimos detalhes..." },
+            { time: 160, text: "Processamento em fase final..." },
+            { time: 170, text: "Últimos ajustes sendo realizados..." },
+            { time: 180, text: "Agradecemos sua paciência, estamos finalizando..." }
+        ];
 
         this.initEventListeners();
     }
@@ -45,14 +69,37 @@ class SkAIApp {
         });
     }
 
+    updateProcessingMessage(elapsedSeconds) {
+        // Encontra a mensagem apropriada para o tempo atual
+        let currentMessage = this.messages[0].text; // mensagem padrão
+
+        for (let i = this.messages.length - 1; i >= 0; i--) {
+            if (elapsedSeconds >= this.messages[i].time) {
+                currentMessage = this.messages[i].text;
+                break;
+            }
+        }
+
+        // Atualiza o elemento com a mensagem
+        if (this.processingMessage.textContent !== currentMessage) {
+            this.processingMessage.style.opacity = '0';
+            setTimeout(() => {
+                this.processingMessage.textContent = currentMessage;
+                this.processingMessage.style.opacity = '1';
+            }, 200);
+        }
+    }
+
     startTimer() {
         this.startTime = Date.now();
         this.processingTime.classList.remove('d-none');
         this.processingSeconds.textContent = '0';
+        this.processingMessage.style.transition = 'opacity 0.3s ease-in-out';
 
         this.processingInterval = setInterval(() => {
             const elapsedSeconds = Math.floor((Date.now() - this.startTime) / 1000);
             this.processingSeconds.textContent = elapsedSeconds;
+            this.updateProcessingMessage(elapsedSeconds);
         }, 1000);
     }
 
@@ -65,6 +112,7 @@ class SkAIApp {
         if (this.startTime) {
             const finalTime = Math.floor((Date.now() - this.startTime) / 1000);
             this.processingSeconds.textContent = finalTime;
+            this.processingMessage.textContent = "Processamento concluído!";
             this.startTime = null;
         }
     }
