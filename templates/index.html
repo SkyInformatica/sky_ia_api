@@ -127,8 +127,16 @@
           <div id="results" class="d-none">
             <!-- Markdown -->
             <div class="card mb-4">
-              <div class="card-header">
+              <div
+                class="card-header d-flex justify-content-between align-items-center"
+              >
                 <h5>📄 Resumo do Processamento</h5>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  id="copyMarkdownBtn"
+                >
+                  📋 Copiar Markdown
+                </button>
               </div>
               <div class="card-body">
                 <div id="markdownContent"></div>

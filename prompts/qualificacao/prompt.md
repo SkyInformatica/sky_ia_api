@@ -156,7 +156,10 @@ Para cada documento apresentado:
 ### Critéros para "endereco_residencial"
 
 - Os dados do endereço residencial devem ser sempre confirmados com um comprovante de residencia.
-- Se encontrar um endereço e não for do comprovante de residencia aponte a necessidade de revisão dos dados na resposta do processamento
+- Comprovantes de residencia comumente utilizados são contas de luz, conta de internet, conta de água, conta de gas.
+- Raramente sao usados contrato de aluguel para identificar como comprovante de residencia.
+- Uma certidão de casamento, certidao de nascimento, pacto antenupcial não são documentos comprovante de residencia.
+- Se encontrar um endereço e não for do comprovante de residencia aponte a necessidade de revisão dos dados na resposta do processamento.
 
 ### Critéros para "informacoes_nascimento"
 
@@ -216,6 +219,7 @@ TE: Título de Eleitor
 1. **DOCUMENTOS ANALISADOS**
 
 - tabela com os documentos que foram identificados e analisados
+- essa tabela deve estar alinhada com os arquivos em anexo que foram encaminhados
 - uma tabela sucinta com identificacao qual tipo de documento ele representa e se possivel a quem pertence
 
 2. **DADOS EXTRAÍDOS**

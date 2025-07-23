@@ -25,6 +25,9 @@ class SkAIApp {
         this.processingTime = document.getElementById('processingTime');
         this.processingSeconds = document.getElementById('processingSeconds');
         this.processingMessage = document.getElementById('processingMessage');
+        this.copyMarkdownBtn = document.getElementById('copyMarkdownBtn');
+        this.currentMarkdown = ''; // Para armazenar o markdown original
+
         this.processingInterval = null;
         this.startTime = null;
 
@@ -60,6 +63,7 @@ class SkAIApp {
     initEventListeners() {
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
         this.downloadBtn.addEventListener('click', () => this.downloadJson());
+        this.copyMarkdownBtn.addEventListener('click', () => this.copyMarkdown());
 
         // Atualizar modelo selecionado
         document.querySelectorAll('input[name="modelo"]').forEach(radio => {
@@ -67,6 +71,26 @@ class SkAIApp {
                 this.currentModel = e.target.value;
             });
         });
+    }
+
+    async copyMarkdown() {
+        try {
+            await navigator.clipboard.writeText(this.currentMarkdown);
+
+            // Feedback visual temporário no botão
+            const originalText = this.copyMarkdownBtn.innerHTML;
+            this.copyMarkdownBtn.innerHTML = '✅ Copiado!';
+            this.copyMarkdownBtn.disabled = true;
+
+            setTimeout(() => {
+                this.copyMarkdownBtn.innerHTML = originalText;
+                this.copyMarkdownBtn.disabled = false;
+            }, 2000);
+
+        } catch (err) {
+            console.error('Erro ao copiar:', err);
+            this.showAlert('Erro ao copiar para área de transferência', 'danger');
+        }
     }
 
     updateProcessingMessage(elapsedSeconds) {
@@ -168,6 +192,7 @@ class SkAIApp {
 
         // Extrair e remover o markdown
         const markdown = resposta.resposta_processamento_markdown || '';
+        this.currentMarkdown = markdown; // Armazena o markdown original
         delete resposta.resposta_processamento_markdown;
 
         // Renderizar markdown
@@ -184,6 +209,11 @@ class SkAIApp {
 
         this.showResults();
         this.showAlert('Processamento concluído com sucesso!', 'success');
+    }
+
+    hideResults() {
+        this.results.classList.add('d-none');
+        this.currentMarkdown = ''; // Limpa o markdown armazenado
     }
 
     downloadJson() {

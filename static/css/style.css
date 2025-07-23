@@ -96,3 +96,11 @@ body {
     margin-top: 0.25rem;
     transition: opacity 0.3s ease-in-out;
 }
+btn-outline-primary:disabled {
+    opacity: 0.7;
+}
+
+.card-header .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
