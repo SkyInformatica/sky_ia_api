@@ -34,7 +34,7 @@ class SkAIApp {
         this.currentJsonData = null;
         this.currentModel = 'qualificacao';
 
-        // No constructor da classe SkAIApp, atualize o array messages:
+        // Mensagens de processamento
         this.messages = [
             { time: 0, text: "Iniciando processamento..." },
             { time: 10, text: "Estamos identificando os documentos..." },
@@ -198,22 +198,6 @@ class SkAIApp {
         // Renderizar markdown
         if (markdown) {
             this.markdownContent.innerHTML = marked.parse(markdown);
-            // Ajusta a altura do container com base no conteúdo
-            const contentHeight = this.markdownContent.scrollHeight;
-            const minHeight = 400; // altura mínima
-            const maxHeight = 800; // altura máxima
-
-            // Define uma altura que seja pelo menos minHeight e no máximo maxHeight
-            const newHeight = Math.max(minHeight, Math.min(contentHeight + 50, maxHeight));
-
-            // Aplica a nova altura ao container
-            this.markdownContent.style.height = `${newHeight}px`;
-
-            // Ajusta também o container JSON para manter consistência
-            const jsonContainer = document.querySelector('#json-content .content-container');
-            if (jsonContainer) {
-                jsonContainer.style.height = `${newHeight}px`;
-            }
         } else {
             this.markdownContent.innerHTML = '<em>Nenhum resumo disponível</em>';
         }
