@@ -123,37 +123,90 @@
             </div>
           </div>
 
-          <!-- Resultados -->
+          <!-- Resultados com Tabs -->
           <div id="results" class="d-none">
-            <!-- Markdown -->
-            <div class="card mb-4">
-              <div
-                class="card-header d-flex justify-content-between align-items-center"
-              >
-                <h5>📄 Resumo do Processamento</h5>
-                <button
-                  class="btn btn-outline-primary btn-sm"
-                  id="copyMarkdownBtn"
-                >
-                  📋 Copiar Markdown
-                </button>
-              </div>
-              <div class="card-body">
-                <div id="markdownContent"></div>
-              </div>
-            </div>
-            <!-- JSON -->
             <div class="card">
-              <div
-                class="card-header d-flex justify-content-between align-items-center"
-              >
-                <h5>📊 Dados Extraídos (JSON)</h5>
-                <button class="btn btn-outline-success btn-sm" id="downloadBtn">
-                  💾 Baixar JSON
-                </button>
+              <div class="card-header">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="markdown-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#markdown-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="markdown-content"
+                      aria-selected="true"
+                    >
+                      📄 Resumo do Processamento
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="json-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#json-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="json-content"
+                      aria-selected="false"
+                    >
+                      📊 Dados Extraídos (JSON)
+                    </button>
+                  </li>
+                </ul>
               </div>
               <div class="card-body">
-                <pre><code id="jsonContent" class="language-json"></code></pre>
+                <!-- Tab Content -->
+                <div class="tab-content">
+                  <!-- Markdown Tab -->
+                  <div
+                    class="tab-pane fade show active"
+                    id="markdown-content"
+                    role="tabpanel"
+                    aria-labelledby="markdown-tab"
+                  >
+                    <div class="d-flex justify-content-end mb-3">
+                      <button
+                        class="btn btn-outline-primary btn-sm"
+                        id="copyMarkdownBtn"
+                      >
+                        📋 Copiar Markdown
+                      </button>
+                    </div>
+                    <div
+                      id="markdownContent"
+                      class="content-container"
+                      style="
+                        height: 1200px !important;
+                        min-height: 1200px !important;
+                      "
+                    ></div>
+                  </div>
+
+                  <!-- JSON Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="json-content"
+                    role="tabpanel"
+                    aria-labelledby="json-tab"
+                  >
+                    <div class="d-flex justify-content-end mb-3">
+                      <button
+                        class="btn btn-outline-success btn-sm"
+                        id="downloadBtn"
+                      >
+                        💾 Baixar JSON
+                      </button>
+                    </div>
+                    <div class="content-container">
+                      <pre><code id="jsonContent" class="language-json"></code></pre>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
