@@ -1,225 +1,161 @@
 {
-    "data": {
-        "escritura": {
-            "titulo": "",
-            "natureza": 0,
-            "descricao_natureza": "",
-            "data_instrumento": "",
-            "livro": "",
-            "folha": "",
-            "local": "",
-            "apresentante": {
+    "escritura": {
+        "titulo": "",
+        "data": "",
+        "livro": "",
+        "folha": "",
+        "negocios": [
+            {
+                "sequencial": 0,
+                "tipo_ato": 0,
+                "descricao_tipo_ato": "",
+                "valor_transmissao": 0,
+                "valor_venal": 0,
+                "valor_financiamento": 0,
+                "valor_avaliacao": 0,
+                "valor_leilao": 0,
+                "recursos_proprios": 0,
+                "recursos_financiados": 0,
+                "primeira_aquisicao": "",
+                "pago_em_especie": "",
+                "valor_pago_em_especie": 0,
+                "observacoes_gerais": "",
+                "imoveis": [
+                    {
+                        "cnm": "",
+                        "localizacao": 0,
+                        "descricao_localizacao": "",
+                        "numero_matricula": 0,
+                        "iptu": "",
+                        "ccir": "",
+                        "nirf": "",
+                        "tipo_imovel": 0,
+                        "descricao_tipo_imovel": "",
+                        "descricao": "",
+                        "valor_avaliacao": 0,
+                        "valor_atribuido": 0,
+                        "endereco": {
+                            "tipo_logradouro": "",
+                            "logradouro": "",
+                            "numero": "",
+                            "unidade": "",
+                            "bairro": "",
+                            "cidade": "",
+                            "uf": "",
+                            "lote": "",
+                            "quadra": "",
+                            "torre": "",
+                            "complemento": "",
+                            "endereco_completo": "",
+                            "nome_loteamento": "",
+                            "nome_condominio": ""
+                        }
+                    }
+                ],
+                "partes": [
+                    {
+                        "qualificacao": "",
+                        "descricao_qualificacao": "",
+                        "cpf_cnpj": "",
+                        "fracao": 0
+                    }
+                ]
+            }
+        ],
+        "partes_negocio": [
+            {
+                "sequencial_negocio": "",
                 "nome": "",
+                "cpf_cnpj": "",
+                "genero": 0,
+                "descricao_genero": "",
+                "documento": "",
+                "orgao_emissor": "",
+                "nacionalidade": "",
+                "estado_civil": 0,
+                "descricao_estado_civil": "",
+                "capacidade_civil": 0,
+                "descricao_capacidade_civil": "",
+                "regime_bens": 0,
+                "descricao_regime_bens": "",
+                "data_casamento": "",
+                "data_nascimento": "",
+                "numero_pacto": "",
+                "data_pacto": "",
+                "local_registro_pacto": "",
+                "instrumento_pacto": "",
+                "uniao_estavel": "",
+                "profissao": "",
                 "endereco": {
                     "tipo_logradouro": "",
                     "logradouro": "",
                     "numero": "",
                     "unidade": "",
+                    "complemento": "",
                     "bairro": "",
                     "cidade": "",
                     "uf": "",
-                    "complemento": "",
-                    "cep": 0,
                     "endereco_completo": ""
                 },
-                "contato": {
-                    "nome": "",
-                    "email": "",
-                    "telefone": {
-                        "ddd": 0,
-                        "numero": ""
-                    }
-                }
-            },
-            "negocios": [
-                {
-                    "sequencial": 0,
-                    "tipo_ato": 0,
-                    "descricao_tipo_ato": "",
-                    "valor_transmissao": 0,
-                    "valor_venal": 0,
-                    "valor_financialmento": 0,
-                    "valor_avaliacao": 0,
-                    "valor_leilao": 0,
-                    "recursos_proprios": 0,
-                    "recursos_financiados": 0,
-                    "primeira_aquisicao": "",
-                    "pago_em_especie": "",
-                    "valor_pago_em_especie": 0,
-                    "observacoes_gerais": "",
-                    "imoveis": [
-                        {
-                            "cnm": "",
-                            "cns": 0,
-                            "localizacao": 0,
-                            "descricao_localizacao": "",
-                            "numero_matricula": 0,
-                            "iptu": "",
-                            "ccir": "",
-                            "nirf": "",
-                            "livro_registro_imoveis": 0,
-                            "descricao_livro_registro_imoveis": "",
-                            "tipo_imovel": 0,
-                            "descricao_tipo_imovel": "",
-                            "edificacao": 0,
-                            "descricao": "",
-                            "valor_avaliacao": 0,
-                            "valor_atribuido": 0,
-                            "endereco": {
-                                "tipo_logradouro": "",
-                                "logradouro": "",
-                                "numero": "",
-                                "unidade": "",
-                                "bairro": "",
-                                "cidade": "",
-                                "uf": "",
-                                "lote": "",
-                                "quadra": "",
-                                "torre": "",
-                                "complemento": "",
-                                "endereco_completo": "",
-                                "nome_loteamento": "",
-                                "nome_condominio": ""
-                            }
-                        }
-                    ],
-                    "partes": [
-                        {
-                            "qualificacao": "",
-                            "descricao_qualificacao": "",
-                            "cpf_cnpj": "",
-                            "fracao": 0
-                        }
-                    ]
-                }
-            ],
-            "partes_negocio": [
-                {
-                    "sequencial": 0,
-                    "nome": "",
-                    "cpf_cnpj": "",
-                    "genero": 0,
-                    "descricao_genero": "",
-                    "rg_parte": "",
-                    "orgao_parte": "",
-                    "nacionalidade": "",
-                    "estado_civil": 0,
-                    "descricao_estado_civil": "",
-                    "regime_bens": 0,
-                    "descricao_regime_bens": "",
-                    "data_casamento": "",
-                    "data_nascimento": "",
-                    "numero_pacto": "",
-                    "data_pacto": "",
-                    "local_registro_pacto": "",
-                    "instrumento_pacto": "",
-                    "uniao_estavel": "",
-                    "profissao": "",
-                    "endereco": {
-                        "tipo_logradouro": "",
-                        "logradouro": "",
-                        "numero": "",
-                        "unidade": "",
-                        "bairro": "",
-                        "cidade": "",
-                        "uf": "",
-                        "complemento": "",
-                        "cep": 0,
-                        "endereco_completo": ""
-                    },
-                    "cpf_conjuge": "",
-                    "nome_filiacao1": "",
-                    "nome_filiacao2": "",
-                    "email": "",
-                    "nire": "",
-                    "representantes": []
-                }
-            ],
-            "financiamento": {
-                "prazo_carencia": 0,
-                "enquadramento_financiamento": 0,
-                "descricao_enquadramento_financiamento": "",
-                "sistema_amortizacao": 0,
-                "descricao_sistema_amortizacao": "",
-                "origem_recursos": 0,
-                "descricao_origem_recursos": "",
-                "juros_anual_nominal": 0,
-                "juros_anual_efetivo": 0,
-                "juros_mensal_nominal": 0,
-                "juros_mensal_efetivo": 0,
-                "prazo_amortizacao": 0,
-                "valor_primeira_parcela": 0,
-                "data_primeira_parcela": "",
-                "destino_financiamento": "",
-                "forma_de_pagamento": ""
-            },
-            "cedula": {
-                "identificacao_cedula": "",
-                "tipo_cedula": 0,
-                "descricao_tipo_cedula": "",
-                "numero": "",
-                "fracao": 0,
-                "serie": "",
-                "especie_cedula": 0,
-                "descrever_especie_cedula": "",
-                "custodiante": {
-                    "nome": "",
-                    "cnpj": "",
-                    "endereco_completo": ""
-                },
-                "data": ""
-            },
-            "representantes": [
-                {
-                    "nome_representante": "",
-                    "cpf_representante": "",
-                    "cnpj_representado": "",
-                    "numero_instrumento": "",
-                    "tipo_registro": 0,
-                    "orgao": "",
-                    "forma_registro": "",
-                    "numero_livro": "",
-                    "folha": 0,
-                    "numero_registro": 0,
-                    "data_registro": ""
-                }
-            ],
-            "impostos": {
-                "imposto_transmissao": {
-                    "isencao": "",
-                    "inscricao": "",
-                    "guia": "",
-                    "valor": 0,
-                    "justificativa": ""
-                },
-                "dajes": [
+                "cpf_conjuge": "",
+                "email": "",
+                "nome_filiacao1": "",
+                "nome_filiacao2": "",
+                "representantes": [
                     {
-                        "emissor": "",
-                        "serie": "",
-                        "numero": "",
-                        "valor": 0
+                        "nome_representante": "",
+                        "cpf_representante": "",
+                        "cnpj_representado": "",
+                        "numero_instrumento": "",
+                        "tipo_registro": 0,
+                        "orgao": "",
+                        "forma_registro": "",
+                        "numero_livro": "",
+                        "numero_folha": "",
+                        "numero_registro": 0,
+                        "data_registro": ""
                     }
                 ]
-            },
-            "clausulas_declaracoes": {
-                "verificacao_partes": [
-                    {
-                        "parte": "",
-                        "descrever": ""
-                    }
-                ],
-                "verificacao_imoveis": [
-                    {
-                        "imovel": 0,
-                        "descrever": ""
-                    }
-                ]
-            },
-            "autorizacoes": {
-                "declaro": "",
-                "autorizo": ""
             }
-        }
+        ],
+        "financiamento": {
+            "prazo_carencia": 0,
+            "enquadramento_financiamento": 0,
+            "descricao_enquadramento_financiamento": "",
+            "sistema_amortizacao": 0,
+            "descricao_sistema_amortizacao": "",
+            "origem_recursos": 0,
+            "descricao_origem_recursos": "",
+            "juros_anual_nominal": 0,
+            "juros_anual_efetivo": 0,
+            "juros_mensal_nominal": 0,
+            "juros_mensal_efetivo": 0,
+            "prazo_amortizacao": 0,
+            "valor_primeira_parcela": 0,
+            "data_primeira_parcela": "",
+            "destino_financiamento": "",
+            "forma_de_pagamento": ""
+        },
+        "impostos": {
+            "imposto_transmissao": {
+                "isencao": "",
+                "inscricao": "",
+                "guia": "",
+                "valor": 0
+            }
+        },
+        "clausulas_certidoes": [
+            {
+                "tipo_certidao": "",
+                "descrever": ""
+            }
+        ],
+        "clausulas_declaracoes_autorizacoes": [
+            {
+                "tipo_declaracao_autorizacao": "",
+                "descrever": ""
+            }
+        ]
     },
     "resposta_processamento_markdown": ""
 }

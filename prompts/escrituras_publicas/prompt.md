@@ -309,16 +309,49 @@ A resposta deve ser um objeto JSON com os seguintes campos, SEM explicação tex
 
 ### Estruture a resposta para "resposta_processamento_markdown" nas seguintes seções:
 
-- **RESUMO:** título, data, livro e folha.
-- **NEGÓCIOS:** tabela de negócios (tipo de ato e valor atribuído).
-- **IMÓVEIS:** tabela com matrícula, descrição, endereço e guias pagas.
-- **PARTES ENVOLVIDAS:** tabela com qualificação, nome, CPF/CNPJ, estado civil, regime de bens, cônjuge, representante e fração.
-- **FINANCIAMENTO:** (se houver), com imóvel, valor do imóvel, valor financiado, recursos próprios, forma de pagamento e prazo.
-- **IMPOSTO TRANSMISSÃO:** (se houver), com inscrição do imóvel, guia e valor.
-- **DECLARAÇÕES:** (se houver), lista de declarações.
-- **AUTORIZAÇÕES:** (se houver), lista de autorizações.
-- **RESUMO ESCRITURA:** resumo objetivo dos principais aspectos, forma de pagamento, cláusulas de transmissão e resumo das declarações, autorizações e certidões, avaliando a consistência.
-- **REVISÕES DOS DADOS:** campo para informar qualquer dado não identificado semanticamente ou de difícil entendimento, ou que precise revisão pelo registrador. Se algum valor for explicitamente inconsistente, registre o valor literalmente extraído e sinalize o problema nesta seção. Não corrija valores no JSON.
+**RESUMO**
+
+- Um resumo com titulo, data, livro e folha
+
+**NEGÓCIOS**
+
+- Uma tabela com a lista de negocios com tipo de ato e valor do negócio (valor atribuido)
+
+**IMÓVEIS**
+
+- Uma tabela estruturada com os campos matricula, descricao, endereco e guias pagas
+
+**PARTES ENVOLVIDAS**
+
+- Uma tabela estruturada com os campos Qualificação, Nome, CPF/CNPJ, Estado Civil, Regime bens, Conjuge, Representante, Fração Imóvel
+
+**FINANCIAMENTO** (se houver)
+
+- Imovel financiado e o valor do imovel, valor financiado, valor recursos próprios, forma de pagamento, prazo
+
+**IMPOSTO TRANSMISSÃO** (se houver)
+
+- Detalhes da numero inscricao do imovel, guia, valor
+
+**DECLARAÇÕES** (se houver)
+
+- Lista de declarações
+
+**AUTORIZAÇÕES** (se houver)
+
+- Lista de autorizações
+
+**RESUMO ESCRITURA**
+
+- Faça um resumo objetivo com os principais aspectos da escritura que foi apresentada em forma de itens para uma leitura mais objetiva.
+- Resuma a forma de pagamento e clausulas relevantes da escritura de como foi realizado a transmissão do imovel e pagamento.
+- Resuma as declarações, autorizações e certidões apresentadas. Verifique se elas estão consistentes.
+
+5. **REVISÕES DOS DADOS**
+
+- Dados que foram extraídos mas não conseguiram identificar o significado.
+- Dados que tiveram dificuldade para entender e que devem ser revisados.
+- Informe tudo que é relevante para o registrador conferir e revisar os dados que tiveram dificuldade no processamento.
 
 Se algum valor de campo for explicitamente inconsistente dentro do documento, registre o valor literalmente extraído e sinalize o problema apenas na seção "REVISÕES DOS DADOS" na resposta markdown. Não omita o campo no JSON e não corrija o valor.
 
