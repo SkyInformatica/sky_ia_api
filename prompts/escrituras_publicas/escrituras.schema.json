@@ -61,8 +61,7 @@
             }
           },
           "financiamento": {
-            "$ref": "#/definitions/Financiamento",
-            "description": "Informações contratuais específicas do financiamento (se houver), abrangendo taxas, sistema de amortização, enquadramento (SFH/SFI/PMCMV) e origem de recursos."
+            "$ref": "#/definitions/Financiamento"
           },
           "impostos": {
             "type": "object",
@@ -131,7 +130,7 @@
     "definitions": {
       "Endereco": {
         "type": "object",
-        "description": "Estrutura padrão de endereço, reaproveitada por partes e imóveis. Inclui campos mínimos exigidos pelos serviços de registro.",
+        "description": "Estrutura padrão de endereço, reaproveitada por partes e imóveis. Inclui campos mínimos exigidos pelos serviços de registro. Quando da parte é endereço residencial ou sede da parte à época da escritura. Quando do imóvel endereço físico do bem, quando o imóvel possuir localização urbana definida.",
         "additionalProperties": false,
         "required": [
           "cep",
@@ -403,8 +402,7 @@
             "description": "Valor atribuído ao imóvel para fins de partilha ou outro cálculo."
           },
           "endereco": {
-            "$ref": "#/definitions/Endereco",
-            "description": "Endereço físico do bem, quando o imóvel possuir localização urbana definida."
+            "$ref": "#/definitions/Endereco"
           }
         }
       },
@@ -651,8 +649,7 @@
             "description": "Código de profissão ocupada pela parte (lista ainda não fornecida)."
           },
           "endereco": {
-            "$ref": "#/definitions/Endereco",
-            "description": "Endereço residencial ou sede da parte à época da escritura."
+            "$ref": "#/definitions/Endereco"
           },
           "cpf_conjuge": {
             "type": "string",
@@ -754,7 +751,7 @@
       },
       "Financiamento": {
         "type": "object",
-        "description": "Detalhes contratuais do empréstimo imobiliário (quando houver), necessários à qualificação registral.",
+        "description": "Informações contratuais específicas do financiamento (se houver), abrangendo taxas, sistema de amortização, enquadramento (SFH/SFI/PMCMV) e origem de recursos.",
         "additionalProperties": false,
         "required": [
           "prazo_carencia",
