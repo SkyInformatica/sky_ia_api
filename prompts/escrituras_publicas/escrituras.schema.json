@@ -138,8 +138,11 @@
           "tipo_logradouro",
           "logradouro",
           "numero",
+          "unidade",
+          "complemento",
           "bairro",
-          "cidade"
+          "cidade",
+          "endereco_completo"
         ],
         "properties": {
           "cep": {
@@ -187,6 +190,18 @@
         "required": [
           "sequencial",
           "tipo_ato",
+          "descricao_tipo_ato",
+          "valor_transmissao",
+          "valor_venal",
+          "valor_financiamento",
+          "valor_avaliacao",
+          "valor_leilao",
+          "recursos_proprios",
+          "recursos_financiados",
+          "primeira_aquisicao",
+          "pago_em_especie",
+          "valor_pago_em_especie",
+          "observacoes_gerais",
           "imoveis",
           "partes"
         ],
@@ -289,9 +304,19 @@
         "description": "Representação detalhada de cada bem imóvel citado, com dados de matrícula, descrição e endereço.",
         "additionalProperties": false,
         "required": [
+          "cnm",
           "localizacao",
+          "descricao_localizacao",
+          "numero_matricula",
+          "iptu",
+          "ccir",
+          "nirf",
           "tipo_imovel",
-          "descricao"
+          "descricao_tipo_imovel",
+          "descricao",
+          "valor_avaliacao",
+          "valor_atribuido",
+          "endereco"
         ],
         "properties": {
           "cnm": {
@@ -389,6 +414,7 @@
         "additionalProperties": false,
         "required": [
           "qualificacao",
+          "descricao_qualificacao",
           "cpf_cnpj",
           "fracao"
         ],
@@ -434,7 +460,28 @@
         "required": [
           "sequencial_negocio",
           "nome",
-          "cpf_cnpj"
+          "cpf_cnpj",
+          "genero",
+          "estado_civil",
+          "descricao_estado_civil",
+          "capacidade_civil",
+          "descricao_capacidade_civil",
+          "regime_bens",
+          "descricao_regime_bens",
+          "data_casamento",
+          "data_nascimento",
+          "numero_pacto",
+          "data_pacto",
+          "local_registro_pacto",
+          "instrumento_pacto",
+          "uniao_estavel",
+          "profissao",
+          "endereco",
+          "cpf_conjuge",
+          "email",
+          "nome_filiacao1",
+          "nome_filiacao2",
+          "representantes"
         ],
         "properties": {
           "sequencial_negocio": {
@@ -638,7 +685,16 @@
         "additionalProperties": false,
         "required": [
           "nome_representante",
-          "cpf_representante"
+          "cpf_representante",
+          "cnpj_representado",
+          "numero_instrumento",
+          "tipo_registro",
+          "orgao",
+          "forma_registro",
+          "numero_livro",
+          "folha",
+          "numero_registro",
+          "data_registro"
         ],
         "properties": {
           "nome_representante": {
@@ -700,6 +756,24 @@
         "type": "object",
         "description": "Detalhes contratuais do empréstimo imobiliário (quando houver), necessários à qualificação registral.",
         "additionalProperties": false,
+        "required": [
+          "prazo_carencia",
+          "enquadramento_financiamento",
+          "descricao_enquadramento_financiamento",
+          "sistema_amortizacao",
+          "descricao_sistema_amortizacao",
+          "origem_recursos",
+          "descricao_origem_recursos",
+          "juros_anual_nominal",
+          "juros_anual_efetivo",
+          "juros_mensal_nominal",
+          "juros_mensal_efetivo",
+          "prazo_amortizacao",
+          "valor_primeira_parcela",
+          "data_primeira_parcela",
+          "destino_financiamento",
+          "forma_de_pagamento"
+        ],
         "properties": {
           "prazo_carencia": {
             "type": "integer",
@@ -796,6 +870,8 @@
         "additionalProperties": false,
         "required": [
           "isencao",
+          "inscricao",
+          "guia",
           "valor"
         ],
         "properties": {
