@@ -199,38 +199,27 @@ class SkAIApp {
         }
     }
 
-    processResponse(data) {
+    processResponse(resposta) {
         if (!resposta) {
             this.showAlert('Sem dados para exibir', 'warning');
             return;
         }
-        let resposta = data;
+
         let markdown = '';
 
-        // Verificar se estamos processando uma resposta de escritura pública
         if (this.currentModel === 'escritura_publica') {
-            // Extrair e remover o markdown da resposta de escritura pública
             markdown = resposta.resposta_processamento_markdown || '';
-
-            // Criar uma cópia do objeto sem o campo resposta_processamento_markdown
-            const { resposta_processamento_markdown, ...respostaLimpa } = resposta;
-            resposta = respostaLimpa;
-        } else if (resposta.resultado) {
-            // Para o modelo de qualificação, o markdown é o próprio resultado
-            markdown = resposta.resultado;
+        } else if (resposta.resposta) {
+            markdown = resposta.resposta.resposta_processamento_markdown || '';
         }
 
-        // Armazena o markdown original
         this.currentMarkdown = markdown;
 
-        // Renderizar markdown
-        if (markdown) {
-            this.markdownContent.innerHTML = marked.parse(markdown);
-        } else {
-            this.markdownContent.innerHTML = '<em>Nenhum resumo disponível</em>';
-        }
+        // --- renderizações ---
+        this.markdownContent.innerHTML = markdown
+            ? marked.parse(markdown)
+            : '<em>Nenhum resumo disponível</em>';
 
-        // Renderizar JSON
         this.currentJsonData = resposta;
         this.jsonContent.textContent = JSON.stringify(resposta, null, 2);
         Prism.highlightElement(this.jsonContent);
@@ -238,6 +227,7 @@ class SkAIApp {
         this.showResults();
         this.showAlert('Processamento concluído com sucesso!', 'success');
     }
+
 
     hideResults() {
         this.results.classList.add('d-none');

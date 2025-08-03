@@ -33,7 +33,14 @@ templates = Jinja2Templates(directory="templates")
 # Adicione esta rota para servir o frontend
 @app.get("/app", response_class=HTMLResponse)
 async def frontend(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    versao = int(time.time())            
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "versao": versao             
+        }
+    )
 
 
 # ---------------------- MODELOS ---------------------------------------------
@@ -301,9 +308,7 @@ def enviar_para_openai(
     
     Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, 
     Conta de luz, Conta de agua, Certidão de casamento, Certidão de nascimento, 
-    Certidão de obito, Pacto antenupcial, etc...
-    
-    A resposta será gerada pela OpenAI com base nos documentos fornecidos.
+    Certidão de obito, Pacto antenupcial, etc...    
     """
 )
 def qualificacao_json(body: QualificacaoRequest) -> QualificacaoResponse:
@@ -376,8 +381,6 @@ def qualificacao_json(body: QualificacaoRequest) -> QualificacaoResponse:
     Tipos de documentos que podem ser utilizados: RG, CNH, Comprovante de residencia, 
     Conta de luz, Conta de agua, Certidão de casamento, Certidão de nascimento, 
     Certidão de obito, Pacto antenupcial, etc...
-        
-    A resposta será gerada pela OpenAI com base nos documentos fornecidos.
     """
 )
 async def qualificacao_upload(
