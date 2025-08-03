@@ -144,7 +144,29 @@ class QualificacaoResponse(BaseModel):
     
 # Adicione após o modelo QualificacaoResponse existente
 
-EscrituraPublicaResponse = EscrituraPublicaSchema    
+class EscrituraPublicaResponse(BaseModel):
+    class Config:
+        extra = "allow"  
+        arbitrary_types_allowed = True  
+    
+
+# E na função escritura_publica_json:
+def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaResponse:
+    # ... resto do código permanece igual até o try/except ...
+    
+    try:
+        output_json = extrair_json_da_resposta_schema(resp_dict)
+        log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
+    except Exception as e:
+        log(f"Falha ao extrair JSON (schema): {str(e)}")
+        raise HTTPException(502, "Resposta da OpenAI não contém JSON válido no formato esperado.")
+
+    # Cria um objeto EscrituraPublicaResponse com qualquer JSON recebido
+    try:
+        return EscrituraPublicaResponse(**output_json)
+    except ValidationError as e:
+        log(f"Erro de validação do JSON: {str(e)}")
+        raise HTTPException(502, "JSON recebido não está em um formato válido")
     
 
 def log(message: str):
