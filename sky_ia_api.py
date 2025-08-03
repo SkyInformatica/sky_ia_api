@@ -1,5 +1,5 @@
 # sky_ia_api.py
-import base64, time
+import base64, time, os
 import re
 import logging
 import json
@@ -26,21 +26,18 @@ app = FastAPI(
     }
 )
 
+JS_PATH = "static/js/app.js"
+VERSAO = str(int(os.path.getmtime(JS_PATH)))     # timestamp do arquivo
+
 # Após criar o app FastAPI, adicione:
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+templates.env.globals["versao"] = VERSAO
 
 # Adicione esta rota para servir o frontend
 @app.get("/app", response_class=HTMLResponse)
 async def frontend(request: Request):
-    versao = int(time.time())            
-    return templates.TemplateResponse(
-        "index.html",
-        {
-            "request": request,
-            "versao": versao             
-        }
-    )
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 # ---------------------- MODELOS ---------------------------------------------
