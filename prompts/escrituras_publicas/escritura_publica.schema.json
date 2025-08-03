@@ -78,7 +78,7 @@
           },
           "clausulas_certidoes": {
             "type": "array",
-            "description": "Relação de certidões juntadas (matrícula atualizada, certidão de ônus, certidões negativas pessoais, ambientais, etc.).",
+            "description": "Relação de certidões apresentadas (matrícula atualizada, certidão de ônus, certidões negativas pessoais, ambientais, etc.).",
             "items": {
               "type": "object",
               "additionalProperties": false,
@@ -98,9 +98,9 @@
               }
             }
           },
-          "clausulas_declaracoes_autorizacoes": {
+          "clausulas_declaracoes": {
             "type": "array",
-            "description": "Qualquer cláusula declaratória ou autorizativa (ex.: declarações fiscais, anuência conjugal, autorização de averbação).",
+            "description": "Qualquer cláusula declaratória e/ou consultas as centrais como CNIB e CEPIT  (ex.: DOI - declaração de operação imobiliária, CNIB - Central Nacional de Indisponbilidade de bens, CEPIT - Central Eletrônica de Publicações e de Interdições e Tutelas).",
             "items": {
               "type": "object",
               "additionalProperties": false,
@@ -111,7 +111,29 @@
               "properties": {
                 "tipo": {
                   "type": "string",
-                  "description": "Categoria da cláusula (Declaração, Autorização, Ratificação, Renúncia etc.)."
+                  "description": "Categoria e/ou tipo da cláusula."
+                },
+                "descricao": {
+                  "type": "string",
+                  "description": "Conteúdo integral ou resumo fiel da cláusula, conforme redação do tabelião."
+                }
+              }
+            }
+          },
+          "clausulas_autorizacoes": {
+            "type": "array",
+            "description": "Qualquer cláusula autorizativa (ex.: autorização para registro de imóveis, autorização de averbação).",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "tipo",
+                "descricao"
+              ],
+              "properties": {
+                "tipo": {
+                  "type": "string",
+                  "description": "Categoria e/ou tipo da autorização."
                 },
                 "descricao": {
                   "type": "string",
@@ -645,8 +667,8 @@
             "description": "Marcador de união estável reconhecida (1 = sim; 0 = não)."
           },
           "profissao": {
-            "type": "integer",
-            "description": "Código de profissão ocupada pela parte (lista ainda não fornecida)."
+            "type": "string",
+            "description": "Profissão da parte conforme descrito na qualificação. Se não houver, deixe vazio."
           },
           "endereco": {
             "$ref": "#/definitions/Endereco"
@@ -863,7 +885,7 @@
       },
       "ImpostoTransmissao": {
         "type": "object",
-        "description": "Dados da guia de ITBI (municipal) ou ITCMD (estadual) recolhido para a transmissão.",
+        "description": "Dados da guia de ITBI (municipal) ou ITCMD (estadual) recolhido para a transmissão por imóvel. Se necessário vincule a guia ao imóvel pelo valor de cada imóvel conforme sua descrição.",
         "additionalProperties": false,
         "required": [
           "isencao",
@@ -882,11 +904,11 @@
           },
           "inscricao": {
             "type": "string",
-            "description": "Número de inscrição ou referência da guia emitida pelo fisco."
+            "description": "Número de inscrição municipal referente ao imóvel."
           },
           "guia": {
             "type": "string",
-            "description": "Número de identificação da guia de pagamento, se diverso da inscrição."
+            "description": "Número de identificação da guia de pagamento do imposto"
           },
           "valor": {
             "type": "number",

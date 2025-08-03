@@ -604,9 +604,9 @@ class ParteNegocio(BaseModel):
     uniao_estavel: UniaoEstavel = Field(
         ..., description='Marcador de união estável reconhecida (1 = sim; 0 = não).'
     )
-    profissao: int = Field(
+    profissao: str = Field(
         ...,
-        description='Código de profissão ocupada pela parte (lista ainda não fornecida).',
+        description='Profissão da parte conforme descrito na qualificação. Se não houver, deixe vazio.',
     )
     endereco: Endereco
     cpf_conjuge: str = Field(

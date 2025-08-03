@@ -75,11 +75,11 @@ Você é um assistente jurídico especializado em extração de dados de escritu
 
 **CERTIDÕES**
 
-- Lista das certidões, com tipo, número e observações
+- Lista das certidões, com tipo, número e observações e validade se houver
 
-**DECLARAÇÕES**
+**CONSULTAS E DECLARAÇÕES**
 
-- Lista de declarações, com tipo e observações
+- Lista de consultas e declarações, com tipo e observações
 
 **AUTORIZAÇÕES**
 

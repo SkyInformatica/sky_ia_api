@@ -76,9 +76,9 @@ Você é um assistente jurídico especializado em extração de dados de escritu
 
 - Lista das certidões
 
-**DECLARAÇÕES** (se houver)
+**CONSULTAS E DECLARAÇÕES** (se houver)
 
-- Lista de declarações
+- Lista de consultas e declarações
 
 **AUTORIZAÇÕES** (se houver)
 
