@@ -141,235 +141,10 @@ class QualificacaoResponse(BaseModel):
 # Adicione após o modelo QualificacaoResponse existente
 
 class EscrituraPublicaResponse(BaseModel):
-    resposta: Dict[str, Any] = Field(..., 
-                         example={
-                            "data": {
-                                "escritura": {
-                                    "titulo": "",                                    
-                                    "natureza": 0,
-                                    "descricao_natureza": "",
-                                    "data_instrumento": "",
-                                    "livro": "",
-                                    "folha": "",
-                                    "local": "",
-                                    "apresentante": {
-                                        "nome": "",
-                                        "endereco": {
-                                            "tipo_logradouro": "",
-                                            "logradouro": "",
-                                            "numero": "",
-                                            "unidade": "",
-                                            "bairro": "",
-                                            "cidade": "",
-                                            "uf": "",
-                                            "complemento": "",
-                                            "cep": 0,
-                                            "endereco_completo": ""
-                                        },
-                                        "contato": {
-                                            "nome": "",
-                                            "email": "",
-                                            "telefone": {
-                                                "ddd": 0,
-                                                "numero": ""
-                                            }
-                                        }
-                                    },
-                                    "negocios": [
-                                        {
-                                            "sequencial": 0,
-                                            "tipo_ato": 0,
-                                            "descricao_tipo_ato": "",
-                                            "valor_transmissao": 0,
-                                            "valor_venal": 0,
-                                            "valor_financialmento": 0,
-                                            "valor_avaliacao": 0,
-                                            "valor_leilao": 0,
-                                            "recursos_proprios": 0,
-                                            "recursos_financiados": 0,
-                                            "primeira_aquisicao": "",
-                                            "pago_em_especie": "",
-                                            "valor_pago_em_especie": 0,
-                                            "observacoes_gerais": "",
-                                            "imoveis": [
-                                                {
-                                                    "cnm": "",
-                                                    "cns": 0,
-                                                    "localizacao": 0,
-                                                    "descricao_localizacao": "",
-                                                    "numero_matricula": 0,
-                                                    "iptu": "",
-                                                    "ccir": "",
-                                                    "nirf": "",
-                                                    "livro_registro_imoveis": 0,
-                                                    "descricao_livro_registro_imoveis": "",
-                                                    "tipo_imovel": 0,
-                                                    "descricao_tipo_imovel": "",
-                                                    "edificacao": 0,
-                                                    "descricao": "",
-                                                    "valor_avaliacao": 0,
-                                                    "valor_atribuido": 0,
-                                                    "endereco": {
-                                                        "tipo_logradouro": "",
-                                                        "logradouro": "",
-                                                        "numero": "",
-                                                        "unidade": "",
-                                                        "bairro": "",
-                                                        "cidade": "",
-                                                        "uf": "",
-                                                        "lote": "",
-                                                        "quadra": "",
-                                                        "torre": "",
-                                                        "complemento": "",
-                                                        "endereco_completo": "",
-                                                        "nome_loteamento": "",
-                                                        "nome_condominio": ""
-                                                    }
-                                                }
-                                            ],
-                                            "partes": [
-                                                {
-                                                    "qualificacao": "",
-                                                    "descricao_qualificacao": "",
-                                                    "cpf_cnpj": "",
-                                                    "fracao": 0
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    "partes_negocio": [
-                                        {
-                                            "sequencial": 0,
-                                            "nome": "",
-                                            "cpf_cnpj": "",
-                                            "genero": 0,
-                                            "descricao_genero": "",
-                                            "rg_parte": "",
-                                            "orgao_parte": "",
-                                            "nacionalidade": "",
-                                            "estado_civil": 0,
-                                            "descricao_estado_civil": "",
-                                            "regime_bens": 0,
-                                            "descricao_regime_bens": "",
-                                            "data_casamento": "",
-                                            "data_nascimento": "",
-                                            "numero_pacto": "",
-                                            "data_pacto": "",
-                                            "local_registro_pacto": "",
-                                            "instrumento_pacto": "",
-                                            "uniao_estavel": "",
-                                            "profissao": "",
-                                            "endereco": {
-                                                "tipo_logradouro": "",
-                                                "logradouro": "",
-                                                "numero": "",
-                                                "unidade": "",
-                                                "bairro": "",
-                                                "cidade": "",
-                                                "uf": "",
-                                                "complemento": "",
-                                                "cep": 0,
-                                                "endereco_completo": ""
-                                            },
-                                            "cpf_conjuge": "",
-                                            "nome_filiacao1": "",
-                                            "nome_filiacao2": "",
-                                            "email": "",
-                                            "nire": "",
-                                            "representantes": []
-                                        }
-                                    ],
-                                    "financiamento": {
-                                        "prazo_carencia": 0,
-                                        "enquadramento_financiamento": 0,
-                                        "descricao_enquadramento_financiamento": "",
-                                        "sistema_amortizacao": 0,
-                                        "descricao_sistema_amortizacao": "",
-                                        "origem_recursos": 0,
-                                        "descricao_origem_recursos": "",
-                                        "juros_anual_nominal": 0,
-                                        "juros_anual_efetivo": 0,
-                                        "juros_mensal_nominal": 0,
-                                        "juros_mensal_efetivo": 0,
-                                        "prazo_amortizacao": 0,
-                                        "valor_primeira_parcela": 0,
-                                        "data_primeira_parcela": "",
-                                        "destino_financiamento": "",
-                                        "forma_de_pagamento": ""
-                                    },
-                                    "cedula": {
-                                        "identificacao_cedula": "",
-                                        "tipo_cedula": 0,
-                                        "descricao_tipo_cedula": "",
-                                        "numero": "",
-                                        "fracao": 0,
-                                        "serie": "",
-                                        "especie_cedula": 0,
-                                        "descrever_especie_cedula": "",
-                                        "custodiante": {
-                                            "nome": "",
-                                            "cnpj": "",
-                                            "endereco_completo": ""
-                                        },
-                                        "data": ""
-                                    },
-                                    "representantes": [
-                                        {
-                                            "nome_representante": "",
-                                            "cpf_representante": "",
-                                            "cnpj_representado": "",
-                                            "numero_instrumento": "",
-                                            "tipo_registro": 0,
-                                            "orgao": "",
-                                            "forma_registro": "",
-                                            "numero_livro": "",
-                                            "folha": 0,
-                                            "numero_registro": 0,
-                                            "data_registro": ""
-                                        }
-                                    ],
-                                    "impostos": {
-                                        "imposto_transmissao": {
-                                            "isencao": "",
-                                            "inscricao": "",
-                                            "guia": "",
-                                            "valor": 0,
-                                            "justificativa": ""
-                                        },
-                                        "dajes": [
-                                            {
-                                                "emissor": "",
-                                                "serie": "",
-                                                "numero": "",
-                                                "valor": 0
-                                            }
-                                        ]
-                                    },
-                                    "clausulas_declaracoes": {
-                                        "verificacao_partes": [
-                                            {
-                                                "parte": "",
-                                                "descrever": ""
-                                            }
-                                        ],
-                                        "verificacao_imoveis": [
-                                            {
-                                                "imovel": 0,
-                                                "descrever": ""
-                                            }
-                                        ]
-                                    },
-                                    "autorizacoes": {
-                                        "declaro": "",
-                                        "autorizo": ""
-                                    }
-                                }
-                            },
-                            "resposta_processamento_markdown": ""
-                        },
-                        description="Objeto JSON com os dados extraídos da análise da escritura pública")
-
-   
+    __root__: Dict[str, Any] 
+    
+    
+  
 
 def log(message: str):
     logger = logging.getLogger("uvicorn")
@@ -428,13 +203,45 @@ def extract_response_text(resp_dict: dict) -> str | None:
             if "text" in block:
                 return block["text"]
     return None
+# ---------------------------------------------------------------------------
+
+# extração específica para respostas que usam text_format = "json_schema"
+def extrair_json_da_resposta_schema(resp_dict: dict) -> Dict[str, Any]:
+    """
+    Extrai o JSON produzido por um prompt com `text_format=json_schema`.
+
+    Estratégia:
+    • Procura o primeiro bloco `type=="output_text"` (ou 'text') cujo
+      conteúdo comece com '{' ou '['.
+    • Faz json.loads e devolve o dicionário resultante.
+
+    Levanta ValueError se nada válido for encontrado.
+    """
+    for item in resp_dict.get("output", []):
+        if item.get("type") != "message":
+            continue
+
+        for block in item.get("content", []):
+            if block.get("type") in ("output_text", "text") and "text" in block:
+                raw = block["text"].lstrip()
+
+                # Garante que estamos olhando para um JSON
+                if raw.startswith("{") or raw.startswith("["):
+                    try:
+                        return json.loads(raw)
+                    except json.JSONDecodeError as e:
+                        raise ValueError(f"JSON inválido: {e}") from None
+
+    raise ValueError("Nenhum JSON encontrado na resposta (json_schema).")
+# ------------------------------------------------------------------------------
 
 
 # ------------------ Função que fala com a OpenAI ----------------------------
 def enviar_para_openai(
     openai_api_key: str,
     contents: List[dict],
-    alias: str                           
+    alias: str,
+    expected_format: str = "text"                           
 ) -> str:  
     prompt_cfg = get_prompts().get(alias)
     log("Executando enviar_para_openai")
@@ -468,6 +275,11 @@ def enviar_para_openai(
         )
 
     data = response.model_dump()
+    
+    # Decide como devolver com base no formato esperado
+    if expected_format == "json":
+        # Para rota escritura_publica vamos tratar fora
+        return data
 
     text = extract_response_text(data)
     if text is None:
@@ -667,18 +479,18 @@ def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaRespons
     texto_resposta = enviar_para_openai(
         openai_api_key=body.openai_api_key,
         contents=contents,
-        alias="escritura_publica"        
+        alias="escritura_publica",
+        expected_format="json"        
     )
     
     try:
-        output_json = extrair_json_da_resposta(texto_resposta)
-        log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
-    except json.JSONDecodeError as e:
-        log(f"Erro ao decodificar JSON: {str(e)}")
-        log(f"Texto da resposta: {texto_resposta[:200]}...")
-        raise HTTPException(500, "Erro ao decodificar a resposta da OpenAI como JSON.")
+        output_json = extrair_json_da_resposta_schema(resp_dict)
+        log(f"JSON extraído com sucesso (schema): {json.dumps(output_json)[:100]}...")
+    except Exception as e:
+        log(f"Falha ao extrair JSON (schema): {str(e)}")
+        raise HTTPException(502, "Resposta da OpenAI não contém JSON válido no formato esperado.")
 
-    return EscrituraPublicaResponse(resposta=output_json)
+    return EscrituraPublicaResponse(__root__=output_json)
 
 # -----------------Endpoint ESCRITURA_PUBLICA/UPLOAD multipart (reutiliza a mesma lógica) ---------------
 @app.post("/escritura_publica/upload",

@@ -29,7 +29,7 @@ def b64(path: str) -> str:
 # ------------------------------------------------------------------------------
 # 3. Arquivos que serão enviados
 # ------------------------------------------------------------------------------
-pdfs  = ["escritura-aliencacao-fiduciaria.pdf"]
+pdfs  = ["../docs/escritura_publica/escritura-aliencacao-fiduciaria.pdf"]
 
 pdfs_b64 = [b64(i) for i in pdfs]
 
@@ -38,7 +38,7 @@ pdfs_b64 = [b64(i) for i in pdfs]
 # ------------------------------------------------------------------------------
 response = client.responses.create(
     prompt={
-        "id": "pmpt_687f9ebb50388193b1f7f0b667076dc00fbc998c46e42ab6",
+        "id": "pmpt_68876a48fe8c819695a7e8705a7aadc9073a6c6d9c2e8e9d",
     },
     input=[
         {
@@ -67,25 +67,26 @@ print(json.dumps(response.model_dump(), indent=2, ensure_ascii=False))
 #print("\n\n\nmarkdown output:\n")
       
 
-output_text = response.output[0].content[0].text
-rprint(Markdown(output_text))
+
+#output_text = response.output[0].content[0].text
+#rprint(Markdown(output_text))
 
 # Extraindo o conteúdo do atributo "resposta_processamento_markdown"
-output_text = response.output[0].content[0].text
+#output_text = response.output[0].content[0].text
 
 # Removendo a tag ```json e convertendo a string JSON em um dicionário
-output_json = json.loads(output_text.strip("```json ").strip("```"))
+#output_json = json.loads(output_text.strip("```json ").strip("```"))
 
 # Pegando o conteúdo do atributo "resposta_processamento_markdown"
-markdown_content = output_json.get("resposta_processamento_markdown", "")
+#markdown_content = output_json.get("resposta_processamento_markdown", "")
 
 # Formatando e imprimindo o conteúdo em Markdown
-rprint(Markdown(markdown_content))
+#rprint(Markdown(markdown_content))
 
 # Removendo a chave "resposta_processamento_markdown" do output_json
-output_json.pop("resposta_processamento_markdown", None)
+#output_json.pop("resposta_processamento_markdown", None)
 
 # Imprimindo o conteúdo restante de output_json formatado e colorido
-rprint(output_json)
+#rprint(output_json)
 
 
