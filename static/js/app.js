@@ -175,7 +175,19 @@ class SkAIApp {
                 throw new Error(errorData.detail || 'Erro na requisição');
             }
 
-            const data = await response.json();
+            let data;
+            try {
+                data = await response.json();
+            } catch (err) {
+                this.showAlert('Não foi possível interpretar a resposta da API', 'danger');
+                return;
+            }
+
+            if (!data || typeof data !== 'object') {
+                this.showAlert('Resposta vazia da API', 'warning');
+                return;
+            }
+
             this.processResponse(data);
 
         } catch (error) {
@@ -188,12 +200,28 @@ class SkAIApp {
     }
 
     processResponse(data) {
-        const resposta = data;
+        if (!resposta) {
+            this.showAlert('Sem dados para exibir', 'warning');
+            return;
+        }
+        let resposta = data;
+        let markdown = '';
 
-        // Extrair e remover o markdown
-        const markdown = resposta.resposta_processamento_markdown || '';
-        this.currentMarkdown = markdown; // Armazena o markdown original
-        delete resposta.resposta_processamento_markdown;
+        // Verificar se estamos processando uma resposta de escritura pública
+        if (this.currentModel === 'escritura_publica') {
+            // Extrair e remover o markdown da resposta de escritura pública
+            markdown = resposta.resposta_processamento_markdown || '';
+
+            // Criar uma cópia do objeto sem o campo resposta_processamento_markdown
+            const { resposta_processamento_markdown, ...respostaLimpa } = resposta;
+            resposta = respostaLimpa;
+        } else if (resposta.resultado) {
+            // Para o modelo de qualificação, o markdown é o próprio resultado
+            markdown = resposta.resultado;
+        }
+
+        // Armazena o markdown original
+        this.currentMarkdown = markdown;
 
         // Renderizar markdown
         if (markdown) {
