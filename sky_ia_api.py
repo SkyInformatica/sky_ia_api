@@ -440,8 +440,6 @@ async def qualificacao_upload(
     Para PDFs, é possível especificar o nome do arquivo.
     
     Tipos de documentos que podem ser utilizados: Escritura Pública lavrada em Tabelionato de Notas
-    
-    A resposta será gerada pela OpenAI com base nos documentos fornecidos, específica para escrituras públicas.
     """
 )
 def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaResponse:
@@ -507,8 +505,6 @@ def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaRespons
     direto de arquivos sem a necessidade de codificação prévia em base64.
     
     Tipos de documentos que podem ser utilizados: Escritura Pública lavrada em Tabelionato de Notas
-    
-    A resposta será gerada pela OpenAI com base nos documentos fornecidos, específica para escrituras públicas.
     """
 )
 async def escritura_publica_upload(
