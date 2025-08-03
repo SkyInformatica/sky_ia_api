@@ -13,7 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import Request
 from starlette.responses import HTMLResponse
 from pathlib import Path
-from models.escritura_publica import EscrituraPublica
+from models.escritura_publica import EscrituraPublicaSchema
 
 
 app = FastAPI(
@@ -140,15 +140,8 @@ class QualificacaoResponse(BaseModel):
     
 # Adicione após o modelo QualificacaoResponse existente
 
-class EscrituraPublicaResponse(BaseModel):
-    escritura: EscrituraPublica 
-    resposta_processamento_markdown: str = ""
+EscrituraPublicaResponse = EscrituraPublicaSchema    
     
-    class Config:
-        json_schema_extra = {
-            "title": "EscrituraPublicaResponse",
-            "description": "Resposta contendo os dados extraídos da escritura pública"
-        }
 
 def log(message: str):
     logger = logging.getLogger("uvicorn")
@@ -489,12 +482,12 @@ def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaRespons
     
     try:
         output_json = extrair_json_da_resposta_schema(resp_dict)
-        log(f"JSON extraído com sucesso (schema): {json.dumps(output_json)[:100]}...")
+        log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
     except Exception as e:
         log(f"Falha ao extrair JSON (schema): {str(e)}")
         raise HTTPException(502, "Resposta da OpenAI não contém JSON válido no formato esperado.")
 
-    return EscrituraPublicaResponse(root=output_json)
+    return EscrituraPublicaResponse(**output_json)
 
 # -----------------Endpoint ESCRITURA_PUBLICA/UPLOAD multipart (reutiliza a mesma lógica) ---------------
 @app.post("/escritura_publica/upload",

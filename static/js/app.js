@@ -188,7 +188,7 @@ class SkAIApp {
     }
 
     processResponse(data) {
-        const resposta = data.resposta;
+        const resposta = data;
 
         // Extrair e remover o markdown
         const markdown = resposta.resposta_processamento_markdown || '';

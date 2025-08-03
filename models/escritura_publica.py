@@ -5,10 +5,22 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import List
+from typing import List, Annotated
+from datetime import date
 
-from pydantic import BaseModel, Extra, Field, constr
+from pydantic import BaseModel, Extra, Field, field_validator
+from pydantic.functional_validators import AfterValidator
+import re
 
+# Validador de data no formato ISO YYYY-MM-DD
+def validate_iso_date(v: str) -> str:
+    pattern = r'^\d{4}-\d{2}-\d{2}$'
+    if not re.match(pattern, v):
+        raise ValueError(f'A data deve estar no formato YYYY-MM-DD. Valor recebido: {v}')
+    return v
+
+# Tipo anotado para data ISO
+ISODateString = Annotated[str, AfterValidator(validate_iso_date)]
 
 class ClausulasCertido(BaseModel):
     class Config:
@@ -345,7 +357,7 @@ class Representante(BaseModel):
     numero_registro: int = Field(
         ..., description='Número sequencial do registro ou ato.'
     )
-    data_registro: constr(regex=r'^\d{4}-\d{2}-\d{2}$') = Field(
+    data_registro: ISODateString =  Field(
         ..., description='Data em que o instrumento foi protocolado/registrado.'
     )
 
@@ -422,7 +434,7 @@ class Financiamento(BaseModel):
     valor_primeira_parcela: float = Field(
         ..., description='Valor a ser pago na primeira prestação.'
     )
-    data_primeira_parcela: constr(regex=r'^\d{4}-\d{2}-\d{2}$') = Field(
+    data_primeira_parcela: ISODateString =  Field(
         ..., description='Data de vencimento da primeira prestação.'
     )
     destino_financiamento: str = Field(
@@ -571,16 +583,16 @@ class ParteNegocio(BaseModel):
         ...,
         description="Forma literal informada (ex.: 'comunhão parcial de bens na vigência da Lei 6.515/77').",
     )
-    data_casamento: constr(regex=r'^\d{4}-\d{2}-\d{2}$') = Field(
+    data_casamento: ISODateString =  Field(
         ..., description='Data do casamento, se mencionada.'
     )
-    data_nascimento: constr(regex=r'^\d{4}-\d{2}-\d{2}$') = Field(
+    data_nascimento: ISODateString =  Field(
         ..., description='Data de nascimento ou constituição (para PJ).'
     )
     numero_pacto: str = Field(
         ..., description='Número do registro do pacto antenupcial.'
     )
-    data_pacto: constr(regex=r'^\d{4}-\d{2}-\d{2}$') = Field(
+    data_pacto: ISODateString =  Field(
         ..., description='Data de assinatura do pacto antenupcial.'
     )
     local_registro_pacto: str = Field(
@@ -621,7 +633,7 @@ class Escritura(BaseModel):
         ...,
         description='Expressão literal que identifica a espécie do instrumento – ex.: “Escritura Pública de Compra e Venda com Alienação Fiduciária em Garantia”.',
     )
-    data: constr(regex=r'^\d{4}-\d{2}-\d{2}$') = Field(
+    data: ISODateString =  Field(
         ...,
         description='Data exata da lavratura (assinatura) da escritura, sempre no padrão ISO YYYY-MM-DD.',
     )
@@ -656,7 +668,7 @@ class Escritura(BaseModel):
     )
 
 
-class EscrituraSchema(BaseModel):
+class EscrituraPublicaSchema(BaseModel):
     class Config:
         extra = Extra.forbid
 
@@ -668,3 +680,5 @@ class EscrituraSchema(BaseModel):
         ...,
         description='Campo reservado para anotações do processamento, como erros, avisos ou informações adicionais conforme descrito no prompt. Deve ser preenchido com texto em Markdown.',
     )
+    
+
