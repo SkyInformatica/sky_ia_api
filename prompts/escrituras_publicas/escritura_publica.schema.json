@@ -3,12 +3,13 @@
   "strict": true,
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "EscrituraSchema",
+    "title": "EscrituraPublicaSchema",
     "type": "object",
     "description": "Estrutura oficial para representar, em JSON, todos os dados relevantes contidos numa escritura pública de transmissão de imóvel, contemplando cenários com alienação fiduciária, financiamento, quitação, doação ou qualquer outro ato translativo.",
     "additionalProperties": false,
     "required": [
-      "escritura"
+      "escritura",
+      "resposta_processamento_markdown"
     ],
     "properties": {
       "escritura": {
@@ -25,8 +26,7 @@
           "financiamento",
           "impostos",
           "clausulas_certidoes",
-          "clausulas_declaracoes_autorizacoes",
-          "resposta_processamento_markdown"
+          "clausulas_declaracoes_autorizacoes"
         ],
         "properties": {
           "titulo": {
@@ -119,12 +119,12 @@
                 }
               }
             }
-          },
-          "resposta_processamento_markdown": {
-            "type": "string",
-            "description": "Campo reservado para anotações do processamento, como erros, avisos ou informações adicionais conforme descrito no prompt. Deve ser preenchido com texto em Markdown."
           }
         }
+      },
+      "resposta_processamento_markdown": {
+        "type": "string",
+        "description": "Campo reservado para anotações do processamento, como erros, avisos ou informações adicionais conforme descrito no prompt. Deve ser preenchido com texto em Markdown."
       }
     },
     "definitions": {

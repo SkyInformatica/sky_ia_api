@@ -5,6 +5,7 @@ from pathlib import Path
 from openai import OpenAI
 from rich import print as rprint
 from rich.markdown import Markdown
+from typing import List, Optional, Dict, Any
 
 # ------------------------------------------------------------------------------
 # 1. Autenticação
@@ -25,6 +26,34 @@ def b64(path: str) -> str:
     path = Path(path)
     with path.open("rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
+    
+def extrair_json_da_resposta_schema(resp_dict: dict) -> Dict[str, Any]:
+    """
+    Extrai o JSON produzido por um prompt com `text_format=json_schema`.
+
+    Estratégia:
+    • Procura o primeiro bloco `type=="output_text"` (ou 'text') cujo
+      conteúdo comece com '{' ou '['.
+    • Faz json.loads e devolve o dicionário resultante.
+
+    Levanta ValueError se nada válido for encontrado.
+    """
+    for item in resp_dict.get("output", []):
+        if item.get("type") != "message":
+            continue
+
+        for block in item.get("content", []):
+            if block.get("type") in ("output_text", "text") and "text" in block:
+                raw = block["text"].lstrip()
+
+                # Garante que estamos olhando para um JSON
+                if raw.startswith("{") or raw.startswith("["):
+                    try:
+                        return json.loads(raw)
+                    except json.JSONDecodeError as e:
+                        raise ValueError(f"JSON inválido: {e}") from None
+
+    raise ValueError("Nenhum JSON encontrado na resposta (json_schema).")
 
 # ------------------------------------------------------------------------------
 # 3. Arquivos que serão enviados
@@ -64,8 +93,11 @@ response = client.responses.create(
 # 5. Saída
 # ------------------------------------------------------------------------------
 print(json.dumps(response.model_dump(), indent=2, ensure_ascii=False))
-#print("\n\n\nmarkdown output:\n")
-      
+
+
+print("\n\n\nresposta em json:\n")
+response_json = extrair_json_da_resposta_schema(response.model_dump());     
+print(json.dumps(response_json, indent=2, ensure_ascii=False))
 
 
 #output_text = response.output[0].content[0].text

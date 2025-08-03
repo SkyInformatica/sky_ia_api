@@ -4,7 +4,7 @@ import re
 import logging
 import json
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field 
 from typing import List, Optional, Dict, Any
 from openai import OpenAI, OpenAIError
 from config import get_prompts          
@@ -12,8 +12,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi import Request
 from starlette.responses import HTMLResponse
-
-
+from pathlib import Path
+from models.escritura_publica import EscrituraPublica
 
 
 app = FastAPI(
@@ -141,10 +141,14 @@ class QualificacaoResponse(BaseModel):
 # Adicione após o modelo QualificacaoResponse existente
 
 class EscrituraPublicaResponse(BaseModel):
-    __root__: Dict[str, Any] 
+    escritura: EscrituraPublica 
+    resposta_processamento_markdown: str = ""
     
-    
-  
+    class Config:
+        json_schema_extra = {
+            "title": "EscrituraPublicaResponse",
+            "description": "Resposta contendo os dados extraídos da escritura pública"
+        }
 
 def log(message: str):
     logger = logging.getLogger("uvicorn")
@@ -242,7 +246,7 @@ def enviar_para_openai(
     contents: List[dict],
     alias: str,
     expected_format: str = "text"                           
-) -> str:  
+) -> Any:  
     prompt_cfg = get_prompts().get(alias)
     log("Executando enviar_para_openai")
     log(f"Usando alias de prompt: {alias} -> {prompt_cfg}")
@@ -428,9 +432,9 @@ async def qualificacao_upload(
 
 @app.post("/escritura_publica", 
     response_model=EscrituraPublicaResponse,
-    summary="Extração de dados de escritura pública via JSON",
+    summary="Extração de dados de escritura pública",
     description="""
-    Endpoint para extração de dados de escritura pública enviadas em formato JSON.
+    Endpoint para extração de dados de escritura pública.
     
     **Tipos de arquivos suportados:**
     - Imagens: PNG, JPEG/JPG
@@ -476,7 +480,7 @@ def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaRespons
         else:
             raise HTTPException(400, f"MIME não suportado: {mime}")
 
-    texto_resposta = enviar_para_openai(
+    resp_dict = enviar_para_openai(
         openai_api_key=body.openai_api_key,
         contents=contents,
         alias="escritura_publica",
@@ -490,7 +494,7 @@ def escritura_publica_json(body: QualificacaoRequest) -> EscrituraPublicaRespons
         log(f"Falha ao extrair JSON (schema): {str(e)}")
         raise HTTPException(502, "Resposta da OpenAI não contém JSON válido no formato esperado.")
 
-    return EscrituraPublicaResponse(__root__=output_json)
+    return EscrituraPublicaResponse(root=output_json)
 
 # -----------------Endpoint ESCRITURA_PUBLICA/UPLOAD multipart (reutiliza a mesma lógica) ---------------
 @app.post("/escritura_publica/upload",

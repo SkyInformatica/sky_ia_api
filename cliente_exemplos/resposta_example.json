@@ -1,0 +1,238 @@
+{
+    "escritura": {
+        "titulo": "Escritura Pública de Venda e Compra com Alienação Fiduciária",
+        "data": "2025-05-28",
+        "livro": "Livro 2 – Registro Geral",
+        "folha": "",
+        "negocios": [
+            {
+                "sequencial": 1,
+                "tipo_ato": 1,
+                "descricao_tipo_ato": "Venda e compra",
+                "valor_transmissao": 199938.0,
+                "valor_venal": 199938.0,
+                "valor_financiamento": 181862.06,
+                "valor_avaliacao": 233446.06,
+                "valor_leilao": 233446.06,
+                "recursos_proprios": 18075.94,
+                "recursos_financiados": 181862.06,
+                "primeira_aquisicao": "0",
+                "pago_em_especie": "1",
+                "valor_pago_em_especie": 18075.94,
+                "observacoes_gerais": "Preço certo e ajustado de R$199.938,00, pagos da seguinte forma: R$18.075,94 pagos anteriormente em espécie em 01/02/2024; R$181.862,06 a serem pagos em 131 parcelas de R$1.388,26 cada, vencendo a primeira em 08/06/2025. Índice de correção IPCA + juros de 0,85% ao mês. Garantia de alienação fiduciária sobre o imóvel descrito. Multa de 2% e juros de 1% ao mês em caso de inadimplemento.",
+                "imoveis": [
+                    {
+                        "cnm": "",
+                        "localizacao": 1,
+                        "descricao_localizacao": "Quarteirão formado pela Rua das Rosas, Rua Samuel Ferreira da Silva, Estrada Municipal Ângelo Rurato, Rua João Paranhos da Rocha, Rua Marcellino Paulino Milani, Rua Manoel Panassol Sobrinho, Rua Joaquim Prestes e limite com as quadras números 5812, 6092, 6093 e 6094",
+                        "numero_matricula": 200194,
+                        "iptu": "",
+                        "ccir": "",
+                        "nirf": "",
+                        "tipo_imovel": 1,
+                        "descricao_tipo_imovel": "Apartamento",
+                        "descricao": "Apartamento nº 402, localizado no 4º pavimento do Bloco 17 do empreendimento denominado Porto Siena, situado na Rua Joaquim Prestes, nº 1.928, com uso exclusivo da vaga de estacionamento nº 374, descoberta, sexta vaga à esquerda na Rua D.",
+                        "valor_avaliacao": 233446.06,
+                        "valor_atribuido": 199938.0,
+                        "endereco": {
+                            "cep": "",
+                            "tipo_logradouro": "Rua",
+                            "logradouro": "Joaquim Prestes",
+                            "numero": "1928",
+                            "unidade": "Apartamento 402, Bloco 17",
+                            "complemento": "Vaga de estacionamento nº 374, descoberta",
+                            "bairro": "",
+                            "cidade": "Caxias do Sul/RS",
+                            "endereco_completo": "Rua Joaquim Prestes, nº 1.928, Apartamento 402, Bloco 17, Caxias do Sul/RS"
+                        }
+                    }
+                ],
+                "partes": [
+                    {
+                        "qualificacao": 3,
+                        "descricao_qualificacao": "OUTORGANTE VENDEDORA E CREDORA FIDUCIÁRIA",
+                        "cpf_cnpj": "08.343.492/0001-20",
+                        "fracao": 1
+                    },
+                    {
+                        "qualificacao": 1,
+                        "descricao_qualificacao": "OUTORGADO COMPRADOR E DEVEDOR FIDUCIANTE",
+                        "cpf_cnpj": "602.912.510-99",
+                        "fracao": 1
+                    }
+                ]
+            }
+        ],
+        "partes_negocio": [
+            {
+                "sequencial_negocio": "1",
+                "nome": "MRV ENGENHARIA E PARTICIPAÇÕES S/A",
+                "cpf_cnpj": "08.343.492/0001-20",
+                "genero": 0,
+                "estado_civil": 21,
+                "descricao_estado_civil": "",
+                "capacidade_civil": 1,
+                "descricao_capacidade_civil": "",
+                "regime_bens": 50,
+                "descricao_regime_bens": "Não informado",
+                "data_casamento": "0000-00-00",
+                "data_nascimento": "0000-00-00",
+                "numero_pacto": "",
+                "data_pacto": "0000-00-00",
+                "local_registro_pacto": "",
+                "instrumento_pacto": "",
+                "uniao_estavel": "0",
+                "profissao": 0,
+                "endereco": {
+                    "cep": "",
+                    "tipo_logradouro": "Avenida",
+                    "logradouro": "Professor Mário Werneck",
+                    "numero": "621",
+                    "unidade": "1° andar",
+                    "complemento": "",
+                    "bairro": "",
+                    "cidade": "Belo Horizonte/MG",
+                    "endereco_completo": "Avenida Professor Mário Werneck, nº 621, 1° andar, Belo Horizonte/MG"
+                },
+                "cpf_conjuge": "",
+                "email": "",
+                "nome_filiacao1": "",
+                "nome_filiacao2": "",
+                "representantes": [
+                    {
+                        "nome_representante": "FERNANDO VARGAS RUSCHEL",
+                        "cpf_representante": "010.078.010-50",
+                        "cnpj_representado": "08.343.492/0001-20",
+                        "numero_instrumento": "2708",
+                        "tipo_registro": 5,
+                        "orgao": "Cartório do 9° Ofício de Notas de Belo Horizonte/MG",
+                        "forma_registro": "",
+                        "numero_livro": "2708",
+                        "folha": 68,
+                        "numero_registro": 16316,
+                        "data_registro": "2025-02-27"
+                    }
+                ]
+            },
+            {
+                "sequencial_negocio": "1",
+                "nome": "JOSÉ HENRIQUE MELGAREJO ROSAS",
+                "cpf_cnpj": "602.912.510-99",
+                "genero": 1,
+                "estado_civil": 15,
+                "descricao_estado_civil": "solteiro, maior",
+                "capacidade_civil": 1,
+                "descricao_capacidade_civil": "",
+                "regime_bens": 50,
+                "descricao_regime_bens": "Não informado",
+                "data_casamento": "0000-00-00",
+                "data_nascimento": "0000-00-00",
+                "numero_pacto": "",
+                "data_pacto": "0000-00-00",
+                "local_registro_pacto": "",
+                "instrumento_pacto": "",
+                "uniao_estavel": "0",
+                "profissao": 0,
+                "endereco": {
+                    "cep": "",
+                    "tipo_logradouro": "Rua",
+                    "logradouro": "Conde D'eu",
+                    "numero": "2913",
+                    "unidade": "Apartamento 202, bloco 3",
+                    "complemento": "",
+                    "bairro": "",
+                    "cidade": "Caxias do Sul/RS",
+                    "endereco_completo": "Rua Conde D'eu, nº 2913, apartamento 202, bloco 3, Caxias do Sul/RS"
+                },
+                "cpf_conjuge": "",
+                "email": "rosash664@gmail.com",
+                "nome_filiacao1": "Juan José Rosas",
+                "nome_filiacao2": "Delia Mabel Melgarejo de Rosas",
+                "representantes": []
+            }
+        ],
+        "financiamento": {
+            "prazo_carencia": 0,
+            "enquadramento_financiamento": 5,
+            "descricao_enquadramento_financiamento": "Não informado",
+            "sistema_amortizacao": 5,
+            "descricao_sistema_amortizacao": "Não informado",
+            "origem_recursos": 1,
+            "descricao_origem_recursos": "Não informado",
+            "juros_anual_nominal": 0,
+            "juros_anual_efetivo": 0,
+            "juros_mensal_nominal": 0,
+            "juros_mensal_efetivo": 0,
+            "prazo_amortizacao": 131,
+            "valor_primeira_parcela": 1388.26,
+            "data_primeira_parcela": "2025-06-08",
+            "destino_financiamento": "Pagamento do saldo devedor",
+            "forma_de_pagamento": "Parcelas mensais de R$1.388,26, vencendo a primeira em 08/06/2025"
+        },
+        "impostos": {
+            "imposto_transmissao": {
+                "isencao": "0",
+                "inscricao": "5182/2025",
+                "guia": "",
+                "valor": 3998.76
+            }
+        },
+        "clausulas_certidoes": [
+            {
+                "tipo_certidao": "Certidão Positiva com Efeito de Negativa de Débitos Trabalhistas - CNDT",
+                "descricao": "Processo: 0000870-44.2011.5.15.0090 - TRT 15ª Região (3ª Vara do Trabalho de Bauru)"
+            },
+            {
+                "tipo_certidao": "Certidão Positiva com efeito de Negativa de Débitos Relativos aos Tributos Federais e à Dívida Ativa da União",
+                "descricao": "Abrangendo inclusive as contribuições sociais"
+            },
+            {
+                "tipo_certidao": "Certidão Negativa de Débitos Trabalhistas - CNDT",
+                "descricao": ""
+            },
+            {
+                "tipo_certidao": "Certidão Negativa de Débitos Relativos aos Tributos Federais e à Dívida Ativa da União",
+                "descricao": "Abrangendo inclusive as contribuições sociais"
+            },
+            {
+                "tipo_certidao": "Certidão positiva de ônus reais e negativa de ações reais ou pessoais reipersecutórias",
+                "descricao": "Expedidas pelo ofício imobiliário competente em 19 de maio de 2025"
+            },
+            {
+                "tipo_certidao": "Certidão de propriedade relativa ao imóvel",
+                "descricao": "Expedidas pelo ofício imobiliário competente em 19 de maio de 2025"
+            },
+            {
+                "tipo_certidao": "Certidão negativa de débito por tributos municipais relativos ao imóvel",
+                "descricao": "Dispensada pelo outorgado comprador"
+            }
+        ],
+        "clausulas_declaracoes_autorizacoes": [
+            {
+                "tipo": "Declaração",
+                "descricao": "As partes declaram que optam por não apresentar os dados relativos à forma de pagamento, em razão da expressa vontade de não divulgar informações bancárias e/ou sensíveis, estando cientes do disposto no § 3º do artigo 165-A do Provimento nº 161/2024 do CNJ."
+            },
+            {
+                "tipo": "Declaração",
+                "descricao": "A outorgante vendedora declara que até o momento inexistem débitos incidentes sobre o imóvel, e não tramita contra ela nenhuma ação que possa comprometer o negócio jurídico ora realizado."
+            },
+            {
+                "tipo": "Declaração",
+                "descricao": "Em relação à unidade ora vendida não existem débitos para com o condomínio até a presente data."
+            },
+            {
+                "tipo": "Declaração",
+                "descricao": "O outorgado comprador declara que não é pessoa politicamente exposta nos termos da Resolução COAF, de 11 de março de 2024, atendendo aos requisitos do artigo 165-A do Provimento 161/2024 do CGJ."
+            },
+            {
+                "tipo": "Declaração",
+                "descricao": "O outorgado comprador tem conhecimento e aceita a Área de Preservação Permanente, bem como o Patrimônio de Afetação anteriormente referidos, e exonera o Tabelião do Nono Tabelionato de Notas de qualquer responsabilidade pela eventual demora quanto à transmissão do domínio, pelo registro desta escritura junto ao Ofício Imobiliário competente."
+            },
+            {
+                "tipo": "Declaração",
+                "descricao": "O outorgado comprador concorda com esta escritura nos termos em que se encontra redigida."
+            }
+        ],
+        "resposta_processamento_markdown": "# RESUMO\n\n- Título: Escritura Pública de Venda e Compra com Alienação Fiduciária\n- Data: 2025-05-28\n- Livro: Livro 2 – Registro Geral\n- Folha: Não especificada\n\n# NEGÓCIOS\n\n| Sequencial | Tipo de Ato | Valor do Negócio (R$) |\n|------------|-------------|-----------------------|\n| 1          | Venda e compra | 199.938,00           |\n\n# IMÓVEIS\n\n| Matrícula | Descrição                                                                                           | Endereço                                   | Guias Pagas                         |\n|-----------|---------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------------------|\n| 200194    | Apartamento nº 402, 4º pavimento, Bloco 17, Porto Siena, Rua Joaquim Prestes, nº 1.928, com vaga 374 | Rua Joaquim Prestes, nº 1.928, Caxias do Sul/RS | Guia avaliação nº 5182/2025, ITBI pago |\n\n# PARTES ENVOLVIDAS\n\n| Qualificação | Nome                         | CPF/CNPJ               | Estado Civil    | Regime de Bens | Cônjuge | Representante                  | Fração Imóvel (%) |\n|--------------|------------------------------|------------------------|-----------------|----------------|---------|-------------------------------|-------------------|\n| 3 (Credora)  | MRV ENGENHARIA E PARTICIPAÇÕES S/A | 08.343.492/0001-20     | Não informado   | Não informado  |         | Fernando Vargas Ruschel (procurador) | 100               |\n| 1 (Adquirente) | JOSÉ HENRIQUE MELGAREJO ROSAS | 602.912.510-99         | solteiro, maior | Não informado  |         |                               | 100               |\n\n# FINANCIAMENTO\n\n- Imóvel financiado: Matrícula 200194\n- Valor do imóvel: R$ 199.938,00\n- Valor financiado: R$ 181.862,06\n- Valor recursos próprios: R$ 18.075,94\n- Forma de pagamento: Parcelas mensais de R$ 1.388,26, vencendo a primeira em 08/06/2025\n- Prazo: 131 parcelas\n\n# IMPOSTO TRANSMISSÃO\n\n- Número inscrição: 5182/2025\n- Valor pago: R$ 3.998,76\n\n# CERTIDÕES\n\n- Certidão Positiva com Efeito de Negativa de Débitos Trabalhistas - CNDT (processo 0000870-44.2011.5.15.0090 - TRT 15ª Região)\n- Certidão Positiva com efeito de Negativa de Débitos Relativos aos Tributos Federais e à Dívida Ativa da União\n- Certidão Negativa de Débitos Trabalhistas - CNDT (comprador)\n- Certidão Negativa de Débitos Relativos aos Tributos Federais e à Dívida Ativa da União (comprador)\n- Certidão positiva de ônus reais e negativa de ações reais ou pessoais reipersecutórias (imóvel)\n- Certidão de propriedade relativa ao imóvel\n- Certidão negativa de débito por tributos municipais relativa ao imóvel (dispensada)\n\n# DECLARAÇÕES\n\n- As partes optaram por não apresentar dados relativos à forma de pagamento por vontade expressa.\n- Vendedora declara inexistência de débitos sobre o imóvel e ausência de ações que comprometam o negócio.\n- Não existem débitos condominiais sobre a unidade vendida.\n- Comprador declara não ser pessoa politicamente exposta.\n- Comprador aceita Área de Preservação Permanente e Patrimônio de Afetação e exonera o tabelião de responsabilidades pela demora no registro.\n- Comprador concorda com a escritura conforme redigida.\n\n# RESUMO ESCRITURA\n\n- Venda e compra com alienação fiduciária do apartamento nº 402, Bloco 17, Porto Siena, Caxias do Sul/RS.\n- Preço total R$ 199.938,00, com pagamento inicial em espécie e saldo financiado em 131 parcelas.\n- Alienação fiduciária como garantia do pagamento, com posse direta ao comprador enquanto adimplente.\n- Correção pelo IPCA e juros de 0,85% ao mês, multa de 2% e juros de 1% ao mês em caso de atraso.\n- Procedimentos detalhados para inadimplemento, consolidação da propriedade e leilão público.\n- Imposto de transmissão recolhido e guia arquivada.\n- Certidões apresentadas e dispensas justificadas.\n- Declarações das partes sobre débitos, condições e concordância com o ato.\n\n# REVISÕES DOS DADOS\n\n- Estado civil e regime de bens das partes não especificados na escritura, mantidos como não informados.\n- Enquadramento do financiamento, sistema de amortização e origem dos recursos não detalhados, mantidos como não informados.\n- Folha do livro não especificada no documento.\n- CPF do comprador apresentado com formatação e número conforme documento, verificar consistência no registro.\n- Endereços completos conforme texto, sem CEP informado.\n- Valor de avaliação e valor de leilão iguais, conforme cláusula, mantidos idênticos.\n- Observações sobre pagamento em espécie e financiamento detalhadas conforme texto.\n- Procurador da vendedora com dados completos extraídos da procuração.\n- Não há indicação de primeira aquisição residencial, marcado como 0.\n- Não há indicação de pagamento em espécie além do valor declarado.\n- Não há informações sobre pacto antenupcial ou união estável, marcados como não aplicáveis.\n- Não há informações sobre e-mail da vendedora.\n- Não há informações sobre CPF do cônjuge das partes.\n- Não há informações sobre profissão codificada, mantida como 0.\n- Não há informações sobre datas de nascimento ou casamento para as partes.\n- Não há informações sobre número de matrícula CNM, IPTU, CCIR ou NIRF para o imóvel.\n\n"
+    }
+}
