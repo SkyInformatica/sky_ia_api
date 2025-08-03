@@ -26,7 +26,7 @@ class ClausulasCertidao(BaseModel):
     class Config:
         extra = Extra.forbid
 
-    tipo_certidao: str = Field(
+    tipo: str = Field(
         ...,
         description='Categoria e/ou tipo da certidão',
     )
