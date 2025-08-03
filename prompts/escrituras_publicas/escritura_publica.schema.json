@@ -26,7 +26,8 @@
           "financiamento",
           "impostos",
           "clausulas_certidoes",
-          "clausulas_declaracoes_autorizacoes"
+          "clausulas_declaracoes",
+          "clausulas_autorizacoes"
         ],
         "properties": {
           "titulo": {
@@ -78,18 +79,18 @@
           },
           "clausulas_certidoes": {
             "type": "array",
-            "description": "Relação de certidões apresentadas (matrícula atualizada, certidão de ônus, certidões negativas pessoais, ambientais, etc.).",
+            "description": "Relação de certidões apresentadas (ex.: Certidão negativa de ônus reais e de ações reais ou pessoais reipersecutórias, CNDT - Certidão Negativa de Débitos Trabalhistas, certidão negativa de débito municipais relativos ao imóvel, Certidão negativa de débitos relativos aos Tributos Federais e à Dívida Ativa da União, etc).",
             "items": {
               "type": "object",
               "additionalProperties": false,
               "required": [
-                "tipo_certidao",
+                "tipo",
                 "descricao"
               ],
               "properties": {
-                "tipo_certidao": {
+                "tipo": {
                   "type": "string",
-                  "description": "Natureza da certidão (ex.: Ônus Reais, Débitos Municipais, Regularidade Fiscal)."
+                  "description": "Categoria e/ou tipo da certidão ."
                 },
                 "descricao": {
                   "type": "string",
@@ -111,7 +112,7 @@
               "properties": {
                 "tipo": {
                   "type": "string",
-                  "description": "Categoria e/ou tipo da cláusula."
+                  "description": "Categoria e/ou tipo da declaração ou consulta."
                 },
                 "descricao": {
                   "type": "string",
@@ -146,7 +147,7 @@
       },
       "resposta_processamento_markdown": {
         "type": "string",
-        "description": "Campo reservado para anotações do processamento, como erros, avisos ou informações adicionais conforme descrito no prompt. Deve ser preenchido com texto em Markdown."
+        "description": "Campo reservado para a resposta resumida do processamento detalhando **NEGÓCICOS**, **PARTES**, **IMPOSTOS**, **PAGAMENTO e FINANCIAMENTO**, **CERTIDOES**, **DECLARACOES**, **AUTORIZACOES** . Deve ser preenchido com texto em Markdown."
       }
     },
     "definitions": {

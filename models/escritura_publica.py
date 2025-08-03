@@ -22,13 +22,13 @@ def validate_iso_date(v: str) -> str:
 # Tipo anotado para data ISO
 ISODateString = Annotated[str, AfterValidator(validate_iso_date)]
 
-class ClausulasCertido(BaseModel):
+class ClausulasCertidao(BaseModel):
     class Config:
         extra = Extra.forbid
 
     tipo_certidao: str = Field(
         ...,
-        description='Natureza da certidão (ex.: Ônus Reais, Débitos Municipais, Regularidade Fiscal).',
+        description='Categoria e/ou tipo da certidão',
     )
     descricao: str = Field(
         ...,
@@ -36,18 +36,32 @@ class ClausulasCertido(BaseModel):
     )
 
 
-class ClausulasDeclaracoesAutorizaco(BaseModel):
+class ClausulasDeclaracoes(BaseModel):
     class Config:
         extra = Extra.forbid
 
     tipo: str = Field(
         ...,
-        description='Categoria da cláusula (Declaração, Autorização, Ratificação, Renúncia etc.).',
+        description='Categoria e/ou tipo da declaração ou consulta.',
     )
     descricao: str = Field(
         ...,
         description='Conteúdo integral ou resumo fiel da cláusula, conforme redação do tabelião.',
     )
+
+class ClausulasAutorizacoes(BaseModel):
+    class Config:
+        extra = Extra.forbid
+
+    tipo: str = Field(
+        ...,
+        description='Categoria e/ou tipo da autorização.',
+    )
+    descricao: str = Field(
+        ...,
+        description='Conteúdo integral ou resumo fiel da cláusula, conforme redação do tabelião.',
+    )
+
 
 
 class Endereco(BaseModel):
@@ -658,19 +672,21 @@ class Escritura(BaseModel):
         ...,
         description='Bloco dedicado a tributos incidentes sobre a transmissão patrimonial (ITBI, ITCMD ou equivalentes).',
     )
-    clausulas_certidoes: List[ClausulasCertido] = Field(
+    clausulas_certidoes: List[ClausulasCertidao] = Field(
         ...,
-        description='Relação de certidões juntadas (matrícula atualizada, certidão de ônus, certidões negativas pessoais, ambientais, etc.).',
+        description='Relação de certidões apresentadas (ex.: Certidão negativa de ônus reais e de ações reais ou pessoais reipersecutórias, CNDT - Certidão Negativa de Débitos Trabalhistas, certidão negativa de débito municipais relativos ao imóvel, Certidão negativa de débitos relativos aos Tributos Federais e à Dívida Ativa da União, etc).',
     )
-    clausulas_declaracoes_autorizacoes: List[ClausulasDeclaracoesAutorizaco] = Field(
+    clausulas_declaracoes: List[ClausulasDeclaracoes] = Field(
         ...,
-        description='Qualquer cláusula declaratória ou autorizativa (ex.: declarações fiscais, anuência conjugal, autorização de averbação).',
+        description='Qualquer cláusula declaratória e/ou consultas as centrais como CNIB e CEPIT  (ex.: DOI - declaração de operação imobiliária, CNIB - Central Nacional de Indisponbilidade de bens, CEPIT - Central Eletrônica de Publicações e de Interdições e Tutelas).',
+    )
+    clausulas_autorizacoes: List[ClausulasAutorizacoes] = Field(
+        ...,
+        description='Qualquer cláusula autorizativa (ex.: autorização para registro de imóveis, autorização de averbação).',
     )
 
 
 class EscrituraPublicaSchema(BaseModel):
-    class Config:
-        extra = Extra.forbid
 
     escritura: Escritura = Field(
         ...,
@@ -678,7 +694,7 @@ class EscrituraPublicaSchema(BaseModel):
     )
     resposta_processamento_markdown: str = Field(
         ...,
-        description='Campo reservado para anotações do processamento, como erros, avisos ou informações adicionais conforme descrito no prompt. Deve ser preenchido com texto em Markdown.',
+        description='Campo reservado para a resposta resumida do processamento detalhando **NEGÓCICOS**, **PARTES**, **IMPOSTOS**, **PAGAMENTO e FINANCIAMENTO**, **CERTIDOES**, **DECLARACOES**, **AUTORIZACOES** . Deve ser preenchido com texto em Markdown.',
     )
     
 
