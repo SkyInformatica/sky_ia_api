@@ -164,7 +164,7 @@ class SkAIApp {
                 formData.append('files', file);
             });
 
-            const endpoint = `/${this.currentModel}/upload`;
+            const endpoint = `/${this.currentModel}`;
             const response = await fetch(endpoint, {
                 method: 'POST',
                 body: formData

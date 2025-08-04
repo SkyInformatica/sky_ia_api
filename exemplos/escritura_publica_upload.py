@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Envia arquivos via multipart para /qualificacao/upload
+"""Envia arquivos via multipart para /escritura_publica
    Usa variáveis de ambiente:
      SKY_API_URL     – URL base da API
      SKY_OPENAI_KEY  – chave OpenAI
@@ -18,7 +18,7 @@ API_KEY = os.getenv("SKY_OPENAI_KEY")
 if not API_KEY:
     sys.exit("❌  Defina a variável de ambiente SKY_OPENAI_KEY")
 
-url = f"{API_URL}/escritura_publica/upload"
+url = f"{API_URL}/escritura_publica"
 payload = {"openai_api_key": API_KEY}
 
 files = [
