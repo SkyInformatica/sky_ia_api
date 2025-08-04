@@ -49,7 +49,7 @@ async def escritura_publica_upload(
     )
     
     # Processa os documentos e obtém a resposta
-    output_json = process_documents(req, alias="escritura_publica", expected_format="json")
+    output_json = process_documents(req, alias="escritura_publica")
     
     # Constrói e retorna o objeto EscrituraPublicaResponse com o JSON completo
     # Passando diretamente o JSON retornado pela OpenAI, sem o atributo "resposta"

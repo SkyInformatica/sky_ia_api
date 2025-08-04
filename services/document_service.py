@@ -6,14 +6,13 @@ from models.base import Document, DocumentRequest
 from services.openai_service import enviar_para_openai, extrair_json_da_resposta_schema, log
 import json
 
-def process_documents(request: DocumentRequest, alias: str, expected_format: str = "json") -> Dict[str, Any]:
+def process_documents(request: DocumentRequest, alias: str) -> Dict[str, Any]:
     """
     Processa documentos enviados e envia para a OpenAI.
     
     Args:
         request: Objeto DocumentRequest contendo os documentos e a chave da API
         alias: Alias do prompt a ser usado
-        expected_format: Formato esperado da resposta (sempre "json")
         
     Returns:
         Dict: Resposta processada da OpenAI
@@ -43,7 +42,7 @@ def process_documents(request: DocumentRequest, alias: str, expected_format: str
         openai_api_key=request.openai_api_key,
         contents=contents,
         alias=alias,
-        expected_format=expected_format
+        expected_format="json"
     )
     
     # Processa a resposta usando schema JSON

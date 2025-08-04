@@ -51,7 +51,7 @@ async def qualificacao_upload(
     )
     
     # Processa os documentos e obtém a resposta usando schema JSON
-    output_json = process_documents(req, alias="qualificacao", expected_format="json")
+    output_json = process_documents(req, alias="qualificacao")
     
     # Retorna diretamente o JSON da OpenAI como QualificacaoResponse
     return QualificacaoResponse(**output_json)
