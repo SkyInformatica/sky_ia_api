@@ -15,6 +15,7 @@ POST /qualificacao
 Endpoint para qualificação de documentos através de upload direto de arquivos.
 
 **Tipos de arquivos suportados:**
+
 - Imagens: PNG, JPEG/JPG
 - Documentos: PDF
 
@@ -27,6 +28,7 @@ POST /escritura_publica
 Endpoint para extração de dados de escritura pública através de upload direto de arquivos.
 
 **Tipos de arquivos suportados:**
+
 - Imagens: PNG, JPEG/JPG
 - Documentos: PDF
 
