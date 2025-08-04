@@ -3,17 +3,17 @@ import base64
 from typing import List, Dict, Any
 from fastapi import HTTPException, UploadFile
 from models.base import Document, DocumentRequest
-from services.openai_service import enviar_para_openai, extrair_json_da_resposta, extrair_json_da_resposta_schema, log
+from services.openai_service import enviar_para_openai, extrair_json_da_resposta_schema, log
 import json
 
-def process_documents(request: DocumentRequest, alias: str, expected_format: str = "text") -> Dict[str, Any]:
+def process_documents(request: DocumentRequest, alias: str, expected_format: str = "json") -> Dict[str, Any]:
     """
     Processa documentos enviados e envia para a OpenAI.
     
     Args:
         request: Objeto DocumentRequest contendo os documentos e a chave da API
         alias: Alias do prompt a ser usado
-        expected_format: Formato esperado da resposta ("text" ou "json")
+        expected_format: Formato esperado da resposta (sempre "json")
         
     Returns:
         Dict: Resposta processada da OpenAI
@@ -46,24 +46,14 @@ def process_documents(request: DocumentRequest, alias: str, expected_format: str
         expected_format=expected_format
     )
     
-    # Processa a resposta de acordo com o formato esperado
-    if expected_format == "json":
-        try:
-            output_json = extrair_json_da_resposta_schema(response)
-            log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
-            return output_json
-        except Exception as e:
-            log(f"Falha ao extrair JSON (schema): {str(e)}")
-            raise HTTPException(502, "Resposta da OpenAI não contém JSON válido no formato esperado.")
-    else:
-        try:
-            output_json = extrair_json_da_resposta(response)
-            log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
-            return output_json
-        except json.JSONDecodeError as e:
-            log(f"Erro ao decodificar JSON: {str(e)}")
-            log(f"Texto da resposta: {response[:200]}...")
-            raise HTTPException(500, "Erro ao decodificar a resposta da OpenAI como JSON.")
+    # Processa a resposta usando schema JSON
+    try:
+        output_json = extrair_json_da_resposta_schema(response)
+        log(f"JSON extraído com sucesso: {json.dumps(output_json)[:100]}...")
+        return output_json
+    except Exception as e:
+        log(f"Falha ao extrair JSON (schema): {str(e)}")
+        raise HTTPException(502, "Resposta da OpenAI não contém JSON válido no formato esperado.")
 
 async def process_uploaded_files(openai_api_key: str, files: List[UploadFile]) -> List[Document]:
     """

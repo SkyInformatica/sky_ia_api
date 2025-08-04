@@ -1,48 +1,199 @@
 {
-    "data": [
+    "qualificacao": [
         {
             "informacoes_pessoais": {
-                "cpf": "788.127.123-45", // Ex.: "123.456.789-00"    
-                "nome": "PELÉ PEQUENO", // Ex.: "JOÃO DA SILVA"
-                "sexo": "MASCULINO", // Ex.: "MASCULINO", "FEMININO"              
-                "estado_civil": "CASADO", // Ex.: "SOLTEIRO", "CASADO", "DIVORCIADO", "VIÚVO"        
-                "data_nascimento": "10/01/1980", // dd/mm/aaaa         
-                "nacionalidade": "BRASILEIRO", // Ex.: "BRASILEIRO", "ITALIANO", "ESTADUNIDENSE"
+                "cpf": "788.127.710-68",
+                "nome": "MAGLAN CRISTIANO DIEMER",
+                "sexo": "MASCULINO",
+                "estado_civil": "CASADO",
+                "data_nascimento": "23/01/1976",
+                "nacionalidade": "BRASILEIRO",
                 "naturalidade": {
-                    "cidade": "PORTO ALEGRE", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"      
-                    "uf": "RS", // Ex.: "SP", "RJ", "MG"
+                    "cidade": "TRÊS PASSOS",
+                    "uf": "RS"
                 },
-                "profissao": "ADMINISTRADOR DE EMPRESAS", // Ex.: "ENGENHEIRO", "MÉDICO", "PROFESSOR"
-                "pai": "PEDRO PEQUENO", // Ex.: "JOÃO DA SILVA"
-                "mae": "MARIA PEQUENO", // Ex.: "MARIA DA SILVA"
+                "profissao": "PROGRAMADOR",
+                "pai": "ADEMAR SILVESTRE DIEMER",
+                "mae": "DALVA LAIDY DIEMER"
             },
             "documentos_identificacao": [
                 {
-                    "tipo": "CNH", // Ex.: "CNH", "Passaporte", "RG"
-                    "numero": "123456789", // Ex.: "123456789" 
-                    "orgao": "DETRAN", // Ex.: "SSP", "DETRAN", "DRE"
-                    "data_expedicao": "10/01/2019", // dd/mm/aaaa
-                    "data_vencimento": "10/01/2029", // dd/mm/aaaa
-                    "uf": "RS" // Ex.: "SP", "RJ", "MG"
+                    "tipo": "CNH",
+                    "numero": "00731927294",
+                    "orgao": "DETRAN",
+                    "data_expedicao": "13/01/2021",
+                    "data_vencimento": "13/01/2026",
+                    "uf": "RS"
                 },
                 {
-                    "tipo": "RG", // Ex.: "CNH", "Passaporte", "RG"
-                    "numero": "305278123", // Ex.: "123456789"
-                    "orgao": "SSP", // Ex.: "SSP", "DETRAN", "DRE"
-                    "data_expedicao": "", // dd/mm/aaaa
-                    "data_vencimento": "", // dd/mm/aaaa
-                    "uf": "SP" // Ex.: "SP", "RJ", "MG"      
+                    "tipo": "RG",
+                    "numero": "3052443862",
+                    "orgao": "SSP",
+                    "data_expedicao": "30/09/2014",
+                    "data_vencimento": "",
+                    "uf": "RS"
                 }
             ],
             "endereco_residencial": {
-                "cep": "92510-800", // Ex.: "12345-678"
-                "logradouro": "RODOVIA DOIS", // Ex.: "AVENIDA BRASIL", "RUA DAS FLORES"
-                "numero": "123", // Ex.: "123", "456"
-                "complemento": "APTO 567", // Ex.: "APTO 123", "CASA 2"
-                "bairro": "CENTRO", // Ex.: "JARDIM DAS ROSAS", "VILA SÃO JORGE"
-                "cidade": "MONTENEGRO", // Ex.: "RIO DE JANEIRO", "SÃO PAULO"
-                "uf": "RS", // Ex.: "SP", "RJ", "MG"
-                "pais": "BRASIL", // Ex.: "BRASIL", "ESTADOS UNIDOS", "PORTUGAL"
+                "cep": "92510-260",
+                "logradouro": "RUA JOAO PESSOA",
+                "numero": "2460",
+                "complemento": "AP 501",
+                "bairro": "CENTRO",
+                "cidade": "MONTENEGRO",
+                "uf": "RS",
+                "pais": "BRASIL"
+            },
+            "informacoes_nascimento": {
+                "numero_certidao": "397",
+                "livro": "2 A",
+                "folha": "45",
+                "cidade_registro": "LAJEADO",
+                "uf_registro": "RS",
+                "data_certidao": "12/09/1978"
+            },
+            "informacoes_conjuge": {
+                "cpf": "954.724.280-68",
+                "nome": "ANDRÉA STURMER WOLF",
+                "informacoes_casamento": {
+                    "regime_bens": "COMUNHÃO UNIVERSAL",
+                    "data_casamento": "31/07/2000",
+                    "data_atualizacao": "07/12/2011",
+                    "numero_certidao": "14.992",
+                    "data_certidao": "22/12/2011",
+                    "livro": "3 RA",
+                    "folha": "240",
+                    "cidade_registro": "LAJEADO",
+                    "uf_registro": "RS"
+                },
+                "pacto_antenupcial": {
+                    "dados_tabelionato": {
+                        "livro": "45",
+                        "folha": "044v",
+                        "cidade_tabelionato": "LAJEADO",
+                        "uf_tabelionato": "RS",
+                        "data": "31/07/2000"
+                    },
+                    "dados_registro_imoveis": {
+                        "numero_registro": "14.992",
+                        "livro": "3 RA",
+                        "cidade_registro": "LAJEADO",
+                        "uf_registro": "RS",
+                        "data": "22/12/2011"
+                    }
+                }
+            }
+        },
+        {
+            "informacoes_pessoais": {
+                "cpf": "954.724.280-68",
+                "nome": "ANDRÉA WOLF DIEMER",
+                "sexo": "FEMININO",
+                "estado_civil": "CASADA",
+                "data_nascimento": "17/07/1978",
+                "nacionalidade": "BRASILEIRA",
+                "naturalidade": {
+                    "cidade": "",
+                    "uf": "RS"
+                },
+                "profissao": "AUXILIAR DE LABORATÓRIO",
+                "pai": "MARINO WOLF",
+                "mae": "EVA MARINA STURMER"
+            },
+            "documentos_identificacao": [
+                {
+                    "tipo": "CNH",
+                    "numero": "01484174933",
+                    "orgao": "DETRAN",
+                    "data_expedicao": "02/12/2020",
+                    "data_vencimento": "02/12/2025",
+                    "uf": "RS"
+                },
+                {
+                    "tipo": "RG",
+                    "numero": "1054749989",
+                    "orgao": "SSP",
+                    "data_expedicao": "24/07/1978",
+                    "data_vencimento": "",
+                    "uf": "RS"
+                }
+            ],
+            "endereco_residencial": {
+                "cep": "92510-260",
+                "logradouro": "RUA CEARÁ",
+                "numero": "132",
+                "complemento": "",
+                "bairro": "BAIRRO SÃO CRISTÓVÃO",
+                "cidade": "LAJEADO",
+                "uf": "RS",
+                "pais": "BRASIL"
+            },
+            "informacoes_nascimento": {
+                "numero_certidao": "68",
+                "livro": "A-1",
+                "folha": "68",
+                "cidade_registro": "TRÊS PASSOS",
+                "uf_registro": "RS",
+                "data_certidao": "26/01/1978"
+            },
+            "informacoes_conjuge": {
+                "cpf": "788.127.710-68",
+                "nome": "MAGLAN CRISTIANO DIEMER",
+                "informacoes_casamento": {
+                    "regime_bens": "COMUNHÃO UNIVERSAL",
+                    "data_casamento": "31/07/2000",
+                    "data_atualizacao": "07/12/2011",
+                    "numero_certidao": "14.992",
+                    "data_certidao": "22/12/2011",
+                    "livro": "3 RA",
+                    "folha": "240",
+                    "cidade_registro": "LAJEADO",
+                    "uf_registro": "RS"
+                },
+                "pacto_antenupcial": {
+                    "dados_tabelionato": {
+                        "livro": "45",
+                        "folha": "044v",
+                        "cidade_tabelionato": "LAJEADO",
+                        "uf_tabelionato": "RS",
+                        "data": "31/07/2000"
+                    },
+                    "dados_registro_imoveis": {
+                        "numero_registro": "14.992",
+                        "livro": "3 RA",
+                        "cidade_registro": "LAJEADO",
+                        "uf_registro": "RS",
+                        "data": "22/12/2011"
+                    }
+                }
+            }
+        },
+        {
+            "informacoes_pessoais": {
+                "cpf": "",
+                "nome": "ANDRÉA STURMER WOLF",
+                "sexo": "",
+                "estado_civil": "",
+                "data_nascimento": "",
+                "nacionalidade": "",
+                "naturalidade": {
+                    "cidade": "",
+                    "uf": ""
+                },
+                "profissao": "",
+                "pai": "",
+                "mae": ""
+            },
+            "documentos_identificacao": [],
+            "endereco_residencial": {
+                "cep": "",
+                "logradouro": "",
+                "numero": "",
+                "complemento": "",
+                "bairro": "",
+                "cidade": "",
+                "uf": "",
+                "pais": ""
             },
             "informacoes_nascimento": {
                 "numero_certidao": "",
@@ -50,17 +201,17 @@
                 "folha": "",
                 "cidade_registro": "",
                 "uf_registro": "",
-                "data_certidao": "" // dd/mm/aaaa
+                "data_certidao": ""
             },
             "informacoes_conjuge": {
                 "cpf": "",
                 "nome": "",
                 "informacoes_casamento": {
-                    "regime_bens": "", // Ex.: "comunhão parcial"
-                    "data_casamento": "", // dd/mm/aaaa
-                    "data_atualizacao": "", // dd/mm/aaaa
+                    "regime_bens": "",
+                    "data_casamento": "",
+                    "data_atualizacao": "",
                     "numero_certidao": "",
-                    "data_certidao": "", // dd/mm/aaaa
+                    "data_certidao": "",
                     "livro": "",
                     "folha": "",
                     "cidade_registro": "",
@@ -72,16 +223,16 @@
                         "folha": "",
                         "cidade_tabelionato": "",
                         "uf_tabelionato": "",
-                        "data": "", // dd/mm/aaaa
+                        "data": ""
                     },
                     "dados_registro_imoveis": {
                         "numero_registro": "",
                         "livro": "",
                         "cidade_registro": "",
                         "uf_registro": "",
-                        "data": "", // dd/mm/aaaa        
+                        "data": ""
                     }
-                },
+                }
             }
         }
     ],

@@ -76,43 +76,7 @@ def extract_response_text(resp_dict: dict) -> str | None:
                 return block["text"]
     return None
 
-def extrair_json_da_resposta(texto: str) -> Dict[str, Any]:
-    """
-    Extrai um objeto JSON de uma string que pode conter delimitadores de código markdown.
-    
-    Args:
-        texto: String que pode conter JSON com ou sem delimitadores markdown
-    Returns:
-        Dict: Objeto JSON extraído da string
-        
-    Raises:
-        JSONDecodeError: Se não for possível extrair um JSON válido
-    """
-    # Tenta primeiro extrair JSON de blocos de código markdown
-    json_pattern = r"```(?:json)?\s*([\s\S]*?)```"
-    matches = re.findall(json_pattern, texto)
-    
-    if matches:
-        # Usa o primeiro bloco de código encontrado
-        try:
-            return json.loads(matches[0])
-        except json.JSONDecodeError:
-            pass  # Se falhar, continua para tentar outras abordagens
-    
-    # Tenta interpretar a string inteira como JSON
-    try:
-        return json.loads(texto)
-    except json.JSONDecodeError:
-        # Tenta remover caracteres não-JSON do início e fim
-        texto_limpo = texto.strip()
-        if texto_limpo.startswith("{") and texto_limpo.endswith("}"):
-            try:
-                return json.loads(texto_limpo)
-            except json.JSONDecodeError:
-                pass
-    
-    # Se todas as tentativas falharem, lança exceção
-    raise json.JSONDecodeError("Não foi possível extrair um JSON válido da resposta", texto, 0)
+
 
 def extrair_json_da_resposta_schema(resp_dict: dict) -> Dict[str, Any]:
     """

@@ -207,11 +207,8 @@ class SkAIApp {
 
         let markdown = '';
 
-        if (this.currentModel === 'escritura_publica') {
-            markdown = resposta.resposta_processamento_markdown || '';
-        } else if (resposta.resposta) {
-            markdown = resposta.resposta.resposta_processamento_markdown || '';
-        }
+        // Ambos os modelos agora retornam resposta_processamento_markdown diretamente
+        markdown = resposta.resposta_processamento_markdown || '';
 
         this.currentMarkdown = markdown;
 
