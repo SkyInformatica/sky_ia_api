@@ -1,161 +1,232 @@
 {
     "escritura": {
-        "titulo": "",
-        "data": "",
-        "livro": "",
-        "folha": "",
+        "titulo": "Escritura Pública de Compra e Venda",
+        "data": "2025-02-14",
+        "livro": "Livro 300-A",
+        "folha": "Fls. 158-159",
         "negocios": [
             {
-                "sequencial": 0,
-                "tipo_ato": 0,
-                "descricao_tipo_ato": "",
-                "valor_transmissao": 0,
+                "sequencial": 1,
+                "tipo_ato": 1,
+                "descricao_tipo_ato": "Compra e Venda",
+                "valor_transmissao": 500000,
                 "valor_venal": 0,
                 "valor_financiamento": 0,
                 "valor_avaliacao": 0,
                 "valor_leilao": 0,
-                "recursos_proprios": 0,
+                "recursos_proprios": 500000,
                 "recursos_financiados": 0,
-                "primeira_aquisicao": "",
-                "pago_em_especie": "",
+                "primeira_aquisicao": "0",
+                "pago_em_especie": "0",
                 "valor_pago_em_especie": 0,
-                "observacoes_gerais": "",
+                "observacoes_gerais": "Venda de dois imóveis localizados no Edifício Roraima, Rua Irmão José Otão nº 575, Bairro Bom Fim, Porto Alegre, RS, pelo preço total de R$500.000,00, pagos em duas parcelas via transferência eletrônica TED/PIX.",
                 "imoveis": [
                     {
                         "cnm": "",
-                        "localizacao": 0,
-                        "descricao_localizacao": "",
-                        "numero_matricula": 0,
-                        "iptu": "",
+                        "localizacao": 1,
+                        "descricao_localizacao": "Zona urbana, Bairro Bom Fim, quarteirão formado pelas ruas General João Telles, Santo Antonio, Travessa Cauduro e avenidas Oswaldo Aranha e Irmão José Otão, Edifício Roraima, Rua Irmão José Otão nº 575",
+                        "numero_matricula": 52210,
+                        "iptu": "6156908",
                         "ccir": "",
                         "nirf": "",
-                        "tipo_imovel": 0,
-                        "descricao_tipo_imovel": "",
-                        "descricao": "",
-                        "valor_avaliacao": 0,
-                        "valor_atribuido": 0,
+                        "tipo_imovel": 1,
+                        "descricao_tipo_imovel": "Apartamento",
+                        "descricao": "Apartamento nº 505, quinto pavimento ou quarto andar, de frente para a rua Irmão José Otão, área total 98,64m², sendo 65,60m² privativos e 33,04m² condominiais, fração ideal 0,041 no condomínio e terreno.",
+                        "valor_avaliacao": 440000,
+                        "valor_atribuido": 440000,
                         "endereco": {
-                            "tipo_logradouro": "",
-                            "logradouro": "",
-                            "numero": "",
-                            "unidade": "",
-                            "bairro": "",
-                            "cidade": "",
-                            "uf": "",
-                            "lote": "",
-                            "quadra": "",
-                            "torre": "",
+                            "cep": "",
+                            "tipo_logradouro": "Rua",
+                            "logradouro": "Irmão José Otão",
+                            "numero": "575",
+                            "unidade": "505",
                             "complemento": "",
-                            "endereco_completo": "",
-                            "nome_loteamento": "",
-                            "nome_condominio": ""
+                            "bairro": "Bom Fim",
+                            "cidade": "Porto Alegre RS",
+                            "endereco_completo": "Rua Irmão José Otão, 575, apto 505, Bairro Bom Fim, Porto Alegre RS"
+                        }
+                    },
+                    {
+                        "cnm": "",
+                        "localizacao": 1,
+                        "descricao_localizacao": "Zona urbana, Bairro Bom Fim, Edifício Roraima, garagem coletiva pavimento térreo, acesso pelo portão à direita de quem entra no edifício, junto ao apartamento do zelador",
+                        "numero_matricula": 52224,
+                        "iptu": "6156614",
+                        "ccir": "",
+                        "nirf": "",
+                        "tipo_imovel": 16,
+                        "descricao_tipo_imovel": "Garagem",
+                        "descricao": "Espaço estacionamento nº 04, área total 13,62m², sendo 12,00m² privativos e 1,62m² condominiais, fração ideal 0,002 no condomínio e terreno.",
+                        "valor_avaliacao": 60000,
+                        "valor_atribuido": 60000,
+                        "endereco": {
+                            "cep": "",
+                            "tipo_logradouro": "Rua",
+                            "logradouro": "Irmão José Otão",
+                            "numero": "575",
+                            "unidade": "04",
+                            "complemento": "Garagem Coletiva pavimento térreo",
+                            "bairro": "Bom Fim",
+                            "cidade": "Porto Alegre RS",
+                            "endereco_completo": "Rua Irmão José Otão, 575, Espaço Estacionamento nº 04, Bairro Bom Fim, Porto Alegre RS"
                         }
                     }
                 ],
                 "partes": [
                     {
-                        "qualificacao": "",
-                        "descricao_qualificacao": "",
-                        "cpf_cnpj": "",
-                        "fracao": 0
+                        "qualificacao": 12,
+                        "descricao_qualificacao": "OUTORGANTE VENDEDORA",
+                        "cpf_cnpj": "934.271.580-04",
+                        "fracao": 1
+                    },
+                    {
+                        "qualificacao": 1,
+                        "descricao_qualificacao": "OUTORGADA COMPRADORA",
+                        "cpf_cnpj": "652.120.370-34",
+                        "fracao": 1
                     }
                 ]
             }
         ],
         "partes_negocio": [
             {
-                "sequencial_negocio": "",
-                "nome": "",
-                "cpf_cnpj": "",
-                "genero": 0,
-                "descricao_genero": "",
-                "documento": "",
-                "orgao_emissor": "",
-                "nacionalidade": "",
-                "estado_civil": 0,
-                "descricao_estado_civil": "",
-                "capacidade_civil": 0,
-                "descricao_capacidade_civil": "",
-                "regime_bens": 0,
-                "descricao_regime_bens": "",
-                "data_casamento": "",
-                "data_nascimento": "",
+                "sequencial_negocio": "1",
+                "nome": "ANA GABRIELA DE ALMEIDA VEIGA",
+                "cpf_cnpj": "934.271.580-04",
+                "genero": 2,
+                "estado_civil": 1,
+                "descricao_estado_civil": "casada",
+                "capacidade_civil": 1,
+                "descricao_capacidade_civil": "capaz",
+                "regime_bens": 57,
+                "descricao_regime_bens": "separação total de bens, na vigência da Lei nº 6515/77",
+                "data_casamento": "2023-11-01",
+                "data_nascimento": "0000-00-00",
                 "numero_pacto": "",
-                "data_pacto": "",
+                "data_pacto": "2023-11-01",
+                "local_registro_pacto": "10º Tabelionato de Notas de Porto Alegre",
+                "instrumento_pacto": "Escritura",
+                "uniao_estavel": "0",
+                "profissao": "servidora pública federal",
+                "endereco": {
+                    "cep": "",
+                    "tipo_logradouro": "Avenida",
+                    "logradouro": "Bagé",
+                    "numero": "1382",
+                    "unidade": "402",
+                    "complemento": "",
+                    "bairro": "Petrópolis",
+                    "cidade": "Porto Alegre RS",
+                    "endereco_completo": "Avenida Bagé, 1382, apto 402, Petrópolis, Porto Alegre RS"
+                },
+                "cpf_conjuge": "519.295.620-04",
+                "email": "",
+                "nome_filiacao1": "Sirlei Terezinha de Almeida Veiga",
+                "nome_filiacao2": "",
+                "representantes": []
+            },
+            {
+                "sequencial_negocio": "1",
+                "nome": "GESSI BLASKESI DE ALMEIDA",
+                "cpf_cnpj": "652.120.370-34",
+                "genero": 2,
+                "estado_civil": 18,
+                "descricao_estado_civil": "viúva",
+                "capacidade_civil": 1,
+                "descricao_capacidade_civil": "capaz",
+                "regime_bens": 21,
+                "descricao_regime_bens": "não convive em união estável",
+                "data_casamento": "0000-00-00",
+                "data_nascimento": "0000-00-00",
+                "numero_pacto": "",
+                "data_pacto": "0000-00-00",
                 "local_registro_pacto": "",
                 "instrumento_pacto": "",
-                "uniao_estavel": "",
-                "profissao": "",
+                "uniao_estavel": "0",
+                "profissao": "aposentada",
                 "endereco": {
-                    "tipo_logradouro": "",
-                    "logradouro": "",
-                    "numero": "",
-                    "unidade": "",
+                    "cep": "",
+                    "tipo_logradouro": "Rua",
+                    "logradouro": "Felipe Camarão",
+                    "numero": "203",
+                    "unidade": "601",
                     "complemento": "",
-                    "bairro": "",
-                    "cidade": "",
-                    "uf": "",
-                    "endereco_completo": ""
+                    "bairro": "Rio Branco",
+                    "cidade": "Porto Alegre RS",
+                    "endereco_completo": "Rua Felipe Camarão, 203, apto 601, Rio Branco, Porto Alegre RS"
                 },
                 "cpf_conjuge": "",
                 "email": "",
-                "nome_filiacao1": "",
-                "nome_filiacao2": "",
-                "representantes": [
-                    {
-                        "nome_representante": "",
-                        "cpf_representante": "",
-                        "cnpj_representado": "",
-                        "numero_instrumento": "",
-                        "tipo_registro": 0,
-                        "orgao": "",
-                        "forma_registro": "",
-                        "numero_livro": "",
-                        "numero_folha": "",
-                        "numero_registro": 0,
-                        "data_registro": ""
-                    }
-                ]
+                "nome_filiacao1": "João Blaskesi",
+                "nome_filiacao2": "Maria Silva Blaskesi",
+                "representantes": []
             }
         ],
         "financiamento": {
             "prazo_carencia": 0,
-            "enquadramento_financiamento": 0,
-            "descricao_enquadramento_financiamento": "",
-            "sistema_amortizacao": 0,
-            "descricao_sistema_amortizacao": "",
-            "origem_recursos": 0,
-            "descricao_origem_recursos": "",
+            "enquadramento_financiamento": 1,
+            "descricao_enquadramento_financiamento": "Não informado",
+            "sistema_amortizacao": 1,
+            "descricao_sistema_amortizacao": "Não informado",
+            "origem_recursos": 1,
+            "descricao_origem_recursos": "Não informado",
             "juros_anual_nominal": 0,
             "juros_anual_efetivo": 0,
             "juros_mensal_nominal": 0,
             "juros_mensal_efetivo": 0,
             "prazo_amortizacao": 0,
             "valor_primeira_parcela": 0,
-            "data_primeira_parcela": "",
+            "data_primeira_parcela": "0000-00-00",
             "destino_financiamento": "",
             "forma_de_pagamento": ""
         },
-        "impostos": {
-            "imposto_transmissao": {
-                "isencao": "",
-                "inscricao": "",
-                "guia": "",
-                "valor": 0
-            }
-        },
-        "clausulas_certidoes": [
+        "impostos_transmissao": [
             {
-                "tipo_certidao": "",
-                "descrever": ""
+                "isencao": "0",
+                "inscricao": "6156908",
+                "guia": "0014.2025.00610.1",
+                "valor": 13200
+            },
+            {
+                "isencao": "0",
+                "inscricao": "6156614",
+                "guia": "0014.2025.00611.0",
+                "valor": 1800
             }
         ],
-        "clausulas_declaracoes_autorizacoes": [
+        "clausulas_certidoes": [
             {
-                "tipo_declaracao_autorizacao": "",
-                "descrever": ""
+                "tipo": "Certidões de propriedade do imóvel",
+                "descricao": "Matrícula atualizada, negativas de ônus reais e ações reais e pessoais reipersecutórias, emitidas em 11/02/2025."
+            },
+            {
+                "tipo": "Certidões Negativas de Débitos Municipais - IPTU",
+                "descricao": "Inscrições imobiliárias 6156908 e 6156614, válidas até 06/03/2025."
+            },
+            {
+                "tipo": "Certidão Negativa de Débitos trabalhistas (CNDT)",
+                "descricao": "Conforme artigo 642-A da CLT, com redação dada pela Lei 12.440/2011, conforme Recomendação 03/2012 do CNJ."
+            },
+            {
+                "tipo": "Certidão negativa de débitos relativos aos Tributos Federais e à Dívida Ativa da União",
+                "descricao": "Abrange inclusive as contribuições sociais previstas nas alíneas 'a' a 'd' do parágrafo único do art. 11 da Lei nº 8.212, de 24 de julho de 1991."
             }
-        ]
+        ],
+        "clausulas_declaracoes": [
+            {
+                "tipo": "Consulta CNIB",
+                "descricao": "Consulta na Central Nacional de Indisponibilidade de Bens - CNIB, resultado negativo para ANA GABRIELA DE ALMEIDA VEIGA e para GESSI BLASKESI DE ALMEIDA em 14/02/2025."
+            },
+            {
+                "tipo": "Consulta CEPIT",
+                "descricao": "Consulta na Central Eletrônica de Publicações e de Interdições e Tutelas - CEPIT, resultado negativo para ANA GABRIELA DE ALMEIDA VEIGA e para GESSI BLASKESI DE ALMEIDA em 14/02/2025."
+            },
+            {
+                "tipo": "Declaração sobre Operação Imobiliária",
+                "descricao": "Emitida conforme Instrução Normativa da Secretaria da Receita Federal."
+            }
+        ],
+        "clausulas_autorizacoes": []
     },
-    "resposta_processamento_markdown": ""
+    "resposta_processamento_markdown": "# RESUMO\n\n- Trata-se de uma **Escritura Pública de Compra e Venda** lavrada em **14 de fevereiro de 2025**, no **Livro 300-A, fls. 158-159**, no 14º Tabelionato de Notas de Porto Alegre, RS.\n- O negócio envolve a venda de dois imóveis localizados no Edifício Roraima, Rua Irmão José Otão nº 575, Bairro Bom Fim, Porto Alegre.\n- Os imóveis são: um **apartamento nº 505** com área total de 98,64m² (65,60m² privativos) e um **espaço estacionamento nº 04** com área total de 13,62m² (12,00m² privativos).\n- O valor total da transação é de **R$ 500.000,00**, sendo R$ 440.000,00 para o apartamento e R$ 60.000,00 para o espaço estacionamento.\n- A venda foi realizada entre a outorgante vendedora Ana Gabriela de Almeida Veiga e a outorgada compradora Gessi Blaskesi de Almeida.\n- O pagamento foi efetuado em duas parcelas via transferência eletrônica (TED/PIX): R$ 300.000,00 em 11/12/2025 e R$ 200.000,00 na data da escritura (14/02/2025).\n- Não há financiamento envolvido.\n- Foram apresentadas certidões de propriedade atualizadas, negativas de ônus reais, negativas de débitos municipais (IPTU), negativas de débitos trabalhistas (CNDT) e negativas de débitos federais e dívida ativa da União.\n- Foram realizadas consultas negativas na CNIB e CEPIT para ambas as partes.\n- Emitida Declaração sobre Operação Imobiliária conforme Instrução Normativa da Receita Federal.\n- O imposto de transmissão (ITBI) foi pago conforme guias apresentadas, totalizando R$ 15.000,00 (R$ 13.200,00 para o apartamento e R$ 1.800,00 para o estacionamento).\n- Não há cláusulas restritivas ou condicionais para a transmissão dos imóveis.\n\n# IMÓVEIS\n\n| Matrícula | Descrição                                      | Endereço                                      | Guias Pagas (ITBI) | Valor Atribuído (R$) |\n|-----------|------------------------------------------------|----------------------------------------------|--------------------|---------------------|\n| 52210     | Apartamento nº 505, 98,64m² (65,60m² priv.)   | Rua Irmão José Otão, 575, apto 505, Bom Fim, Porto Alegre RS | 0014.2025.00610.1  | 440000.00           |\n| 52224     | Espaço estacionamento nº 04, 13,62m² (12,00m² priv.) | Rua Irmão José Otão, 575, garagem coletiva, Bom Fim, Porto Alegre RS | 0014.2025.00611.0  | 60000.00            |\n\n# PARTES ENVOLVIDAS\n\n| Qualificação       | Nome                      | CPF/CNPJ         | Estado Civil | Profissão               | Regime de Bens                            | Cônjuge CPF        | Representante | Fração Imóvel |\n|--------------------|---------------------------|------------------|--------------|------------------------|------------------------------------------|--------------------|---------------|---------------|\n| Outorgante Vendedora| Ana Gabriela de Almeida Veiga | 934.271.580-04   | casada       | servidora pública federal | separação total de bens, vigência Lei 6515/77 | 519.295.620-04     |               | 100%          |\n| Outorgada Compradora| Gessi Blaskesi de Almeida  | 652.120.370-34   | viúva        | aposentada              | não convive em união estável             |                    |               | 100%          |\n\n# PAGAMENTOS E FINANCIAMENTO\n\n- O pagamento dos imóveis foi realizado integralmente com recursos próprios da compradora.\n- Foram efetuadas duas transferências eletrônicas (TED/PIX) da conta de Luis Gustavo Blaskesi de Almeida para a conta da vendedora Ana Gabriela de Almeida Veiga.\n- Primeira parcela: R$ 300.000,00 em 11/12/2025.\n- Segunda parcela: R$ 200.000,00 em 14/02/2025, data da escritura.\n- Não houve financiamento.\n\n# IMPOSTO TRANSMISSÃO\n\n| Inscrição Municipal | Número da Guia        | Valor (R$) |\n|---------------------|----------------------|------------|\n| 6156908             | 0014.2025.00610.1    | 13200.00   |\n| 6156614             | 0014.2025.00611.0    | 1800.00    |\n\n# CERTIDÕES\n\n| Tipo                                         | Descrição                                                                                      |\n|----------------------------------------------|------------------------------------------------------------------------------------------------|\n| Certidões de propriedade do imóvel           | Matrícula atualizada, negativas de ônus reais e ações reais e pessoais reipersecutórias, emitidas em 11/02/2025. |\n| Certidões Negativas de Débitos Municipais - IPTU | Inscrições imobiliárias 6156908 e 6156614, válidas até 06/03/2025.                             |\n| Certidão Negativa de Débitos trabalhistas (CNDT) | Conforme artigo 642-A da CLT, com redação dada pela Lei 12.440/2011, conforme Recomendação 03/2012 do CNJ. |\n| Certidão negativa de débitos relativos aos Tributos Federais e à Dívida Ativa da União | Abrange inclusive as contribuições sociais previstas nas alíneas 'a' a 'd' do parágrafo único do art. 11 da Lei nº 8.212, de 24 de julho de 1991. |\n\n# CONSULTAS E DECLARAÇÕES\n\n| Tipo                | Descrição                                                                                     |\n|---------------------|-----------------------------------------------------------------------------------------------|\n| Consulta CNIB       | Consulta na Central Nacional de Indisponibilidade de Bens - CNIB, resultado negativo para ambas as partes em 14/02/2025. |\n| Consulta CEPIT      | Consulta na Central Eletrônica de Publicações e de Interdições e Tutelas - CEPIT, resultado negativo para ambas as partes em 14/02/2025. |\n| Declaração sobre Operação Imobiliária | Emitida conforme Instrução Normativa da Secretaria da Receita Federal.                      |\n\n# AUTORIZAÇÕES\n\nNenhuma informação extraída para esta seção.\n\n# REVISÕES DOS DADOS\n\n- Não foram identificadas inconsistências explícitas no documento.\n- Datas de nascimento e alguns dados pessoais não foram informados no documento.\n- O regime de bens da compradora foi registrado como \"não convive em união estável\", sem código específico na lista controlada, portanto foi mantido o texto literal.\n- Não há informações sobre financiamento, juros ou sistema de amortização, portanto campos relacionados foram preenchidos com valores padrão ou vazios.\n"
 }

@@ -4,187 +4,28 @@
             "informacoes_pessoais": {
                 "cpf": "788.127.710-68",
                 "nome": "MAGLAN CRISTIANO DIEMER",
-                "sexo": "MASCULINO",
-                "estado_civil": "CASADO",
-                "data_nascimento": "23/01/1976",
-                "nacionalidade": "BRASILEIRO",
-                "naturalidade": {
-                    "cidade": "TRÊS PASSOS",
-                    "uf": "RS"
-                },
-                "profissao": "PROGRAMADOR",
-                "pai": "ADEMAR SILVESTRE DIEMER",
-                "mae": "DALVA LAIDY DIEMER"
-            },
-            "documentos_identificacao": [
-                {
-                    "tipo": "CNH",
-                    "numero": "00731927294",
-                    "orgao": "DETRAN",
-                    "data_expedicao": "13/01/2021",
-                    "data_vencimento": "13/01/2026",
-                    "uf": "RS"
-                },
-                {
-                    "tipo": "RG",
-                    "numero": "3052443862",
-                    "orgao": "SSP",
-                    "data_expedicao": "30/09/2014",
-                    "data_vencimento": "",
-                    "uf": "RS"
-                }
-            ],
-            "endereco_residencial": {
-                "cep": "92510-260",
-                "logradouro": "RUA JOAO PESSOA",
-                "numero": "2460",
-                "complemento": "AP 501",
-                "bairro": "CENTRO",
-                "cidade": "MONTENEGRO",
-                "uf": "RS",
-                "pais": "BRASIL"
-            },
-            "informacoes_nascimento": {
-                "numero_certidao": "397",
-                "livro": "2 A",
-                "folha": "45",
-                "cidade_registro": "LAJEADO",
-                "uf_registro": "RS",
-                "data_certidao": "12/09/1978"
-            },
-            "informacoes_conjuge": {
-                "cpf": "954.724.280-68",
-                "nome": "ANDRÉA STURMER WOLF",
-                "informacoes_casamento": {
-                    "regime_bens": "COMUNHÃO UNIVERSAL",
-                    "data_casamento": "31/07/2000",
-                    "data_atualizacao": "07/12/2011",
-                    "numero_certidao": "14.992",
-                    "data_certidao": "22/12/2011",
-                    "livro": "3 RA",
-                    "folha": "240",
-                    "cidade_registro": "LAJEADO",
-                    "uf_registro": "RS"
-                },
-                "pacto_antenupcial": {
-                    "dados_tabelionato": {
-                        "livro": "45",
-                        "folha": "044v",
-                        "cidade_tabelionato": "LAJEADO",
-                        "uf_tabelionato": "RS",
-                        "data": "31/07/2000"
-                    },
-                    "dados_registro_imoveis": {
-                        "numero_registro": "14.992",
-                        "livro": "3 RA",
-                        "cidade_registro": "LAJEADO",
-                        "uf_registro": "RS",
-                        "data": "22/12/2011"
-                    }
-                }
-            }
-        },
-        {
-            "informacoes_pessoais": {
-                "cpf": "954.724.280-68",
-                "nome": "ANDRÉA WOLF DIEMER",
-                "sexo": "FEMININO",
-                "estado_civil": "CASADA",
-                "data_nascimento": "17/07/1978",
-                "nacionalidade": "BRASILEIRA",
-                "naturalidade": {
-                    "cidade": "",
-                    "uf": "RS"
-                },
-                "profissao": "AUXILIAR DE LABORATÓRIO",
-                "pai": "MARINO WOLF",
-                "mae": "EVA MARINA STURMER"
-            },
-            "documentos_identificacao": [
-                {
-                    "tipo": "CNH",
-                    "numero": "01484174933",
-                    "orgao": "DETRAN",
-                    "data_expedicao": "02/12/2020",
-                    "data_vencimento": "02/12/2025",
-                    "uf": "RS"
-                },
-                {
-                    "tipo": "RG",
-                    "numero": "1054749989",
-                    "orgao": "SSP",
-                    "data_expedicao": "24/07/1978",
-                    "data_vencimento": "",
-                    "uf": "RS"
-                }
-            ],
-            "endereco_residencial": {
-                "cep": "92510-260",
-                "logradouro": "RUA CEARÁ",
-                "numero": "132",
-                "complemento": "",
-                "bairro": "BAIRRO SÃO CRISTÓVÃO",
-                "cidade": "LAJEADO",
-                "uf": "RS",
-                "pais": "BRASIL"
-            },
-            "informacoes_nascimento": {
-                "numero_certidao": "68",
-                "livro": "A-1",
-                "folha": "68",
-                "cidade_registro": "TRÊS PASSOS",
-                "uf_registro": "RS",
-                "data_certidao": "26/01/1978"
-            },
-            "informacoes_conjuge": {
-                "cpf": "788.127.710-68",
-                "nome": "MAGLAN CRISTIANO DIEMER",
-                "informacoes_casamento": {
-                    "regime_bens": "COMUNHÃO UNIVERSAL",
-                    "data_casamento": "31/07/2000",
-                    "data_atualizacao": "07/12/2011",
-                    "numero_certidao": "14.992",
-                    "data_certidao": "22/12/2011",
-                    "livro": "3 RA",
-                    "folha": "240",
-                    "cidade_registro": "LAJEADO",
-                    "uf_registro": "RS"
-                },
-                "pacto_antenupcial": {
-                    "dados_tabelionato": {
-                        "livro": "45",
-                        "folha": "044v",
-                        "cidade_tabelionato": "LAJEADO",
-                        "uf_tabelionato": "RS",
-                        "data": "31/07/2000"
-                    },
-                    "dados_registro_imoveis": {
-                        "numero_registro": "14.992",
-                        "livro": "3 RA",
-                        "cidade_registro": "LAJEADO",
-                        "uf_registro": "RS",
-                        "data": "22/12/2011"
-                    }
-                }
-            }
-        },
-        {
-            "informacoes_pessoais": {
-                "cpf": "",
-                "nome": "ANDRÉA STURMER WOLF",
                 "sexo": "",
                 "estado_civil": "",
-                "data_nascimento": "",
+                "data_nascimento": "1976-01-23",
                 "nacionalidade": "",
                 "naturalidade": {
                     "cidade": "",
                     "uf": ""
                 },
                 "profissao": "",
-                "pai": "",
-                "mae": ""
+                "pai": "ADEMAR SILVESTRE DIEMER",
+                "mae": "DALVA LAIDY DIEMER"
             },
-            "documentos_identificacao": [],
+            "documentos_identificacao": [
+                {
+                    "tipo": "CNH",
+                    "numero": "2170979086",
+                    "orgao": "SSP/RS",
+                    "data_expedicao": "2021-01-13",
+                    "data_vencimento": "2026-01-13",
+                    "uf": "RS"
+                }
+            ],
             "endereco_residencial": {
                 "cep": "",
                 "logradouro": "",
@@ -236,5 +77,5 @@
             }
         }
     ],
-    "resposta_processamento_markdown": ""
+    "resposta_processamento_markdown": "**RESUMO**\n\nFoi analisado um documento do tipo CNH Digital pertencente a uma pessoa identificada como **MAGLAN CRISTIANO DIEMER**. Foram extraídos dados pessoais, documento de identificação e informações de filiação. Não foram encontrados documentos adicionais, endereço residencial, certidões de nascimento ou casamento para complementar a qualificação.\n\nO documento é válido, com data de emissão em 13/01/2021 e validade até 13/01/2026, emitido pela SSP do RS.\n\n| Documento       | Pessoa                  |\n|-----------------|-------------------------|\n| CNH Digital     | MAGLAN CRISTIANO DIEMER |\n\n**DADOS EXTRAÍDOS**\n\n### MAGLAN CRISTIANO DIEMER\n\n#### Informações Pessoais\n\n| Campo           | Conteúdo               | Documento Fonte |\n|-----------------|------------------------|-----------------|\n| Nome            | MAGLAN CRISTIANO DIEMER| CNH Digital     |\n| CPF             | 788.127.710-68         | CNH Digital     |\n| Data de Nascimento | 1976-01-23           | CNH Digital     |\n| Pai             | ADEMAR SILVESTRE DIEMER| CNH Digital     |\n| Mãe             | DALVA LAIDY DIEMER     | CNH Digital     |\n| Sexo            |                        |                 |\n| Estado Civil    |                        |                 |\n| Nacionalidade   |                        |                 |\n| Naturalidade    | Cidade: , UF:          |                 |\n| Profissão       |                        |                 |\n\n#### Documentos\n\n| Tipo | Número    | Órgão Emissor | Data Emissão | Data Validade | UF  |\n|-------|-----------|---------------|--------------|---------------|-----|\n| CNH   | 2170979086| SSP/RS        | 2021-01-13   | 2026-01-13    | RS  |\n\n#### Endereço Residencial\n\nNenhuma informação extraída para esta seção.\n\n#### Informações de Nascimento\n\nNenhuma informação extraída para esta seção.\n\n#### Informações de Casamento\n\nNenhuma informação extraída para esta seção.\n\n**VALIDAÇÕES REALIZADAS**\n\n- Os dados extraídos do documento CNH Digital são consistentes internamente.\n- Não há outros documentos para validação cruzada.\n- O documento CNH está válido até 13/01/2026.\n- Não foi possível validar endereço residencial por ausência de comprovante.\n- Estado civil e sexo não foram informados no documento analisado.\n\n"
 }
