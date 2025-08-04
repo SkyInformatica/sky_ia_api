@@ -24,7 +24,7 @@
           "negocios",
           "partes_negocio",
           "financiamento",
-          "impostos",
+          "impostos_transmissao",
           "clausulas_certidoes",
           "clausulas_declaracoes",
           "clausulas_autorizacoes"
@@ -64,17 +64,11 @@
           "financiamento": {
             "$ref": "#/definitions/Financiamento"
           },
-          "impostos": {
-            "type": "object",
-            "description": "Bloco dedicado a tributos incidentes sobre a transmissão patrimonial (ITBI, ITCMD ou equivalentes).",
-            "additionalProperties": false,
-            "required": [
-              "imposto_transmissao"
-            ],
-            "properties": {
-              "imposto_transmissao": {
-                "$ref": "#/definitions/ImpostoTransmissao"
-              }
+          "impostos_transmissao": {
+            "type": "array",
+            "description": "Lista das guias impostos recolhidas referente a de transmissão patrimonial (ITBI, ITCMD ou equivalentes).",
+            "items": {
+              "$ref": "#/definitions/ImpostoTransmissao"
             }
           },
           "clausulas_certidoes": {
@@ -259,7 +253,7 @@
           },
           "valor_venal": {
             "type": "number",
-            "description": "Valor venal atribuído pela municipalidade ou constante em referência fiscal."
+            "description": "Valor venal atribuído pela municipalidade ou constante em referência fiscal (campo monetário, 2 casas decimais)."
           },
           "valor_financiamento": {
             "type": "number",
@@ -267,19 +261,19 @@
           },
           "valor_avaliacao": {
             "type": "number",
-            "description": "Valor apurado por laudo de avaliação (quando citado na escritura)."
+            "description": "Valor apurado por laudo de avaliação, quando citado na escritura. Se nao estiver citado use o mesmo valor da transmissão. (campo monetário, 2 casas decimais)."
           },
           "valor_leilao": {
             "type": "number",
-            "description": "Preço de arrematação se o imóvel foi adquirido em leilão judicial ou extrajudicial."
+            "description": "Preço de arrematação se o imóvel foi adquirido em leilão judicial ou extrajudicial (campo monetário, 2 casas decimais)."
           },
           "recursos_proprios": {
             "type": "number",
-            "description": "Parte do preço paga com recursos próprios do adquirente."
+            "description": "Parte do preço paga com recursos próprios do adquirente (campo monetário, 2 casas decimais)."
           },
           "recursos_financiados": {
             "type": "number",
-            "description": "Parte do preço coberta por financiamento ou consórcio."
+            "description": "Parte do preço coberta por financiamento ou consórcio (campo monetário, 2 casas decimais)."
           },
           "primeira_aquisicao": {
             "type": "string",
