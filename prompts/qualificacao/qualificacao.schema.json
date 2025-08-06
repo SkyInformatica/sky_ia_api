@@ -274,18 +274,18 @@
                 "description": "Dados extraídos sobre o cônjuge e sobre o casamento/pacto antenupcial da pessoa principal.",
                 "additionalProperties": false,
                 "required": [
-                    "cpf",
-                    "nome",
+                    "cpf_conjuge",
+                    "nome_conjuge",
                     "informacoes_casamento",
                     "pacto_antenupcial"
                 ],
                 "properties": {
-                    "cpf": {
+                    "cpf_conjuge": {
                         "type": "string",
                         "description": "CPF do cônjuge (###.###.###-## ou vazio).",
                         "pattern": "^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})?$"
                     },
-                    "nome": {
+                    "nome_conjuge": {
                         "type": "string",
                         "description": "Nome completo do cônjuge."
                     },
@@ -305,12 +305,12 @@
                     "regime_bens",
                     "data_casamento",
                     "data_atualizacao",
-                    "numero_certidao",
-                    "data_certidao",
-                    "livro",
-                    "folha",
-                    "cidade_registro",
-                    "uf_registro"
+                    "numero_certidao_casamento",
+                    "data_certidao_casamento",
+                    "livro_certidao_casamento",
+                    "folha_certidao_casamento",
+                    "cidade_registro_civil",
+                    "uf_registro_civil"
                 ],
                 "properties": {
                     "regime_bens": {
@@ -327,28 +327,28 @@
                         "description": "Data da última averbação/atualização do registro (se houver) em YYYY-MM-DD.",
                         "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$"
                     },
-                    "numero_certidao": {
+                    "numero_certidao_casamento": {
                         "type": "string",
                         "description": "Número da certidão de casamento."
                     },
-                    "data_certidao": {
+                    "data_certidao_casamento": {
                         "type": "string",
                         "description": "Data em que a certidão foi emitida (YYYY-MM-DD).",
                         "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$"
                     },
-                    "livro": {
+                    "livro_certidao_casamento": {
                         "type": "string",
                         "description": "Livro do registro."
                     },
-                    "folha": {
+                    "folha_certidao_casamento": {
                         "type": "string",
                         "description": "Folha do registro."
                     },
-                    "cidade_registro": {
+                    "cidade_registro_civil": {
                         "type": "string",
                         "description": "Cidade do cartório."
                     },
-                    "uf_registro": {
+                    "uf_registro_civil": {
                         "type": "string",
                         "description": "UF do cartório.",
                         "pattern": "^[A-Z]{2}$|^$"
@@ -374,21 +374,21 @@
             },
             "DadosPactoTabelionato": {
                 "type": "object",
-                "description": "Informações da escritura pública lavrada em tabelionato.",
+                "description": "Informações da escritura pública de pacto antenupcial lavrada em tabelionato.",
                 "additionalProperties": false,
                 "required": [
-                    "livro",
-                    "folha",
+                    "livro_escritura_pacto_antenupcial",
+                    "folha_escritura_pacto_antenupcial",
                     "cidade_tabelionato",
                     "uf_tabelionato",
-                    "data"
+                    "data_escritura_pacto_antenupcial"
                 ],
                 "properties": {
-                    "livro": {
+                    "livro_escritura_pacto_antenupcial": {
                         "type": "string",
                         "description": "Livro onde a escritura foi lavrada."
                     },
-                    "folha": {
+                    "folha_escritura_pacto_antenupcial": {
                         "type": "string",
                         "description": "Folha correspondente."
                     },
@@ -401,7 +401,7 @@
                         "description": "UF do tabelionato.",
                         "pattern": "^[A-Z]{2}$|^$"
                     },
-                    "data": {
+                    "data_escritura_pacto_antenupcial": {
                         "type": "string",
                         "description": "Data da escritura (YYYY-MM-DD).",
                         "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$"
@@ -413,18 +413,18 @@
                 "description": "Informações do registro do pacto antenupcial no Registro de Imóveis.",
                 "additionalProperties": false,
                 "required": [
-                    "numero_registro",
-                    "livro",
+                    "numero_registro_pacto_antenupcial",
+                    "livro_registro_pacto_antenupcial",
                     "cidade_registro",
                     "uf_registro",
-                    "data"
+                    "data_registro_pacto_antenupcial"
                 ],
                 "properties": {
-                    "numero_registro": {
+                    "numero_registro_pacto_antenupcial": {
                         "type": "string",
                         "description": "Número do registro do pacto."
                     },
-                    "livro": {
+                    "livro_registro_pacto_antenupcial": {
                         "type": "string",
                         "description": "Livro em que o registro foi lançado."
                     },
@@ -437,7 +437,7 @@
                         "description": "UF do cartório de imóveis.",
                         "pattern": "^[A-Z]{2}$|^$"
                     },
-                    "data": {
+                    "data_registro_pacto_antenupcial": {
                         "type": "string",
                         "description": "Data do registro (YYYY-MM-DD).",
                         "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^$"
