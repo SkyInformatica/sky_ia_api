@@ -34,10 +34,9 @@ def enviar_para_openai(
                 "id": prompt_cfg["id"],
                 "version": prompt_cfg["version"] if "version" in prompt_cfg else None
             },
-            input=[{"role": "user", "content": contents}],
-            reasoning={},
+            input=[{"role": "user", "content": contents}],            
             max_output_tokens=8196,
-            store=True
+            store=False
     )
         elapsed_time = time.time() - start_time
         log(f"Tempo de execução do client.responses.create(): {elapsed_time:.2f} segundos")

@@ -37,7 +37,7 @@ headers = {
 
 payload = {
     "prompt": {
-        "id": "pmpt_687d830e2d28819697ff506d530cfd0103574d5ce096ea5e",              
+        "id": "pmpt_687d830e2d28819697ff506d530cfd0103574d5ce096ea5e",   
     },
     "input": [
         {

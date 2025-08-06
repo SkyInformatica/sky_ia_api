@@ -54,15 +54,14 @@ def enviar_para_openai(
                 "id": configuracao_prompt["id"],
                 "version": configuracao_prompt.get("version")
             },
-            input=[{"role": "user", "content": conteudos}],
-            reasoning={},
+            input=[{"role": "user", "content": conteudos}],            
             max_output_tokens=8196,
-            store=True
+            store=False
         )
         tempo_decorrido = time.time() - tempo_inicio
         log(f"Tempo de execução do client.responses.create(): {tempo_decorrido:.2f} segundos")
         
-        return resposta
+        return resposta.model_dump()
         
     except OpenAIError as erro:
         codigo_status = getattr(erro, "status_code", 502)
