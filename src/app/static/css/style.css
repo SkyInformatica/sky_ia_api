@@ -1,0 +1,133 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Estilos para tabelas no markdown */
+#markdownContent table {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-collapse: collapse;
+    background-color: transparent;
+}
+
+#markdownContent table th,
+#markdownContent table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+#markdownContent table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+}
+
+#markdownContent table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#markdownContent table tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para cabeçalhos no markdown */
+#markdownContent h1,
+#markdownContent h2,
+#markdownContent h3,
+#markdownContent h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Estilos para listas no markdown */
+#markdownContent ul,
+#markdownContent ol {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#markdownContent li {
+    margin-bottom: 0.25rem;
+}
+
+/* Estilos para blocos de código */
+#markdownContent pre {
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow-x: auto;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+#results {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#processingMessage {
+    display: block;
+    margin-top: 0.25rem;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.btn-outline-primary:disabled {
+    opacity: 0.7;
+}
+
+.card-header .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Containers de conteúdo */
+.content-container {
+    height: 800px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 1rem;
+    background-color: #fff;
+}
+
+/* Estilos específicos para o container JSON */
+.content-container pre {
+    margin: 0;
+    height: 100%;
+    background: none;
+    padding: 0;
+}
+
+.content-container pre code {
+    height: 100%;
+    display: block;
+}
+
+/* Configuração específica para o container do markdown */
+#markdownContent.content-container {
+    height: 1200px;
+    min-height: 1200px;
+    padding: 0.5rem 1rem;
+}
+
+/* Ajuste para garantir que o conteúdo ocupe todo o espaço */
+.tab-content {
+    height: 100%;
+}
+
+.tab-pane {
+    height: 100%;
+}

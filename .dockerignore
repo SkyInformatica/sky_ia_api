@@ -1,10 +1,52 @@
+# Python
 __pycache__
 *.pyc
 *.pyo
 *.pyd
-.env
+*.egg-info
+
+# Ambientes virtuais
 venv
+.venv
+.env
+
+# uv
+.uv
+
+# Git
 .git
 .gitignore
-Dockerfile
+
+# Docker
+Dockerfile*
+docker-compose*
+
+# Documentação
 README*
+docs/
+
+# Testes
+.pytest_cache
+tests/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Arquivos temporários
+.DS_Store
+.trae
+
+# Scripts de desenvolvimento
+run.sh
+deploy.sh
+atualizar_docker.sh
+
+# Exemplos e utilitários
+exemplos/
+utils/

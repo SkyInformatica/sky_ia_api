@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sk.ai - IA da Sky Informática</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/style.css" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mb-4">sk.ai - IA da Sky Informática</h1>
+
+          <!-- Formulário -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <form id="uploadForm">
+                <!-- API Key -->
+                <div class="mb-3">
+                  <label for="apiKey" class="form-label">OpenAI API Key</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="apiKey"
+                    required
+                  />
+                </div>
+
+                <!-- Seleção do Modelo -->
+                <div class="mb-3">
+                  <label class="form-label"
+                    >Escolha o agente para a extração dos dados</label
+                  >
+
+                  <!-- Qualificação -->
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="modelo"
+                      id="qualificacao"
+                      value="qualificacao"
+                      checked
+                    />
+                    <label class="form-check-label" for="qualificacao">
+                      Qualificação
+                    </label>
+                    <small
+                      id="hint-qualificacao"
+                      class="form-text text-muted ps-4"
+                    >
+                      RG, CNH, Comprovante de residência (luz, agua), Certidões
+                      de casamento, nascimento e obito, Pacto antenupcial,
+                      etc...
+                    </small>
+                  </div>
+
+                  <!-- Escritura Pública -->
+                  <div class="form-check mt-2">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="modelo"
+                      id="escritura"
+                      value="escritura_publica"
+                    />
+                    <label class="form-check-label" for="escritura">
+                      Escritura Pública
+                    </label>
+                    <small
+                      id="hint-escritura"
+                      class="form-text text-muted ps-4 d-none"
+                    >
+                      Escritura Pública com Transmissao de imóvel lavrada em
+                      Tabelionato de Notas
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Upload de Arquivos -->
+                <div class="mb-3">
+                  <label for="files" class="form-label"
+                    >Documentos (PNG, JPEG, PDF)</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="files"
+                    multiple
+                    accept=".png,.jpg,.jpeg,.pdf"
+                    required
+                  />
+                </div>
+
+                <!-- Botão de Submit e Contador -->
+                <div class="d-flex align-items-center gap-3">
+                  <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <span id="submitText">Processar Documentos</span>
+                    <span
+                      id="loadingSpinner"
+                      class="spinner-border spinner-border-sm ms-2 d-none"
+                    ></span>
+                  </button>
+                  <span id="processingTime" class="text-muted d-none">
+                    Tempo de processamento:
+                    <span id="processingSeconds">0</span> segundos
+                    <br />
+                    <small id="processingMessage" class="text-muted"
+                      >Iniciando processamento...</small
+                    >
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Resultados com Tabs -->
+          <div id="results" class="d-none">
+            <div class="card">
+              <div class="card-header">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="markdown-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#markdown-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="markdown-content"
+                      aria-selected="true"
+                    >
+                      📄 Resumo do Processamento
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="json-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#json-content"
+                      type="button"
+                      role="tab"
+                      aria-controls="json-content"
+                      aria-selected="false"
+                    >
+                      📊 Dados Extraídos (JSON)
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
+                <!-- Tab Content -->
+                <div class="tab-content">
+                  <!-- Markdown Tab -->
+                  <div
+                    class="tab-pane fade show active"
+                    id="markdown-content"
+                    role="tabpanel"
+                    aria-labelledby="markdown-tab"
+                  >
+                    <div class="d-flex justify-content-end mb-3">
+                      <button
+                        class="btn btn-outline-primary btn-sm"
+                        id="copyMarkdownBtn"
+                      >
+                        📋 Copiar Markdown
+                      </button>
+                    </div>
+                    <div
+                      id="markdownContent"
+                      class="content-container"
+                      style="
+                        height: 1200px !important;
+                        min-height: 1200px !important;
+                      "
+                    ></div>
+                  </div>
+                  <!-- JSON Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="json-content"
+                    role="tabpanel"
+                    aria-labelledby="json-tab"
+                  >
+                    <div class="d-flex justify-content-end mb-3">
+                      <button
+                        class="btn btn-outline-success btn-sm"
+                        id="downloadBtn"
+                      >
+                        💾 Baixar JSON
+                      </button>
+                    </div>
+                    <div class="content-container">
+                      <pre><code id="jsonContent" class="language-json"></code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alertas -->
+          <div id="alertContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="{{ request.app.url_path_for('static', path='js/app.js') }}?v={{ versao }}"></script>
+  </body>
+</html>
