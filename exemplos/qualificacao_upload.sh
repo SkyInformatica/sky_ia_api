@@ -10,7 +10,7 @@ OPENAI_API_KEY="${SKY_OPENAI_KEY:?Variável SKY_OPENAI_KEY não definida}"
 curl -v -X POST "${API_URL%/}/qualificacao" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
-  -F "openai_api_key=${OPENAI_API_KEY}" \
-  -F files=@doc1.png \
-  -F files=@doc2.png \
-  -F files=@luz.pdf
+  -F "chave_api_openai=${OPENAI_API_KEY}" \
+  -F arquivos=@doc1.png \
+  -F arquivos=@doc2.png \
+  -F arquivos=@luz.pdf

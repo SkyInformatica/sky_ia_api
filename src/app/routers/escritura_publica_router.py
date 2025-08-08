@@ -8,11 +8,12 @@ extração de dados de escrituras públicas.
 from typing import List
 
 # Terceiros
-from fastapi import APIRouter, File, Form, UploadFile
+from fastapi import APIRouter, File, Form, UploadFile, HTTPException
 
 # Locais
 from ..schemas.escritura_publica_schema import EscrituraPublicaRequest, EscrituraPublicaResponse
 from ..services.document_service import processar_documentos, processar_arquivos_upload
+from ..helpers.logging_helper import log_info as log, log_error
 
 
 router = APIRouter(prefix="/escritura_publica", tags=["escritura_publica"])
@@ -60,18 +61,36 @@ async def extrair_dados_escritura_publica_upload(
     Returns:
         EscrituraPublicaResponse: Objeto contendo a resposta da análise
     """
-    # Processa os arquivos enviados
-    documentos = await processar_arquivos_upload(chave_api_openai, arquivos)
-    
-    # Cria o objeto de requisição
-    requisicao = EscrituraPublicaRequest(
-        chave_api_openai=chave_api_openai,
-        documentos=documentos
-    )
-    
-    # Processa os documentos e obtém a resposta
-    json_saida = processar_documentos(requisicao, alias="escritura_publica")
-    
-    # Constrói e retorna o objeto EscrituraPublicaResponse com o JSON completo
-    # Passando diretamente o JSON retornado pela OpenAI
-    return EscrituraPublicaResponse(**json_saida)
+    try:
+        log(f"Iniciando processamento de escritura pública com {len(arquivos)} arquivo(s)")
+        log(f"Tipos de arquivo recebidos: {[arquivo.content_type for arquivo in arquivos]}")
+        log(f"Nomes dos arquivos: {[arquivo.filename for arquivo in arquivos]}")
+        
+        # Processa os arquivos enviados
+        log("Processando arquivos de upload...")
+        documentos = await processar_arquivos_upload(chave_api_openai, arquivos)
+        log(f"Arquivos processados com sucesso. Total de documentos: {len(documentos)}")
+        
+        # Cria o objeto de requisição
+        log("Criando objeto de requisição...")
+        requisicao = EscrituraPublicaRequest(
+            chave_api_openai=chave_api_openai,
+            documentos=documentos
+        )
+        
+        # Processa os documentos e obtém a resposta
+        log("Enviando documentos para processamento com OpenAI...")
+        json_saida = processar_documentos(requisicao, alias="escritura_publica")
+        log("Processamento concluído com sucesso")
+        
+        # Constrói e retorna o objeto EscrituraPublicaResponse com o JSON completo
+        # Passando diretamente o JSON retornado pela OpenAI
+        return EscrituraPublicaResponse(**json_saida)
+        
+    except Exception as e:
+        log_error(f"Erro durante o processamento de escritura pública: {str(e)}")
+        log_error(f"Tipo do erro: {type(e).__name__}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Erro interno do servidor: {str(e)}"
+        )

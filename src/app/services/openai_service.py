@@ -4,14 +4,17 @@ Este módulo contém as funções para comunicação com a API da OpenAI,
 incluindo envio de prompts e processamento de respostas.
 """
 
+# Biblioteca padrão
 import json
-import time
 import re
-import logging
-from typing import List, Dict, Any, Optional
-from openai import OpenAI, OpenAIError
-from fastapi import HTTPException
+import time
+from typing import Any, Dict, List, Optional
 
+# Terceiros
+from fastapi import HTTPException
+from openai import OpenAI, OpenAIError
+
+# Locais
 from ..core.config import obter_prompts
 from ..helpers.logging_helper import log_info as log
 
@@ -19,8 +22,7 @@ from ..helpers.logging_helper import log_info as log
 def enviar_para_openai(
     chave_api_openai: str,
     conteudos: List[dict],
-    alias: str,
-    formato_esperado: str = "text"
+    alias: str
 ) -> Any:
     """Envia conteúdo para a OpenAI usando um prompt específico.
     
@@ -28,7 +30,6 @@ def enviar_para_openai(
         chave_api_openai: Chave de API válida da OpenAI
         conteudos: Lista de conteúdos a serem enviados
         alias: Alias do prompt configurado em prompts.yaml
-        formato_esperado: Formato esperado da resposta ("text" ou "json")
         
     Returns:
         Any: Resposta da OpenAI
@@ -54,7 +55,7 @@ def enviar_para_openai(
                 "id": configuracao_prompt["id"],
                 "version": configuracao_prompt.get("version")
             },
-            input=[{"role": "user", "content": conteudos}],            
+            input=conteudos,            
             max_output_tokens=8196,
             store=False
         )

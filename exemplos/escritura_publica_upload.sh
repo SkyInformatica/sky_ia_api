@@ -9,5 +9,5 @@ OPENAI_API_KEY="${SKY_OPENAI_KEY:?Variável SKY_OPENAI_KEY não definida}"
 curl -v -X POST "${API_URL%/}/escritura_publica" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
-  -F "openai_api_key=${OPENAI_API_KEY}" \
-  -F files=@escritura-aliencacao-fiduciaria.pdf
+  -F "chave_api_openai=${OPENAI_API_KEY}" \
+  -F arquivos=@../docs/escritura_publica/escritura-aliencacao-fiduciaria.pdf

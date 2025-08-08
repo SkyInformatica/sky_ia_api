@@ -58,7 +58,8 @@ def obter_prompts() -> Dict[str, Any]:
     
     try:
         with open(caminho_prompts, "r", encoding="utf-8") as arquivo:
-            prompts = yaml.safe_load(arquivo)
-            return prompts or {}
+            dados = yaml.safe_load(arquivo)
+            # Retorna apenas a seção 'prompts' do YAML
+            return dados.get('prompts', {}) if dados else {}
     except yaml.YAMLError as e:
         raise yaml.YAMLError(f"Erro ao carregar prompts.yaml: {e}")

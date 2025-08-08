@@ -19,34 +19,23 @@ if not API_KEY:
     sys.exit("❌  Defina a variável de ambiente SKY_OPENAI_KEY")
 
 url = f"{API_URL}/escritura_publica"
-payload = {"openai_api_key": API_KEY}
+payload = {"chave_api_openai": API_KEY}
 
 files = [
-    ("files", ("escritura-aliencacao-fiduciaria.pdf", open("escritura-aliencacao-fiduciaria.pdf", "rb"), "application/pdf")),
+    ("arquivos", ("escritura-aliencacao-fiduciaria.pdf", open("../docs/escritura_publica/escritura-aliencacao-fiduciaria.pdf", "rb"), "application/pdf")),
 ]
 
 resp = requests.post(url, data=payload, files=files, timeout=300)
-resp.raise_for_status()
+print(resp)
 
-print(resp.json())
-
-output_json = resp.json().get("resposta", {})
-print(json.dumps(output_json, indent=2, ensure_ascii=False))
-print("\n\n\nresposta_processamento_markdown:\n")
+#print(json.dumps(resp, indent=2, ensure_ascii=False))
+#print("\n\n\nresposta_processamento_markdown:\n")
 
 # Pegando o conteúdo do atributo "resposta_processamento_markdown"
-markdown_content = output_json.get("resposta_processamento_markdown", "")
+#markdown_content = resp.get("resposta_processamento_markdown", "")
 
 # Formatando e imprimindo o conteúdo em Markdown
-rprint(Markdown(markdown_content))
-
-# Removendo a chave "resposta_processamento_markdown" do output_json
-output_json.pop("resposta_processamento_markdown", None)
-
-# Imprimindo o conteúdo restante de output_json formatado e colorido
-print("\n\n\noutput_json:\n")
-rprint(output_json)
-
+#rprint(Markdown(markdown_content))
 
 
 

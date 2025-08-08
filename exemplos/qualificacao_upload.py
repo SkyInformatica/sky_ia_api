@@ -19,14 +19,14 @@ if not API_KEY:
     sys.exit("❌  Defina a variável de ambiente SKY_OPENAI_KEY")
 
 url = f"{API_URL}/qualificacao"
-payload = {"openai_api_key": API_KEY}
+payload = {"chave_api_openai": API_KEY}
 
 files = [
-    ("files", ("doc1.png", open("doc1.png", "rb"), "image/png")),
-    ("files", ("doc2.png", open("doc2.png", "rb"), "image/png")),
-    ("files", ("doc3.png", open("doc3.png", "rb"), "image/png")),
-    ("files", ("doc4.png", open("doc4.png", "rb"), "image/png")),
-    ("files", ("luz.pdf", open("luz.pdf", "rb"), "application/pdf")),
+    ("arquivos", ("doc1.png", open("doc1.png", "rb"), "image/png")),
+    ("arquivos", ("doc2.png", open("doc2.png", "rb"), "image/png")),
+    ("arquivos", ("doc3.png", open("doc3.png", "rb"), "image/png")),
+    ("arquivos", ("doc4.png", open("doc4.png", "rb"), "image/png")),
+    ("arquivos", ("luz.pdf", open("luz.pdf", "rb"), "application/pdf")),
 ]
 
 resp = requests.post(url, data=payload, files=files, timeout=60)
