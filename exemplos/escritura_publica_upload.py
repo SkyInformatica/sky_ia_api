@@ -26,16 +26,14 @@ files = [
 ]
 
 resp = requests.post(url, data=payload, files=files, timeout=300)
-print(resp)
+print(json.dumps(resp, indent=2, ensure_ascii=False))
 
-#print(json.dumps(resp, indent=2, ensure_ascii=False))
-#print("\n\n\nresposta_processamento_markdown:\n")
-
+print("\n\n\nresposta_processamento_markdown:\n")
 # Pegando o conteúdo do atributo "resposta_processamento_markdown"
-#markdown_content = resp.get("resposta_processamento_markdown", "")
+markdown_content = resp.json().get("resposta_processamento_markdown", "")
 
 # Formatando e imprimindo o conteúdo em Markdown
-#rprint(Markdown(markdown_content))
+rprint(Markdown(markdown_content))
 
 
 

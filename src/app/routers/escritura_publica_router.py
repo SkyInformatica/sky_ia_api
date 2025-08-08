@@ -82,6 +82,7 @@ async def extrair_dados_escritura_publica_upload(
         log("Enviando documentos para processamento com OpenAI...")
         json_saida = processar_documentos(requisicao, alias="escritura_publica")
         log("Processamento concluído com sucesso")
+        log(f"JSON retornar: {json_saida}")
         
         # Constrói e retorna o objeto EscrituraPublicaResponse com o JSON completo
         # Passando diretamente o JSON retornado pela OpenAI

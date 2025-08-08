@@ -55,7 +55,7 @@ def enviar_para_openai(
                 "id": configuracao_prompt["id"],
                 "version": configuracao_prompt.get("version")
             },
-            input=conteudos,            
+            input=[{"role": "user", "content": conteudos}],           
             max_output_tokens=8196,
             store=False
         )
@@ -73,6 +73,34 @@ def enviar_para_openai(
         )
 
 
+def extrair_json_da_resposta_schema_old(resp_dict: dict) -> Dict[str, Any]:
+    """
+    Extrai o JSON produzido por um prompt com `text_format=json_schema`.
+
+    Estratégia:
+    • Procura o primeiro bloco `type=="output_text"` (ou 'text') cujo
+      conteúdo comece com '{' ou '['.
+    • Faz json.loads e devolve o dicionário resultante.
+
+    Levanta ValueError se nada válido for encontrado.
+    """
+    for item in resp_dict.get("output", []):
+        if item.get("type") != "message":
+            continue
+
+        for block in item.get("content", []):
+            if block.get("type") in ("output_text", "text") and "text" in block:
+                raw = block["text"].lstrip()
+
+                # Garante que estamos olhando para um JSON
+                if raw.startswith("{") or raw.startswith("["):
+                    try:
+                        return json.loads(raw)
+                    except json.JSONDecodeError as e:
+                        raise ValueError(f"JSON inválido: {e}") from None
+
+    raise ValueError("Nenhum JSON encontrado na resposta (json_schema).")
+
 def extrair_texto_da_resposta(dicionario_resposta: dict) -> Optional[str]:
     """Extrai o texto da resposta da OpenAI.
     
@@ -83,20 +111,15 @@ def extrair_texto_da_resposta(dicionario_resposta: dict) -> Optional[str]:
         Optional[str]: Texto extraído ou None se não encontrado
     """
     try:
-        # Navega pela estrutura da resposta para encontrar o texto
-        choices = dicionario_resposta.get("choices", [])
-        if choices and len(choices) > 0:
-            message = choices[0].get("message", {})
-            content = message.get("content")
-            if content:
-                return content.strip()
-        
-        # Fallback para outras estruturas possíveis
-        if "content" in dicionario_resposta:
-            return dicionario_resposta["content"].strip()
-            
-        return None
-        
+        log(f"Extraindo texto da resposta: {dicionario_resposta}")
+        for item in dicionario_resposta.get("output", []):
+            # ignorar chamadas de ferramentas
+            if item.get("type") != "message":
+                continue
+            for block in item.get("content", []):
+                if "text" in block:
+                    return block["text"]
+        return None        
     except (KeyError, IndexError, AttributeError) as erro:
         log(f"Erro ao extrair texto da resposta: {erro}")
         return None
@@ -119,6 +142,12 @@ def extrair_json_da_resposta_schema(dicionario_resposta: dict) -> Dict[str, Any]
     if not texto_resposta:
         raise ValueError("Nenhum texto encontrado na resposta da OpenAI.")
     
+    # Tenta extrair JSON diretamente do texto
+    try:
+        return json.loads(texto_resposta)
+    except json.JSONDecodeError:
+        pass
+    
     # Procura por blocos JSON na resposta
     padrao_json = r'```json\s*({.*?})\s*```'
     matches = re.findall(padrao_json, texto_resposta, re.DOTALL)
@@ -128,12 +157,6 @@ def extrair_json_da_resposta_schema(dicionario_resposta: dict) -> Dict[str, Any]
             return json.loads(match)
         except json.JSONDecodeError:
             continue
-    
-    # Tenta extrair JSON diretamente do texto
-    try:
-        return json.loads(texto_resposta)
-    except json.JSONDecodeError:
-        pass
     
     # Procura por JSON sem delimitadores
     padrao_json_simples = r'({.*})'

@@ -31,31 +31,3 @@ class EscrituraPublicaResponse(BaseModel):
     class Config:
         extra = "allow"  # Permite campos adicionais não definidos
         arbitrary_types_allowed = True  # Permite tipos arbitrários
-        
-        json_schema_extra = {
-            "example": {
-                "tipo_escritura": "Compra e Venda",
-                "partes": {
-                    "outorgante_vendedor": {
-                        "nome": "Maria Silva",
-                        "cpf": "123.456.789-00",
-                        "estado_civil": "Casada"
-                    },
-                    "outorgado_comprador": {
-                        "nome": "João Santos",
-                        "cpf": "987.654.321-00",
-                        "estado_civil": "Solteiro"
-                    }
-                },
-                "imovel": {
-                    "descricao": "Apartamento 101",
-                    "endereco": "Rua das Palmeiras, 456",
-                    "matricula": "12345",
-                    "cartorio": "1º Cartório de Registro de Imóveis"
-                },
-                "valor_transacao": "R$ 350.000,00",
-                "data_escritura": "2024-01-15",
-                "cartorio_lavrou": "Cartório Silva",
-                "tabeliao": "Dr. Carlos Oliveira"
-            }
-        }

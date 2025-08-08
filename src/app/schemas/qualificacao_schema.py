@@ -30,24 +30,5 @@ class QualificacaoResponse(BaseModel):
     
     class Config:
         extra = "allow"  # Permite campos adicionais não definidos
-        arbitrary_types_allowed = True  # Permite tipos arbitrários
+        arbitrary_types_allowed = True  # Permite tipos arbitrárioss        
         
-        json_schema_extra = {
-            "example": {
-                "pessoa": {
-                    "nome": "João Silva",
-                    "cpf": "123.456.789-00",
-                    "rg": "12.345.678-9"
-                },
-                "endereco": {
-                    "logradouro": "Rua das Flores, 123",
-                    "cidade": "São Paulo",
-                    "cep": "01234-567"
-                },
-                "documentos_identificados": [
-                    "RG",
-                    "CPF",
-                    "Comprovante de residência"
-                ]
-            }
-        }

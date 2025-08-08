@@ -54,14 +54,14 @@ def processar_documentos(requisicao: RequisicaoDocumento, alias: str) -> Dict[st
     resposta = enviar_para_openai(
         chave_api_openai=requisicao.chave_api_openai,
         conteudos=conteudos,
-        alias=alias,
-        formato_esperado="json"
+        alias=alias        
     )
     
     # Processa a resposta usando schema JSON
     try:
         json_saida = extrair_json_da_resposta_schema(resposta)
         log(f"JSON extraído com sucesso: {len(str(json_saida))} caracteres")
+        log(f"JSON extraído: {json_saida}")
         return json_saida
         
     except ValueError as erro:
